@@ -1,19 +1,4 @@
-import { Language } from "../types/data";
+import type { Language } from "../types/data";
+import parsedData from "./parsedData";
 
-export const languages: Language[] = [
-  {
-    title: "English",
-    flag: "🇬🇧",
-    proeficiency: "Fluent",
-  },
-  {
-    title: "Spanish",
-    flag: "🇪🇸",
-    proeficiency: "Native",
-  },
-  {
-    title: "Swedish",
-    flag: "🇸🇪",
-    proeficiency: "Elementary",
-  },
-];
+export const languages: Language[] = parsedData.languages;

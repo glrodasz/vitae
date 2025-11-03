@@ -1,9 +1,7 @@
-import { languages } from "./languages";
-import { summary } from "./summary";
-import { expertises } from "./expertises";
-import { stack } from "./stack";
-import { frameworks } from "./frameworks";
 import { Data } from "../types/data";
+import parsedData from "./parsedData";
+
+const { languages, summary, expertises, stack, frameworks, careers, knowledge, achievements } = parsedData;
 
 const data: Data = {
   languages,
@@ -13,4 +11,5 @@ const data: Data = {
   frameworks,
 };
 
+export { careers, knowledge, achievements };
 export default data;
