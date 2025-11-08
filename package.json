@@ -10,7 +10,8 @@
     "lint": "next lint",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:readme": "node scripts/generate-readme.js"
   },
   "author": "Guillermo Rodas",
   "license": "ISC",
