@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Curriculum Vitae",
   "engines": {
-    "node": ">=22"
+    "node": ">=25"
   },
   "scripts": {
     "dev": "next dev --turbopack",
