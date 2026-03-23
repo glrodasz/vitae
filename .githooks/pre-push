@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+echo "Running generate:readme before push..."
+
+yarn generate:readme
+
+if ! git diff --quiet README.md; then
+  echo ""
+  echo "ERROR: README.md was updated by 'yarn generate:readme' but has not been committed."
+  echo ""
+  echo "Please commit the updated README.md and then push again:"
+  echo ""
+  echo "  git add README.md"
+  echo "  git commit -m 'docs: update generated README'"
+  echo "  git push"
+  echo ""
+  exit 1
+fi
+
+echo "README.md is up to date. Proceeding with push."
+exit 0
