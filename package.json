@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Curriculum Vitae",
   "engines": {
-    "node": ">=22"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate:readme": "node scripts/generate-readme.js"
+    "generate:readme": "node scripts/generate-readme.js",
+    "prepare": "git rev-parse --git-dir > /dev/null 2>&1 && git config core.hooksPath .githooks || true"
   },
   "author": "Guillermo Rodas",
   "license": "ISC",
