@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-**Node Version**: >=25 (check with `.nvmrc`)
+**Node Version**: 24.x (check with `.nvmrc`)
 
 ```bash
 # Development
