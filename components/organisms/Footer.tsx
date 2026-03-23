@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="footer-social">
                 <Heading size="xxs" isInverted isMarginless>
-                  @rodasdev
+                  @guillermorodas
                 </Heading>
                 <div>
                   <Link href="https://youtube.com/c/guillermorodas" isInline>
@@ -51,10 +51,10 @@ const Footer: React.FC = () => {
                   <Link href="https://twitch.tv/guillermorodas" isInline>
                     <Icon name="twitch" hasBackground />
                   </Link>
-                  <Link href="https://x.com/rodasdev" isInline>
+                  <Link href="https://x.com/guillermorodas" isInline>
                     <Icon name="x" hasBackground />
                   </Link>
-                  <Link href="https://instagram.com/rodasdev" isInline>
+                  <Link href="https://instagram.com/_guillermorodas" isInline>
                     <Icon name="instagram" hasBackground />
                   </Link>
                 </div>

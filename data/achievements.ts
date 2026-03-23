@@ -5,6 +5,13 @@ export const achievements: AchievementSection[] = [
     title: "Speaking",
     items: [
       {
+        title: "The Language of AI: Probability",
+        text:[
+          ["DevFest Ourense", "November 2025"],
+          ["DevFest Mediterranean", "December 2025"],
+        ],
+      },
+      {
         title: "WebAuthn & Passkeys: The Future of Authentication",
         text: [
           ["DevFest Singapore, EpicHey!", "November 2023"],
