@@ -8,7 +8,7 @@ export const siteUrl =
 
 export const pageTitle = "Guillermo Rodas | Curriculum Vitae";
 
-export const printPageTitle = "Guillermo Rodas | Curriculum Vitae — Print";
+export const printPageTitle = "Guillermo Rodas | Curriculum Vitae (Print)";
 
 export const defaultDescription =
   "Senior full-stack JavaScript engineer in Sweden. I help developers grow while shipping quality products. Google Developer Expert, Auth0 Ambassador, and Twitch Partner.";
