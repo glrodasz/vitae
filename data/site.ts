@@ -16,6 +16,7 @@ export const defaultDescription =
 export const printDescription =
   "Print-friendly curriculum vitae for Guillermo Rodas — senior full-stack engineer, educator, and community contributor.";
 
+// FIXME: Create a proper image for social networks
 export const ogImagePath = "/images/guillermo-rodas.png";
 
 export function absoluteUrl(path: string): string {
