@@ -3,7 +3,7 @@ import Analytics from '../components/atoms/Analytics'
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         <link
           rel="stylesheet"
