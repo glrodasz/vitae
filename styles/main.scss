@@ -21,6 +21,8 @@
 	--heading-secondary: var(--scooter);
 	--carousel-nav-bg: rgba(255, 255, 255, 0.8);
   --logo-shadow: rgba(255, 255, 255, 0.9);
+  --relocation-connector-icon: var(--storm-dust);
+  --relocation-connector-stroke: var(--background);
   }
   
   /* SASS mixins for theme variables */
@@ -35,6 +37,8 @@
     --heading-secondary: var(--blue);
     --carousel-nav-bg: rgba(26, 26, 26, 0.85);
     --logo-shadow: rgba(0, 0, 0, 0.9);
+    --relocation-connector-icon: var(--white);
+    --relocation-connector-stroke: var(--background);
   }
   
   @mixin light-theme {
@@ -47,6 +51,8 @@
     --paragraph-secondary: var(--black);
     --heading-secondary: var(--scooter);
     --carousel-nav-bg: rgba(255, 255, 255, 0.8);
+    --relocation-connector-icon: var(--storm-dust);
+    --relocation-connector-stroke: var(--background);
   }
   
   /* Apply dark theme based on system preferences */
