@@ -10,7 +10,7 @@ export const careers: Career[] = [
     logo: "eqt",
     about:
       "EQT is a private equity firm that invests in companies and regions where there is an industrial approach.",
-    functions: "Senior Full-stack Engineer.",
+    functions: "Senior Full-stack AI Engineer.",
     achievements: [
       "Involved in an in-house project that leverages AI to enhance the efficiency of deal professionals, streamlining tasks, and finding investment opportunities.",
       "Assisted in establishing the foundations of a Design System, incorporating scaffolding to refine our automated component tests.",

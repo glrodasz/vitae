@@ -2,6 +2,7 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 
 import Hero from "../components/organisms/Hero";
+import { printDescription, printPageTitle } from "../data/site";
 import Profile from "../components/organisms/Profile";
 import Career from "../components/organisms/Career";
 import Footer from "../components/organisms/Footer";
@@ -15,7 +16,9 @@ const Print = () => {
   return (
     <>
       <Head>
-        <title>Guillermo Rodas - CV (Print Version)</title>
+        <title>{printPageTitle}</title>
+        <meta name="description" content={printDescription} />
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
