@@ -4,7 +4,7 @@
  */
 export const siteUrl =
   (typeof process !== "undefined" && process.env.NEXT_PUBLIC_SITE_URL) ||
-  "https://guillermorodas.com";
+  "https://vitae.guillermorodas.com";
 
 export const pageTitle = "Guillermo Rodas | Curriculum Vitae";
 
