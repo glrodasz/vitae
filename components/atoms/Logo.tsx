@@ -44,6 +44,8 @@ const Logo: React.FC<LogoProps> = ({
         :global(.logo) {
           width: 100%;
           max-width: ${maxWidth}px;
+          height: auto;
+          aspect-ratio: ${maxWidth} / 120;
           filter: drop-shadow(0 0 1px var(--logo-shadow));
         }
 

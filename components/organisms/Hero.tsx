@@ -92,10 +92,12 @@ const Hero: React.FC = () => {
           display: flex;
           justify-content: center;
           margin: 20px auto;
+          min-height: 120px;
         }
 
         .hero-photo-container {
           width: 100%;
+          height: 800px;
           display: flex;
           justify-content: center;
         }
@@ -108,6 +110,7 @@ const Hero: React.FC = () => {
           margin: 0 auto;
           width: 100%;
           max-width: var(--photo-mobile-max-width);
+          aspect-ratio: 1;
         }
 
         .hero-relocation {
@@ -161,6 +164,7 @@ const Hero: React.FC = () => {
           .hero-logo {
             position: absolute;
             top: 30px;
+            height: 120px;
           }
 
           .hero-fullname {
