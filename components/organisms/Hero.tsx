@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
 
         .hero-photo-container {
           width: 100%;
-          height: 400px;
+          height: auto;
           display: flex;
           justify-content: center;
         }
