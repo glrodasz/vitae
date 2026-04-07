@@ -97,6 +97,7 @@ const Hero: React.FC = () => {
 
         .hero-photo-container {
           width: 100%;
+          height: 800px;
           display: flex;
           justify-content: center;
         }
@@ -163,6 +164,7 @@ const Hero: React.FC = () => {
           .hero-logo {
             position: absolute;
             top: 30px;
+            height: 120px;
           }
 
           .hero-fullname {
