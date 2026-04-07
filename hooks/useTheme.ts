@@ -9,14 +9,16 @@ interface ThemeState {
  * @returns Theme state and toggle function
  */
 const useTheme = (): ThemeState => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  // Read the class set by the inline script in _document.tsx synchronously so
+  // the initial render is already correct and no post-paint update is needed.
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() =>
+    typeof document !== 'undefined'
+      ? document.documentElement.classList.contains('dark')
+      : false
+  );
 
   useEffect(() => {
-    // Check initial theme
-    const isDark = document.documentElement.classList.contains('dark');
-    setIsDarkMode(isDark);
-
-    // Listen for theme changes
+    // Listen for theme changes (e.g. user toggling)
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
