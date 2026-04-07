@@ -108,6 +108,7 @@ const Hero: React.FC = () => {
           margin: 0 auto;
           width: 100%;
           max-width: var(--photo-mobile-max-width);
+          aspect-ratio: 1;
         }
 
         .hero-relocation {
