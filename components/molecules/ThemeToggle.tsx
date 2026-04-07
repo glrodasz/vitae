@@ -7,17 +7,12 @@ interface ThemeToggleProps {
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
-  // Read the class already set by the inline script in _document.tsx so the
-  // initial render is correct without a post-paint state update.
-  const [isDark, setIsDark] = useState(() =>
-    typeof document !== 'undefined'
-      ? document.documentElement.classList.contains('dark')
-      : false
-  );
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Finish full initialization (user-theme class, manifest color, etc.)
-    initializeTheme();
+    // Initialize theme and get initial state
+    const initialTheme = initializeTheme();
+    setIsDark(initialTheme);
 
     // Listen for system theme changes
     const cleanup = createSystemThemeListener(setIsDark);

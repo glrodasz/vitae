@@ -6,8 +6,11 @@ import Paragraph from "../atoms/Paragraph";
 import Relocation from "./Relocation";
 import Image from "next/image";
 import ThemeToggle from "../molecules/ThemeToggle";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 const Hero: React.FC = () => {
+  const { isMobile } = useBreakpoints();
+
   return (
     <>
       <header>
@@ -45,7 +48,7 @@ const Hero: React.FC = () => {
               />
             </div>
             <div className="hero-theme-toggle">
-              <ThemeToggle isHidden={false} />
+              <ThemeToggle isHidden={isMobile} />
             </div>
           </div>
         </PageContainer>
@@ -89,6 +92,7 @@ const Hero: React.FC = () => {
           display: flex;
           justify-content: center;
           margin: 20px auto;
+          min-height: 120px;
         }
 
         .hero-photo-container {
@@ -120,7 +124,6 @@ const Hero: React.FC = () => {
           top: 70px;
           right: 5%;
           z-index: 10;
-          display: none;
         }
 
         @media (min-width: 1140px) {
@@ -155,10 +158,6 @@ const Hero: React.FC = () => {
             align-self: flex-end;
             min-width: var(--photo-desktop-min-width);
             margin-top: 100px;
-          }
-
-          .hero-theme-toggle {
-            display: block;
           }
 
           .hero-logo {
