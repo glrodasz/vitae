@@ -2,24 +2,24 @@ import { ExpertiseItem } from "../types/data";
 
 export const expertises: ExpertiseItem[] = [
   {
-    title: "JavaScript",
+    title: "AI & LLM Engineering",
+    subtitle: "Hands-on in production",
+    items: [
+      "Building RAG pipelines with PGVector, LangChain, and LangSmith for semantic search and agentic workflows, integrating LLM APIs from OpenAI, Anthropic, and Google in production systems at EQT.",
+    ],
+  },
+  {
+    title: "Full-stack Web Engineering",
     subtitle: `${new Date().getFullYear() - 2012} years of experience`,
     items: [
-      "Skilled in JavaScript (ES2015+) and TypeScript, with experience in various JavaScript MV* frameworks for dynamic and efficient web development",
+      "React, TypeScript, and Next.js on the frontend; Node.js, Python, and GraphQL on the backend, shipping at scale across Klarna, Auth0, and EQT with microfrontend architectures and design systems.",
     ],
   },
   {
-    title: "React",
-    subtitle: `${new Date().getFullYear() - 2015} years of experience`,
+    title: "Developer Enablement",
+    subtitle: "Former Google Developer Expert",
     items: [
-      "Proficient in React, including Hooks and various libraries, with expertise in global state management using Redux and Zustand for robust application architectures",
-    ],
-  },
-  {
-    title: "Node.js",
-    subtitle: `${new Date().getFullYear() - 2016} years of experience`,
-    items: [
-      "Experienced with Node.js, using Express and diverse third-party middlewares. Also familiar with Hapi.js and plugins like Joi and Boom for scalable server-side solutions",
+      "Trained hundreds of developers as a bootcamp instructor and online teacher across Latin America and Europe, and shared knowledge at international conferences including DevFest, Nerdearla, and EpicHey!.",
     ],
   },
 ];

@@ -9,12 +9,12 @@ export const careers: Career[] = [
     url: "www.eqtgroup.com",
     logo: "eqt",
     about:
-      "EQT is a private equity firm that invests in companies and regions where there is an industrial approach.",
+      "EQT is a global investment organization managing €130B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.",
     functions: "Senior Full-stack AI Engineer.",
     achievements: [
-      "Involved in an in-house project that leverages AI to enhance the efficiency of deal professionals, streamlining tasks, and finding investment opportunities.",
-      "Assisted in establishing the foundations of a Design System, incorporating scaffolding to refine our automated component tests.",
-      "Additionally, led a series of self-improvement meetings for the team, exploring new technologies and addressing our tech debt.",
+      "AI-Powered Deal Intelligence Tools. Built and shipped internal AI tools that leverage LLMs to streamline investment opportunity screening and enable faster, data-driven decision-making. Implemented RAG pipelines with PGVector for semantic search over proprietary deal data, and integrated LangChain-based workflows with LangSmith observability for production monitoring. Tech: Next.js, TypeScript, Python, LangChain, LangSmith, Google ADK, CopilotKit, PostgreSQL, PGVector, GCP, BigQuery, ElasticSearch, Datadog.",
+      "Design System Foundations. Established the foundations of a shared Design System with component scaffolding and automated testing infrastructure, enabling consistent UI/UX patterns across internal products and reducing frontend fragmentation across teams. Tech: React, TypeScript, Storybook, Playwright, Design Tokens.",
+      "Engineering Culture & Tech Debt Reduction. Led cross-team technical improvement initiatives, introduced new technologies, and organized recurring knowledge-sharing sessions that improved engineering practices and accelerated onboarding for new team members.",
     ],
   },
   {
@@ -25,11 +25,11 @@ export const careers: Career[] = [
     url: "www.klarna.com",
     logo: "klarna",
     about:
-      "Klarna is an e-commerce payment solutions platform for merchants and shoppers.",
-    functions: "Engineer",
+      "Klarna is a global fintech serving 87M+ consumers and 250,000+ merchants, processing over 1M transactions daily across 17 markets. Valued at $10.65B in 2020 and later at $45.6B in 2021.",
+    functions: "Engineer (Foundations team).",
     achievements: [
-      "As a member of the foundations team, my role involved creating the main user interface pacakges,employing microfrontends,that were used by various teams.",
-      "Additionally, Iworked on improving and expanding the continuous delivery process, which wasa crucial aspect of our team's work.",
+      "Microfrontend Platform Infrastructure. As a member of the Foundations team, designed and maintained 20+ shared UI packages consumed by 5+ product teams. These microfrontend packages formed the core interface layer used in Klarna's flagship checkout, payments, and consumer-facing products, supporting experiences that served millions of transactions daily. Tech: React, TypeScript, JavaScript, Microfrontend Architecture, NPM, Yarn Workspaces.",
+      "Continuous Delivery Transformation. Drove improvements to the continuous delivery pipeline, transitioning the team from 5–10 scattered micro-deployments to a streamlined daily deployment cadence with on-demand hotfix capability, directly reducing deployment friction and improving release reliability for dependent teams. Tech: CI/CD, NPM scripts, automated testing, deployment pipelines.",
     ],
   },
   {
@@ -40,11 +40,10 @@ export const careers: Career[] = [
     url: "www.auth0.com",
     logo: "auth0",
     about:
-      "Auth0 is a cloud identity management SAAS application for the web, mobile, IoT, and internal software.",
-    functions: "Engineer",
+      "Auth0 is a cloud identity platform (now part of Okta) that safeguards billions of login transactions monthly. During this period, the company achieved 80–100% annual growth in revenue and customers, raised a $103M Series E reaching $1B+ valuation, and expanded from ~100 to 578 employees across 33 countries.",
+    functions: "Engineer.",
     achievements: [
-      "I was involved in the development of several internal products utilizing Hapi.js, MongoDB, React, and Redux technologies.",
-      "Additionally, I enhanced our team's development process by integrating tools such as Storybook and Snapshot testing.",
+      "Internal Products & Developer Tooling. Developed multiple internal products powering Auth0's platform operations, using Hapi.js, MongoDB, React, and Redux. Enhanced the team's development workflow by introducing Storybook for component development and snapshot testing for regression prevention, which improved development velocity and reduced visual regressions across the product suite. Tech: React, Redux, Hapi.js, MongoDB, Node.js, Storybook, snapshot testing.",
     ],
   },
   {
@@ -55,13 +54,12 @@ export const careers: Career[] = [
     url: "www.huge.com",
     logo: "huge",
     about:
-      "Huge redefines what's possible for the world's most ambitious brands.",
-    functions: "Web Engineer",
+      "Huge is a global digital agency working with Fortune 500 brands to redefine what's possible for the world's most ambitious companies.",
+    functions: "Web Engineer.",
     achievements: [
-      "I contributed to the development of a Fintech web app, harnessing the power of React and Redux. This app was finely tuned for compatibility across various browsers and mobile devices.",
-      "I crafted web applications with Vanilla JavaScript, ensuring they seamlessly worked across diverse browsers and devices, including the likes of IE10 on Windows and Safari on the iPhone 4S.",
-      "In another key role, I took the lead as the front-end developer, focusing on a web app optimized for stellar performance on mobile platforms.",
-      "Beyond development, I facilitated multiple technical training sessions, bolstering the skills of both the Front-end and Quality Assurance teams.",
+      "Fintech Web Application. Contributed to a Fintech web app using React and Redux, optimized for cross-browser and cross-device compatibility, including legacy support for IE10 on Windows and Safari on iPhone 4S. Tech: React, Redux, Vanilla JavaScript, cross-browser development.",
+      "Mobile Web Performance. Led frontend development on a performance-critical mobile web app, ensuring seamless behavior across diverse devices and browsers.",
+      "Technical Training. Facilitated multiple technical training sessions for both Frontend and QA teams, raising engineering standards across the office.",
     ],
   },
   {
@@ -72,12 +70,11 @@ export const careers: Career[] = [
     url: "www.kometsales.com",
     logo: "komet",
     about:
-      "Komet is floral industry SaaS that gives you the tools to automate processes while connecting with your key business partners.",
-    functions: "Full-stack Developer",
+      "Komet is a SaaS platform for the floral industry that gives businesses the tools to automate processes while connecting with their key business partners.",
+    functions: "Full-stack Developer.",
     achievements: [
-      "Played a pivotal role in numerous corporate projects, tapping into MySQL and Java frameworks like Spring and Hibernate.",
-      "Took the lead in shaping the Front-end architecture and defining the tech stack for our company's products.",
-      "Further, I drove improvements in development practices, notably shifting from SVN to Git and championing the adoption of Scrum.",
+      "Platform Engineering. Played a key role in multiple corporate projects using MySQL and Java (Spring, Hibernate), and led the definition of the frontend architecture and tech stack for the company's products. Tech: Java, Spring, Hibernate, MySQL, JavaScript.",
+      "Process Modernization. Drove the migration from SVN to Git and championed the adoption of Scrum, fundamentally improving development velocity and team collaboration.",
     ],
   },
 ];
