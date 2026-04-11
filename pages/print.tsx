@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import Hero from "../components/organisms/Hero";
 import { printDescription, printPageTitle } from "../data/site";
 import Profile from "../components/organisms/Profile";
 import Career from "../components/organisms/Career";
@@ -25,7 +24,6 @@ const Print = () => {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
       <div className="container print-container">
-        <Hero />
         <Profile />
         <Skills />
         <Career />

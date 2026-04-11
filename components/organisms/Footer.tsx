@@ -137,8 +137,31 @@ const Footer: React.FC = () => {
 
         @media print {
           footer {
+            background: var(--white) !important;
+            padding: 30px 0 0 !important;
             break-before: page;
             page-break-before: always;
+          }
+
+          .footer-container {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+          }
+
+          .footer-logo {
+            display: none !important;
+          }
+
+          .footer-content {
+            align-items: flex-start !important;
+            padding-bottom: 0 !important;
+          }
+
+          .footer-icon-list :global(a),
+          .footer-social :global(a),
+          .footer-social :global(.heading) {
+            color: var(--black) !important;
           }
         }
       `}</style>

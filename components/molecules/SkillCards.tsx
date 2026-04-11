@@ -29,9 +29,10 @@ const SkillCards: React.FC<SkillCardsProps> = ({ skills }) => {
 
         @media print {
           .skills-grid {
-            flex-wrap: wrap !important;
-            justify-content: space-between !important;
-            gap: 30px 30px;
+            display: flex !important;
+            flex-direction: column !important;
+            flex-wrap: nowrap !important;
+            gap: 12px !important;
           }
         }
       `}</style>

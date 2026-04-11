@@ -82,23 +82,18 @@ const Job: React.FC<JobProps> = ({ career }) => {
 
         @media print {
           .job {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 35px !important;
-            grid-template-areas:
-              "header achievements"
-              "about achievements"
-              "functions achievements" !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 18px !important;
           }
 
           .job-header {
-            grid-area: header !important;
             align-items: flex-start !important;
           }
 
           .job-header :global(.logo) {
-            max-width: 200px !important;
-            width: 100% !important;
+            max-width: 160px !important;
+            width: auto !important;
             height: auto !important;
           }
 
@@ -107,24 +102,10 @@ const Job: React.FC<JobProps> = ({ career }) => {
             align-self: flex-start !important;
           }
 
-          .job > div:nth-child(2) {
-            grid-area: about !important;
-          }
-
-          .job > div:nth-child(3) {
-            grid-area: functions !important;
-          }
-
-          .job-achievements {
-            grid-area: achievements !important;
-            grid-column: 2 !important;
-            grid-row: 1 / 5 !important;
-          }
-
           .job-achievements-list {
             display: flex !important;
             flex-direction: column !important;
-            gap: 15px;
+            gap: 10px;
           }
         }
       `}</style>

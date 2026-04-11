@@ -29,11 +29,19 @@ const Knowledge: React.FC<KnowledgeProps> = ({ title, items }) => {
             title: item.title,
             content: (
               <div className="knowledge-masonry">
-                <Masonry columns={isMobile ? 1 : 2}>
-                  {item.items.map((subitem) => (
-                    <Item key={subitem.title} icon="diamond-alt" {...subitem} />
-                  ))}
-                </Masonry>
+                {isFlattened ? (
+                  <div className="knowledge-flat">
+                    {item.items.map((subitem) => (
+                      <Item key={subitem.title} icon="diamond-alt" {...subitem} />
+                    ))}
+                  </div>
+                ) : (
+                  <Masonry columns={isMobile ? 1 : 2}>
+                    {item.items.map((subitem) => (
+                      <Item key={subitem.title} icon="diamond-alt" {...subitem} />
+                    ))}
+                  </Masonry>
+                )}
               </div>
             ),
           }))}
@@ -42,6 +50,12 @@ const Knowledge: React.FC<KnowledgeProps> = ({ title, items }) => {
       <style jsx>{`
         .knowledge-masonry {
           display: block;
+        }
+
+        .knowledge-flat {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
         }
 
         @media print {

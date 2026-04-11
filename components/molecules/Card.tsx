@@ -67,11 +67,27 @@ const Card: React.FC<CardProps> = ({ title, subtitle, items, isInverted }) => {
         }
 
         @media print {
-          .card {
+          .card,
+          .card--inverted {
+            background: var(--white) !important;
+            border: 1px solid var(--black) !important;
+            padding: 12px 16px !important;
+            margin: 8px 0 !important;
             width: 100% !important;
             max-width: 100% !important;
             break-inside: avoid !important;
             page-break-inside: avoid !important;
+          }
+
+          .card :global(hr),
+          .card--inverted :global(hr) {
+            background: var(--black) !important;
+          }
+
+          .card--inverted header :global(.heading),
+          .card--inverted header :global(.paragraph),
+          .card--inverted :global(.paragraph) {
+            color: var(--black) !important;
           }
         }
       `}</style>

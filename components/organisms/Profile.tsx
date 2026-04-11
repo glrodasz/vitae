@@ -58,6 +58,17 @@ const Profile: React.FC = () => {
             grid-gap: 30px;
           }
         }
+
+        @media print {
+          .profile {
+            gap: 16px !important;
+          }
+
+          .languages {
+            flex-direction: column !important;
+            gap: 4px !important;
+          }
+        }
       `}</style>
     </PageContainer>
   );
