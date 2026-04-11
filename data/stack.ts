@@ -7,7 +7,7 @@ export const stack: StackItem[] = [
   },
   {
     title: "Data",
-    text: "PostgreSQL, BigQuery, MySQL, MongoDB, ElasticSearch, Kafka, and Firebase/Firestore — managing and querying datasets across millions of records in production.",
+    text: "PostgreSQL, BigQuery, MySQL, MongoDB, ElasticSearch, Kafka, and Firebase/Firestore, managing and querying datasets across millions of records in production.",
   },
   {
     title: "Cloud & DevOps",
