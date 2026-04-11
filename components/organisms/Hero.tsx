@@ -29,8 +29,8 @@ const Hero: React.FC = () => {
                   <Heading>Rodas</Heading>
                 </div>
                 <Paragraph size="xl">
-                  I help developers to improve their skills while creating
-                  quality products.
+                  I build production AI systems and help developer communities
+                  level up.
                 </Paragraph>
                 <div className="hero-relocation">
                   <Relocation />

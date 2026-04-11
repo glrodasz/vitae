@@ -1,43 +1,24 @@
 import { FrameworkItem } from "../types/data";
 
 export const frameworks: FrameworkItem[] = [
-  // Core Backend Frameworks
   {
-    title: "Next.js",
-    text: "Utilized Next.js for building SSR React applications, leveraging React Server Components, App Router, and Server Actions with Vercel for enhanced performance.",
+    title: "Frontend frameworks",
+    text: "React (11+ years) with Hooks and state libraries like Redux and Zustand, Next.js for SSR and Server Components, and TypeScript across the stack.",
   },
   {
-    title: "Meteor",
-    text: "Developed with Meteor, focusing on its reactive programming capabilities, including mobile application development.",
-  },
-
-  // Testing
-  {
-    title: "Jest, Vitest and Playwright",
-    text: "Applied Jest, Vitest, and Playwright for comprehensive testing, ensuring robust and reliable software solutions.",
-  },
-
-    // UI Frameworks and Libraries
-    {
-      title: "Storybook",
-      text: "Employed Storybook for developing and testing UI components, enhancing interface design and consistency.",
-    },
-    {
-      title: "Design Tokens",
-      text: "Implemented Design Tokens to maintain consistent design and branding across applications.",
-    },
-    {
-      title: "Material Design, Ant Design & Tailwind CSS",
-      text: "Skilled in applying UI frameworks like Material Design, Ant Design, and Tailwind CSS for diverse and adaptable UI solutions.",
-    },
-
-  // Bundling and Dependency Management
-  {
-    title: "Webpack & Vite",
-    text: "Experienced with Webpack and Vite, optimizing production setups with various plugins for enhanced application performance.",
+    title: "Testing",
+    text: "Jest, Vitest, and Playwright for unit, integration, and end-to-end coverage, complemented by Storybook interaction tests and snapshot testing for regression prevention.",
   },
   {
-    title: "NPM, NPM scripts & Yarn",
-    text: "Worked with NPM, NPM scripts, and Yarn, including managing monorepos using Yarn workspaces, for efficient project management.",
-  }
+    title: "UI systems",
+    text: "Storybook for component development, Design Tokens for consistent branding, and Tailwind CSS, Material Design, and Ant Design for adaptable UI solutions.",
+  },
+  {
+    title: "Build tooling",
+    text: "Webpack and Vite production setups, plus NPM scripts and Yarn Workspaces for managing monorepos and dependency graphs across teams.",
+  },
+  {
+    title: "Reactive platforms",
+    text: "Meteor for reactive full-stack and mobile applications, leveraging its real-time data and pub/sub capabilities.",
+  },
 ];

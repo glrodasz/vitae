@@ -2,11 +2,28 @@ import { AchievementSection } from "../types/data";
 
 export const achievements: AchievementSection[] = [
   {
+    title: "Recognition",
+    items: [
+      {
+        title: "Google Developer Expert",
+        text: "Web Technologies",
+      },
+      {
+        title: "Auth0 Ambassador",
+        text: "Identity & Security",
+      },
+      {
+        title: "Twitch Partner",
+        text: "Live Coding & Developer Education",
+      },
+    ],
+  },
+  {
     title: "Speaking",
     items: [
       {
         title: "The Language of AI: Probability",
-        text:[
+        text: [
           ["DevFest Ourense", "November 2025"],
           ["DevFest Mediterranean", "December 2025"],
         ],
@@ -42,15 +59,6 @@ export const achievements: AchievementSection[] = [
         ],
       },
       {
-        title: "Mentor",
-        text: [
-          ["Women Developer Academy Europe", "October 2021, October 2023"],
-          ["Hyper Island", "March 2021"],
-          ["The Konferense", "September 2020"],
-          ["Techstars Startup Weekend", "June 2019"],
-        ],
-      },
-      {
         title: "Bootcamp Instructor",
         text: [
           // Bootcamp de JavaScript
@@ -63,7 +71,16 @@ export const achievements: AchievementSection[] = [
         ],
       },
       {
-        title: "Organizer",
+        title: "Mentor",
+        text: [
+          ["Women Developer Academy Europe", "October 2021, October 2023"],
+          ["Hyper Island", "March 2021"],
+          ["The Konferense", "September 2020"],
+          ["Techstars Startup Weekend", "June 2019"],
+        ],
+      },
+      {
+        title: "Community Organizer",
         text: [
           ["CSS Conf Colombia", "April 2021 - December 2023"],
           ["CSS Community Dev", "June 2018 - December 2023"],
