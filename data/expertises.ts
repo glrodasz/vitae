@@ -17,9 +17,9 @@ export const expertises: ExpertiseItem[] = [
   },
   {
     title: "Developer Enablement",
-    subtitle: "Google Developer Expert",
+    subtitle: "Former Google Developer Expert",
     items: [
-      "Trained hundreds of developers as a bootcamp instructor and online teacher across Latin America and Europe, and shared knowledge at international conferences including DevFest, Nerdearla, and EpicHey!",
+      "Trained hundreds of developers as a bootcamp instructor and online teacher across Latin America and Europe, and shared knowledge at international conferences including DevFest, Nerdearla, and EpicHey!.",
     ],
   },
 ];

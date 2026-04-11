@@ -1,5 +1,5 @@
 export const summary: string[] = [
   "Senior Full-stack AI Engineer with 13+ years of experience building production systems at the intersection of web engineering and AI.",
   "At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations. Previously, I built microfrontend platform infrastructure at Klarna (serving 87M+ global consumers) and shipped identity management products at Auth0 during its hypergrowth from startup to $1B+ valuation.",
-  "I combine deep JavaScript, TypeScript, and React expertise with hands-on AI engineering (RAG, agents, embeddings) and a strong track record of developer enablement, as a Google Developer Expert, international conference speaker, and bootcamp instructor who has trained hundreds of developers across Latin America and Europe.",
+  "I combine deep JavaScript, TypeScript, and React expertise with hands-on AI engineering (RAG, agents, embeddings) and a strong track record of developer enablement, as a former Google Developer Expert (2019–2025), international conference speaker, and bootcamp instructor who has trained hundreds of developers across Latin America and Europe.",
 ];

@@ -7,14 +7,17 @@ export const achievements: AchievementSection[] = [
       {
         title: "Google Developer Expert",
         text: "Web Technologies",
+        footer: "2019 – 2025",
       },
       {
         title: "Auth0 Ambassador",
         text: "Identity & Security",
+        footer: "2017 – 2019",
       },
       {
         title: "Twitch Partner",
         text: "Live Coding & Developer Education",
+        footer: "2020 – 2023",
       },
     ],
   },
