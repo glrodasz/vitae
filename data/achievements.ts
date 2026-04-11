@@ -12,12 +12,12 @@ export const achievements: AchievementSection[] = [
       {
         title: "Auth0 Ambassador",
         text: "Identity & Security",
-        footer: "2017 – 2019",
+        footer: "2022 – 2024",
       },
       {
         title: "Twitch Partner",
         text: "Live Coding & Developer Education",
-        footer: "2020 – 2023",
+        footer: "2020 – 2025",
       },
     ],
   },
