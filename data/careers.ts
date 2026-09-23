@@ -9,7 +9,7 @@ export const careers: Career[] = [
     url: "www.eqtgroup.com",
     logo: "eqt",
     about:
-      "EQT is a global investment organization managing €130B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.",
+      "EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.",
     functions: "Senior Full-stack AI Engineer.",
     achievements: [
       "AI-Powered Deal Intelligence Tools. Built and shipped internal AI tools that leverage LLMs to streamline investment opportunity screening and enable faster, data-driven decision-making. Implemented RAG pipelines with PGVector for semantic search over proprietary deal data, and integrated LangChain-based workflows with LangSmith observability for production monitoring. Tech: Next.js, TypeScript, Python, LangChain, LangSmith, Google ADK, CopilotKit, PostgreSQL, PGVector, GCP, BigQuery, ElasticSearch, Datadog.",
