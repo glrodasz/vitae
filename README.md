@@ -53,7 +53,7 @@ Former Google Developer Expert
 ## EQT Group
 Start Date: August 2021
 URL: [www.eqtgroup.com](https://www.eqtgroup.com)
-About: EQT is a global investment organization managing €130B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.
+About: EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.
 Functions: Senior Full-stack AI Engineer.
 
 ### Achievements
