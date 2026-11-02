@@ -36,4 +36,27 @@ export const knowledge: KnowledgeSection[] = [
       },
     ],
   },
+  {
+    title: "Seminars",
+    items: [
+      {
+        title: "Agiles.org",
+        text: "VII Latin American Workshops on Agile Methodologies",
+        footer: "24 Hours, October 2014",
+      },
+      {
+        title: "Campus Party Colombia",
+        text: [
+          ["Campus Party 7 Colombia", "300 Hours, June 2014"],
+          ["Campus Party 6 Colombia", "250 Hours, October 2013"],
+          ["Campus Party 4 Colombia", "521 Hours, July 2011"],
+        ],
+      },
+      {
+        title: "Google",
+        text: "Google Developer Bus Bogota",
+        footer: "36 Hours, November 2013",
+      },
+    ],
+  },
 ];

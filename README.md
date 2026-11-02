@@ -155,6 +155,15 @@ Stack: TypeScript, Python, Go, Rust, PHP, Elixir
   - English Career — 80 Hours, March 2019
   - Frontend Architect Career — 80 Hours, December 2018
 
+## Seminars
+
+- **Agiles.org** — VII Latin American Workshops on Agile Methodologies _(24 Hours, October 2014)_
+- **Campus Party Colombia**
+  - Campus Party 7 Colombia — 300 Hours, June 2014
+  - Campus Party 6 Colombia — 250 Hours, October 2013
+  - Campus Party 4 Colombia — 521 Hours, July 2011
+- **Google** — Google Developer Bus Bogota _(36 Hours, November 2013)_
+
 # Achievements
 
 ## Recognition
