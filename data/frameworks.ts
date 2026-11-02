@@ -18,7 +18,7 @@ export const frameworks: FrameworkItem[] = [
     text: "Webpack and Vite production setups, plus NPM scripts and Yarn Workspaces for managing monorepos and dependency graphs across teams.",
   },
   {
-    title: "Reactive platforms",
-    text: "Meteor for reactive full-stack and mobile applications, leveraging its real-time data and pub/sub capabilities.",
+    title: "AI-first engineering",
+    text: "Agent workflows with Claude Code and Cursor, reusable agent skills, and PR-based review.",
   },
 ];

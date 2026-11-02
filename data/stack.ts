@@ -3,7 +3,7 @@ import { StackItem } from "../types/data";
 export const stack: StackItem[] = [
   {
     title: "AI & LLM",
-    text: "LangChain, LangSmith, Google ADK, CopilotKit, PGVector, RAG pipelines, prompt engineering, and LLM API integrations with OpenAI, Anthropic, and Google.",
+    text: "LangChain, LangSmith, Google ADK, CopilotKit, PGVector, RAG pipelines, MCP servers and connectors, Gemini on Vertex AI, Ollama for local models, agent evals (prompt injection, grounding checks) and cost guardrails, prompt engineering, and LLM API integrations with OpenAI, Anthropic, and Google.",
   },
   {
     title: "Data",
@@ -11,7 +11,7 @@ export const stack: StackItem[] = [
   },
   {
     title: "Cloud & DevOps",
-    text: "GCP (CloudRun, CloudBuild, BigQuery, BigTable), AWS (S3, EC2, SQS, DynamoDB), Docker, Kubernetes, Datadog, CI/CD pipelines, and Linux (CentOS, Debian).",
+    text: "GCP (CloudRun, CloudBuild, Cloud Workflows, BigQuery, BigTable), AWS (S3, EC2, SQS, DynamoDB), Cloudflare (Workers, D1, Pages), Firebase Hosting, Docker, Kubernetes, Datadog, CI/CD pipelines, and Linux (CentOS, Debian).",
   },
   {
     title: "Auth & Identity",
@@ -19,7 +19,7 @@ export const stack: StackItem[] = [
   },
   {
     title: "Backend platforms",
-    text: "Node.js with Express and Hapi.js, Python services, GraphQL via Apollo and GraphQL Mesh, and REST APIs powering scalable server-side solutions.",
+    text: "Node.js with Express, Fastify and Hapi.js, Python with FastAPI, Go and Rust services, GraphQL via Apollo and GraphQL Mesh, and REST APIs powering scalable server-side solutions.",
   },
   {
     title: "Methods & Delivery",
