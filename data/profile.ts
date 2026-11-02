@@ -6,6 +6,8 @@ export const profile: Profile = {
   tagline:
     "I build production AI systems and help developer communities level up.",
   location: "Sweden",
+  origin: "Colombia",
+  documentLabel: "Curriculum Vitae",
   email: "me@guillermorodas.com",
   website: { label: "guillermorodas.com", url: "https://guillermorodas.com" },
   links: [

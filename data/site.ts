@@ -8,6 +8,9 @@ export const siteUrl =
   (typeof process !== "undefined" && process.env.NEXT_PUBLIC_SITE_URL) ||
   "https://vitae.guillermorodas.com";
 
+/** Host shown in the CV's top bar so visitors know which site they are on. */
+export const siteHost = new URL(siteUrl).host;
+
 export const pageTitle = "Guillermo Rodas · Curriculum Vitae";
 
 export const resumePageTitle = "Guillermo Rodas · CV";

@@ -19,6 +19,9 @@
 	--on-accent: #1a1a1a;
 	--accent: var(--supernova);
 
+	/* Height of the sticky document bar; sticky carousels sit below it. */
+	--document-bar-height: 40px;
+
 	/* Theme variables */
 	--background: var(--white);
 	--text: #292929;
@@ -32,8 +35,6 @@
 	--border: #e3e3e3;
 	--carousel-nav-bg: rgba(255, 255, 255, 0.8);
   --logo-shadow: rgba(255, 255, 255, 0.9);
-  --relocation-connector-icon: var(--storm-dust);
-  --relocation-connector-stroke: var(--background);
   }
   
   /* SASS mixins for theme variables */
@@ -50,8 +51,6 @@
     --border: #333333;
     --carousel-nav-bg: rgba(26, 26, 26, 0.85);
     --logo-shadow: rgba(0, 0, 0, 0.9);
-    --relocation-connector-icon: var(--white);
-    --relocation-connector-stroke: var(--background);
   }
   
   @mixin light-theme {
@@ -66,8 +65,6 @@
     --surface: #f5f5f5;
     --border: #e3e3e3;
     --carousel-nav-bg: rgba(255, 255, 255, 0.8);
-    --relocation-connector-icon: var(--storm-dust);
-    --relocation-connector-stroke: var(--background);
   }
   
   /* Apply dark theme based on system preferences */

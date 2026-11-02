@@ -98,7 +98,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           flex-direction: column;
           position: sticky;
           gap: 35px;
-          top: 0;
+          top: var(--document-bar-height);
           background: var(--carousel-nav-bg);
           backdrop-filter: blur(10px);
           padding-bottom: 20px;

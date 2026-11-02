@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
 
             <div className="footer-content">
               <Heading>
-                <strong>Say Hello!</strong>
+                <strong>Contact</strong>
               </Heading>
               <Paragraph isInverted>
                 It would be a pleasure to meet you!

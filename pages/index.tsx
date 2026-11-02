@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Hero from "../components/organisms/Hero";
+import DocumentBar from "../components/molecules/DocumentBar";
 import {
   absoluteUrl,
   defaultDescription,
@@ -49,6 +50,7 @@ const Index = () => {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
+      <DocumentBar />
       <div className="container">
         <Hero />
         <Profile />

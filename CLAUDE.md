@@ -30,8 +30,8 @@ yarn start            # Start production server
 ### Component Architecture
 Components follow **Atomic Design** pattern in `components/`:
 - `atoms/` - Basic building blocks (Icon, Heading, Paragraph, Logo, Link, Analytics)
-- `molecules/` - Composed components (Card, Carousel, Job, Item, SkillCards, SkillList, ThemeToggle, Country)
-- `organisms/` - Complex sections (Hero, Profile, Career, Skills, Knowledge, Footer, Relocation)
+- `molecules/` - Composed components (Card, Carousel, Job, Item, SkillCards, SkillList, ThemeToggle, DocumentBar)
+- `organisms/` - Complex sections (Hero, Profile, Career, Skills, Knowledge, Projects, Footer)
 - `layout/` - Layout components (PageContainer)
 - `resume/` - Document components for the CV at `/resume` (ResumeHeader, ResumeSection, ResumeEntry, ResumeList)
 

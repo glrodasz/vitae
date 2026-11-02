@@ -2,172 +2,80 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PageContainer from "../layout/PageContainer";
-import Relocation from "./Relocation";
-import ThemeToggle from "../molecules/ThemeToggle";
 import { profile } from "../../data/profile";
-import { pdfPath } from "../../data/site";
+import { languages } from "../../data/languages";
+import { yearsOfExperience } from "../../data/experience";
 
-const [firstName, ...lastNames] = profile.name.split(" ");
-
+/**
+ * CV masthead: a record card with the essentials, not a marketing hero.
+ */
 const Hero: React.FC = () => {
+  const facts = [
+    { label: "Role", value: profile.role },
+    { label: "Based in", value: `${profile.location}, from ${profile.origin}` },
+    { label: "Experience", value: `${yearsOfExperience} years` },
+    {
+      label: "Languages",
+      value: languages
+        .map((language) => `${language.title} (${language.proeficiency.toLowerCase()})`)
+        .join(", "),
+    },
+    { label: "Contact", value: profile.email, href: `mailto:${profile.email}` },
+  ];
+
   return (
     <>
-      <header className="cv-hero">
+      <header className="cv-masthead">
         <PageContainer>
-          <div className="cv-topbar">
-            <a className="cv-topbar-back" href={profile.website.url}>
-              ← {profile.website.label}
-            </a>
-            <ThemeToggle isHidden={false} />
-          </div>
-
-          <div className="cv-hero-grid">
-            <div className="cv-hero-text">
-              <p className="cv-eyebrow">Curriculum Vitae</p>
-              <h1>
-                {firstName} <strong>{lastNames.join(" ")}</strong>
-              </h1>
-              <p className="cv-role">
-                {profile.role} · {profile.location}
-              </p>
-              <p className="cv-tagline">{profile.tagline}</p>
-              <div className="cv-actions">
-                <a className="cv-button cv-button--primary" href={pdfPath} download>
-                  Download PDF
-                </a>
-                <Link className="cv-button" href="/resume">
-                  Two-page CV →
-                </Link>
-              </div>
-            </div>
-
+          <div className="cv-record">
             <figure className="cv-photo">
               <Image
                 src="/images/guillermo-rodas.png"
                 alt={profile.name}
-                width={320}
-                height={320}
+                width={192}
+                height={192}
                 priority
               />
             </figure>
-          </div>
-
-          <div className="cv-relocation">
-            <Relocation />
+            <div className="cv-record-body">
+              <h1>{profile.name}</h1>
+              <p className="cv-tagline">{profile.tagline}</p>
+              <dl className="cv-facts">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="cv-fact">
+                    <dt>{fact.label}</dt>
+                    <dd>
+                      {fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="cv-links">
+                <Link href="/resume">Two-page version</Link>
+                <span aria-hidden="true"> · </span>
+                <a href={profile.website.url}>{profile.website.label} ↗</a>
+              </p>
+            </div>
           </div>
         </PageContainer>
       </header>
       <style jsx>{`
-        .cv-hero {
-          padding: 16px 0 40px;
+        .cv-masthead {
+          padding: 40px 0;
           border-bottom: 1px solid var(--border);
         }
 
-        .cv-topbar {
+        .cv-record {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 16px;
-          padding-bottom: 16px;
-          margin-bottom: 40px;
-          border-bottom: 1px solid var(--border);
-        }
-
-        .cv-topbar-back {
-          font-family: var(--font-mono);
-          font-size: 1.2rem;
-          color: var(--heading-secondary);
-          text-decoration: none;
-        }
-
-        .cv-topbar-back:hover {
-          color: var(--text);
-        }
-
-        .cv-hero-grid {
-          display: flex;
-          flex-direction: column-reverse;
-          align-items: center;
-          gap: 32px;
-        }
-
-        .cv-hero-text {
-          width: 100%;
-        }
-
-        .cv-eyebrow {
-          display: inline-block;
-          margin-bottom: 16px;
-          padding: 4px 10px;
-          border: 1px solid var(--golden-yellow);
-          font-family: var(--font-mono);
-          font-size: 1.1rem;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: var(--text);
-        }
-
-        h1 {
-          font-family: var(--font-headings);
-          font-size: 4.4rem;
-          font-weight: 800;
-          line-height: 1.05;
-          letter-spacing: -0.02em;
-          color: var(--text);
-        }
-
-        h1 strong {
-          color: var(--primary);
-        }
-
-        .cv-role {
-          margin-top: 12px;
-          font-family: var(--font-body);
-          font-size: 1.8rem;
-          font-weight: 600;
-          color: var(--text);
-        }
-
-        .cv-tagline {
-          margin-top: 8px;
-          max-width: 52ch;
-          font-family: var(--font-body);
-          font-size: 1.6rem;
-          line-height: 1.5;
-          color: var(--paragraph-primary);
-        }
-
-        .cv-actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 24px;
-        }
-
-        .cv-actions :global(.cv-button) {
-          display: inline-flex;
-          align-items: center;
-          padding: 10px 18px;
-          border: 1px solid var(--text);
-          border-radius: 6px;
-          font-family: var(--font-body);
-          font-size: 1.4rem;
-          font-weight: 600;
-          color: var(--text);
-          text-decoration: none;
-        }
-
-        .cv-actions :global(.cv-button--primary) {
-          border-color: var(--golden-yellow);
-          background: var(--golden-yellow);
-          color: var(--on-accent);
+          flex-direction: column;
+          gap: 24px;
         }
 
         .cv-photo {
           flex-shrink: 0;
-          width: 200px;
+          width: 96px;
           margin: 0;
-          padding: 6px;
+          padding: 4px;
           border: 1px solid var(--border);
           background: var(--surface);
         }
@@ -178,32 +86,99 @@ const Hero: React.FC = () => {
           height: auto;
           aspect-ratio: 1;
           object-fit: cover;
-          filter: grayscale(0.15);
         }
 
-        .cv-relocation {
-          margin-top: 40px;
+        h1 {
+          font-family: var(--font-headings);
+          font-size: 3.2rem;
+          font-weight: 700;
+          line-height: 1.1;
+          color: var(--text);
+        }
+
+        .cv-tagline {
+          margin-top: 6px;
+          font-family: var(--font-body);
+          font-size: 1.6rem;
+          line-height: 1.5;
+          color: var(--paragraph-primary);
+        }
+
+        .cv-facts {
+          display: grid;
+          grid-template-columns: 1fr;
+          margin-top: 20px;
+          border-top: 1px solid var(--border);
+        }
+
+        .cv-fact {
+          display: grid;
+          grid-template-columns: 110px 1fr;
+          gap: 12px;
+          padding: 8px 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        dt {
+          font-family: var(--font-mono);
+          font-size: 1.15rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--heading-secondary);
+          padding-top: 2px;
+        }
+
+        dd {
+          margin: 0;
+          font-family: var(--font-body);
+          font-size: 1.5rem;
+          color: var(--text);
+        }
+
+        dd a {
+          color: inherit;
+          text-decoration: none;
+          border-bottom: 1px solid var(--golden-yellow);
+        }
+
+        .cv-links {
+          display: none;
+          margin-top: 16px;
+          font-family: var(--font-mono);
+          font-size: 1.2rem;
+          color: var(--heading-secondary);
+        }
+
+        .cv-links :global(a) {
+          color: var(--text);
+          text-decoration: none;
+        }
+
+        /* The document bar drops these links on small screens. */
+        @media (max-width: 640px) {
+          .cv-links {
+            display: block;
+          }
         }
 
         @media (min-width: 1140px) {
-          .cv-hero-grid {
+          .cv-record {
             flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            gap: 64px;
-          }
-
-          h1 {
-            font-size: 6rem;
+            align-items: flex-start;
+            gap: 40px;
           }
 
           .cv-photo {
-            width: 280px;
+            width: 140px;
           }
 
-          .cv-relocation {
-            display: flex;
-            justify-content: flex-start;
+          .cv-record-body {
+            flex: 1;
+          }
+
+          .cv-facts {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
           }
         }
       `}</style>

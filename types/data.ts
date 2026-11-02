@@ -101,6 +101,10 @@ export interface Profile {
   role: string;
   /** One-line pitch shown under the role on the web CV. */
   tagline: string;
+  /** Country of origin, shown next to the current location. */
+  origin: string;
+  /** Label of the document, shown in the CV's top bar. */
+  documentLabel: string;
   location: string;
   website: ContactLink;
   email: string;
