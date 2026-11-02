@@ -7,9 +7,11 @@ interface ResumeListItem {
 
 interface ResumeListProps {
   items: ResumeListItem[];
+  /** Width of the label column, e.g. "22%". */
+  labelWidth?: string;
 }
 
-const ResumeList: React.FC<ResumeListProps> = ({ items }) => {
+const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) => {
   return (
     <>
       <dl className="resume-list">
@@ -29,7 +31,7 @@ const ResumeList: React.FC<ResumeListProps> = ({ items }) => {
 
         .resume-list-row {
           display: grid;
-          grid-template-columns: 34% 1fr;
+          grid-template-columns: ${labelWidth} 1fr;
           gap: 10pt;
           break-inside: avoid;
         }

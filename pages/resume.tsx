@@ -75,7 +75,7 @@ const Resume = () => {
         </ResumeSection>
 
         <ResumeSection title="Skills">
-          <ResumeList items={resumeSkills} />
+          <ResumeList items={resumeSkills} labelWidth="22%" />
         </ResumeSection>
 
         <ResumeSection title="Education">
@@ -90,7 +90,7 @@ const Resume = () => {
         </ResumeSection>
 
         <ResumeSection title="Recognition & speaking">
-          <ResumeList items={resumeRecognition} />
+          <ResumeList items={resumeRecognition} labelWidth="34%" />
         </ResumeSection>
       </main>
 
