@@ -36,25 +36,29 @@ const DocumentBar: React.FC = () => {
           position: sticky;
           top: 0;
           z-index: 30;
-          min-height: var(--document-bar-height);
+          box-sizing: border-box;
+          /* Fixed height: sticky carousel tabs sit exactly below it. */
+          height: var(--document-bar-height);
           background: var(--background);
           border-bottom: 1px solid var(--border);
         }
 
         .document-bar-inner {
           display: flex;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
           justify-content: space-between;
           align-items: center;
           gap: 6px 20px;
+          height: 100%;
           max-width: 1280px;
           margin: 0 auto;
-          padding: 8px 20px;
+          padding: 0 20px;
           font-family: var(--font-mono);
           font-size: 1.15rem;
         }
 
         .document-bar-label {
+          white-space: nowrap;
           padding-left: 10px;
           border-left: 3px solid var(--golden-yellow);
           letter-spacing: 0.12em;
@@ -70,7 +74,8 @@ const DocumentBar: React.FC = () => {
 
         .document-bar-actions {
           display: flex;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          white-space: nowrap;
           align-items: center;
           gap: 6px 18px;
         }
@@ -85,34 +90,42 @@ const DocumentBar: React.FC = () => {
           border-bottom-color: var(--golden-yellow);
         }
 
+        /* The bar has a fixed height, so it drops parts instead of wrapping. */
+        @media (max-width: 1279px) {
+          .document-bar-host {
+            display: none;
+          }
+        }
+
+        /* These links move into the masthead (Hero) on narrower screens. */
+        @media (max-width: 899px) {
+          .document-bar-actions :global(.document-bar-secondary) {
+            display: none;
+          }
+        }
+
         @media (max-width: 640px) {
           .document-bar-inner {
-            flex-wrap: nowrap;
             gap: 12px;
             font-size: 1rem;
           }
 
           .document-bar-label {
             letter-spacing: 0.06em;
-            white-space: nowrap;
           }
 
           .document-bar-actions {
-            flex-wrap: nowrap;
             gap: 12px;
-            white-space: nowrap;
           }
 
-          .document-bar-host,
-          .document-bar-long,
-          .document-bar-actions :global(.document-bar-secondary) {
+          .document-bar-long {
             display: none;
           }
         }
 
         @media (min-width: 1140px) {
           .document-bar-inner {
-            padding: 8px 80px;
+            padding: 0 80px;
           }
         }
       `}</style>

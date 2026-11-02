@@ -154,8 +154,8 @@ const Hero: React.FC = () => {
           text-decoration: none;
         }
 
-        /* The document bar drops these links on small screens. */
-        @media (max-width: 640px) {
+        /* The document bar drops these links below 900px. */
+        @media (max-width: 899px) {
           .cv-links {
             display: block;
           }

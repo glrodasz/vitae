@@ -130,6 +130,8 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         @media (min-width: 768px) {
           .carousel-navigation {
             position: relative;
+            /* With position: relative, a non-zero top would shift the tabs onto the content. */
+            top: 0;
           }
 
           .carousel-slide {
