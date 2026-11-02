@@ -10,6 +10,7 @@ import {
 } from "../data/site";
 import Profile from "../components/organisms/Profile";
 import Career from "../components/organisms/Career";
+import Projects from "../components/organisms/Projects";
 import Footer from "../components/organisms/Footer";
 import Skills from "../components/organisms/Skills";
 import Knowledge from "../components/organisms/Knowledge";
@@ -53,6 +54,7 @@ const Index = () => {
         <Profile />
         <Skills />
         <Career />
+        <Projects />
         <Knowledge title={["Recognition", "& community"]} items={achievements} />
         <Knowledge title={["Knowledge", "background"]} items={knowledge} />
         <Footer />
