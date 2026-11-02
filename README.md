@@ -154,6 +154,21 @@ Stack: TypeScript, Python, Go, Rust, PHP, Elixir
   - JavaScript Backend Career — 80 Hours, March 2019
   - English Career — 80 Hours, March 2019
   - Frontend Architect Career — 80 Hours, December 2018
+- **Actívate** — Google Analytics Course _(40 Hours, December 2017)_
+- **Coursera**
+  - Swift: programming for iOS — 30 Hours, March 2016
+  - Web Application Development with JavaScript and MongoDB — 8 Hours, March 2016
+  - Introduction to Meteor.js development — 12 Hours, February 2016
+- **Mejorando.la**
+  - Professional Backend Course — 12 Hours, February 2014
+  - Professional Frontend Course — 12 Hours, July 2013
+  - HTML5 Course — 20 Hours, July 2012
+- **Amazon Web Services** — AWS Business Professional Accreditation _(10 Hours, June 2014)_
+- **SENA**
+  - Database Design in SQL — 40 Hours, November 2010
+  - Variables and structures of control in POO: JAVA — 40 Hours, November 2010
+- **Universidad Nacional de Colombia** — Web programming with PHP and MySQL _(50 Hours, July 2010)_
+- **Institución Educativa Concejo de Medellín** — Middle Technical in Multimedia production and Software Design _(280 Hours, December 2007)_
 
 ## Seminars
 
