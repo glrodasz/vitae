@@ -1,22 +1,23 @@
 #!/bin/sh
 set -e
 
-echo "Running generate:readme before push..."
+echo "Running generate:readme and generate:resume-md before push..."
 
 yarn generate:readme
+yarn generate:resume-md
 
-if ! git diff --quiet README.md; then
+if ! git diff --quiet README.md resume.md; then
   echo ""
-  echo "ERROR: README.md was updated by 'yarn generate:readme' but has not been committed."
+  echo "ERROR: README.md or resume.md was regenerated but not committed."
   echo ""
-  echo "Please commit the updated README.md and then push again:"
+  echo "Please commit the updated files and then push again:"
   echo ""
-  echo "  git add README.md"
-  echo "  git commit -m 'docs: update generated README'"
+  echo "  git add README.md resume.md"
+  echo "  git commit -m 'docs: update generated README and resume'"
   echo "  git push"
   echo ""
   exit 1
 fi
 
-echo "README.md is up to date. Proceeding with push."
+echo "README.md and resume.md are up to date. Proceeding with push."
 exit 0

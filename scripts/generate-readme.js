@@ -302,4 +302,8 @@ function main() {
   fs.writeFileSync(path.join(projectRoot, "README.md"), `${output}\n`, "utf8");
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { loadTsModule, formatLink, projectRoot };

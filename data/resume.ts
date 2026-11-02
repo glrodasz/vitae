@@ -49,8 +49,24 @@ export const resumeExperience: ResumeExperience[] = careers.map((career) => ({
 
 export const resumeProjects = projects;
 
+/** Most relevant first; groups not listed keep their data order after these. */
+const skillOrder = [
+  "AI & LLM",
+  "AI-first engineering",
+  "Backend platforms",
+  "Frontend frameworks",
+  "Cloud & DevOps",
+  "Data",
+];
+
+const skillRank = (title: string) => {
+  const index = skillOrder.indexOf(title);
+  return index === -1 ? skillOrder.length : index;
+};
+
 export const resumeSkills: ResumeLine[] = [...stack, ...frameworks]
   .filter((item) => item.resume)
+  .sort((a, b) => skillRank(a.title) - skillRank(b.title))
   .map((item) => ({ label: item.title, text: item.resume as string }));
 
 export const resumeEducation: ResumeLine[] = knowledge

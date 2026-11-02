@@ -6,6 +6,7 @@ on:
     paths:
       - 'data/**'
       - 'scripts/generate-readme.js'
+      - 'scripts/generate-resume-md.js'
 
 jobs:
   generate-readme:
@@ -31,13 +32,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Generate README
-        run: node scripts/generate-readme.js
+      - name: Generate README and resume.md
+        run: |
+          node scripts/generate-readme.js
+          node scripts/generate-resume-md.js
 
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet README.md; then
+          if git diff --quiet README.md resume.md; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -48,6 +51,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "docs: auto-generate README from data"
+          git add README.md resume.md
+          git commit -m "docs: auto-generate README and resume.md from data"
           git push
