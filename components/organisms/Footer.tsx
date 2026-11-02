@@ -33,12 +33,6 @@ const Footer: React.FC = () => {
                     guillermorodas.com
                   </Link>
                 </div>
-                <div className="footer-icon-item">
-                  <Icon name="bubble" />
-                  <Link href="https://undefined.sh" isInverted>
-                    undefined.sh
-                  </Link>
-                </div>
               </div>
               <div className="footer-social">
                 <Heading size="xxs" isInverted isMarginless>
@@ -51,10 +45,10 @@ const Footer: React.FC = () => {
                   <Link href="https://twitch.tv/guillermorodas" isInline>
                     <Icon name="twitch" hasBackground />
                   </Link>
-                  <Link href="https://x.com/guillermorodas" isInline>
+                  <Link href="https://x.com/germorodas" isInline>
                     <Icon name="x" hasBackground />
                   </Link>
-                  <Link href="https://instagram.com/_guillermorodas" isInline>
+                  <Link href="https://instagram.com/germorodas" isInline>
                     <Icon name="instagram" hasBackground />
                   </Link>
                 </div>

@@ -36,8 +36,8 @@ export const sameAs = [
   "https://guillermorodas.com",
   "https://youtube.com/c/guillermorodas",
   "https://twitch.tv/guillermorodas",
-  "https://x.com/guillermorodas",
-  "https://instagram.com/_guillermorodas",
+  "https://x.com/germorodas",
+  "https://instagram.com/germorodas",
 ] as const;
 
 export const personJsonLd = {
