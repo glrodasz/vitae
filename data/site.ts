@@ -10,12 +10,15 @@ export const siteUrl =
 
 export const pageTitle = "Guillermo Rodas | Curriculum Vitae";
 
-export const printPageTitle = "Guillermo Rodas | Curriculum Vitae (Print)";
+export const resumePageTitle = "Guillermo Rodas · CV";
+
+/** Static PDF generated from /resume by scripts/generate-pdf.mjs. */
+export const pdfPath = "/guillermo-rodas-cv.pdf";
 
 export const defaultDescription = `Senior Full-stack AI Engineer in Sweden building production AI systems: agents, RAG and MCP. ${yearsOfExperience} years across web, backend and developer enablement.`;
 
-export const printDescription =
-  "Print-friendly curriculum vitae for Guillermo Rodas — senior full-stack engineer, educator, and community contributor.";
+export const resumeDescription =
+  "Short CV of Guillermo Rodas, Senior Full-stack AI Engineer in Sweden.";
 
 // FIXME: Create a proper image for social networks
 export const ogImagePath = "/images/guillermo-rodas.png";

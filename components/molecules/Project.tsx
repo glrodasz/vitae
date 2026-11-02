@@ -54,13 +54,6 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
           gap: 4px;
           overflow-wrap: anywhere;
         }
-
-        @media print {
-          .project {
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
-          }
-        }
       `}</style>
     </>
   );

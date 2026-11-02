@@ -4,8 +4,6 @@ import { useSwipeable } from "react-swipeable";
 
 import CarouselHeader from "./CarouselHeader";
 import CarouselSubheader from "./CarouselSubheader";
-import Heading from "../atoms/Heading";
-import Paragraph from "../atoms/Paragraph";
 
 interface CarouselItem {
   title: string;
@@ -16,10 +14,9 @@ interface CarouselItem {
 
 interface CarouselProps {
   items: CarouselItem[];
-  isFlattened?: boolean;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
+const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const carouselNavRef = useRef<HTMLDivElement>(null);
@@ -51,75 +48,6 @@ const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
     trackTouch: true,
   });
 
-  // Flattened mode: render all items as a simple vertical stack
-  if (isFlattened) {
-    return (
-      <>
-      <div className="carousel-container carousel-container--flattened">
-        {items.map((item, index) => (
-          <div key={index} className="carousel-slide carousel-slide--flattened">
-            {item.title && (
-              <Heading tag="h3" size="sm" weight="bold" isMarginless>
-                {item.title}
-                </Heading>
-              )}
-              {item.subtitle && (
-                <Heading tag="h4" size="xs" weight="bold" isMarginless>
-                  {item.subtitle}
-                </Heading>
-              )}
-              {item.heading && (
-                <Paragraph color="secondary" isMarginless>
-                  {item.heading}
-                </Paragraph>
-              )}
-              {item.content}
-            </div>
-          ))}
-        </div>
-        <style jsx>{`
-          .carousel-container--flattened {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            width: 100%;
-          }
-
-          .carousel-slide--flattened {
-            width: 100%;
-          }
-
-          .carousel-slide--flattened > :global(.knowledge-masonry) {
-            display: block;
-          }
-
-          .carousel-slide--flattened > :global(.heading:first-child) {
-            margin-bottom: 10px;
-          }
-
-          .carousel-slide--flattened > :global(.heading:nth-child(2)) {
-            margin-bottom: 8px;
-          }
-
-          .carousel-slide--flattened > :global(.paragraph) {
-            margin-bottom: 20px;
-          }
-
-          .carousel-slide--flattened > :global(.paragraph.color-secondary) {
-            color: var(--text);
-          }
-
-          @media print {
-            .carousel-container--flattened {
-              gap: 30px;
-            }
-          }
-        `}</style>
-      </>
-    );
-  }
-
-  // Normal interactive mode
   return (
     <>
       <div
@@ -206,27 +134,6 @@ const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
 
           .carousel-slide {
             padding: 0;
-          }
-        }
-
-        @media print {
-          .carousel-navigation {
-            display: none !important;
-            position: relative !important;
-          }
-
-          .carousel-slide {
-            height: auto !important;
-            opacity: 1 !important;
-            padding: 0 !important;
-          }
-
-          .carousel-slide > :global(.knowledge-masonry) {
-            display: block !important;
-          }
-
-          .carousel-container {
-            gap: 30px;
           }
         }
       `}</style>

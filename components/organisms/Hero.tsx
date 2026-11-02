@@ -186,27 +186,6 @@ const Hero: React.FC = () => {
             bottom: 0;
           }
         }
-
-        @media print {
-          header {
-            box-shadow: none !important;
-            min-height: auto !important;
-          }
-
-          .hero-theme-toggle {
-            display: none !important;
-          }
-
-          .hero-layout {
-            gap: 30px;
-          }
-
-          .hero-photo {
-            max-width: 400px !important;
-            max-height: 400px !important;
-            object-fit: contain !important;
-          }
-        }
       `}</style>
     </>
   );

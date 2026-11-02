@@ -86,54 +86,6 @@ const Job: React.FC<JobProps> = ({ career }) => {
             align-items: flex-start;
           }
         }
-
-        @media print {
-          .job {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 35px !important;
-            grid-template-areas:
-              "header achievements"
-              "about achievements"
-              "functions achievements" !important;
-          }
-
-          .job-header {
-            grid-area: header !important;
-            align-items: flex-start !important;
-          }
-
-          .job-header :global(.logo) {
-            max-width: 200px !important;
-            width: 100% !important;
-            height: auto !important;
-          }
-
-          .job-header :global(a) {
-            text-align: left !important;
-            align-self: flex-start !important;
-          }
-
-          .job > div:nth-child(2) {
-            grid-area: about !important;
-          }
-
-          .job > div:nth-child(3) {
-            grid-area: functions !important;
-          }
-
-          .job-achievements {
-            grid-area: achievements !important;
-            grid-column: 2 !important;
-            grid-row: 1 / 5 !important;
-          }
-
-          .job-achievements-list {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 15px;
-          }
-        }
       `}</style>
     </>
   );

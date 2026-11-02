@@ -10,6 +10,15 @@
 	--gray: #B3B3B3;
 	--light-cream: #FEFADF;
 	
+	/* Brand: shared with guillermorodas.com */
+	--font-headings: "DM Sans", "Inter", sans-serif;
+	--font-body: "Inter", system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, monospace;
+	--supernova: #edb305;
+	--supernova-deep: #cd8901;
+	--on-accent: #1a1a1a;
+	--accent: var(--supernova);
+
 	/* Theme variables */
 	--background: var(--white);
 	--text: var(--black);
@@ -99,83 +108,3 @@
     background: var(--background);
     z-index: -1;
   }
-
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-
-@media print {
-  /* Page setup */
-  @page {
-    size: A4;
-    margin: 12mm;
-  }
-
-  /* Force color printing - preserve backgrounds and colors */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-
-  /* Remove animations and transitions */
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  /* Root and body adjustments */
-  html {
-    font-size: 10px;
-  }
-
-  body {
-    background-color: var(--background) !important;
-  }
-
-  body.footer-visible {
-    background-color: var(--background) !important;
-  }
-
-  body.footer-visible::before {
-    display: none;
-  }
-
-  /* Ensure images print correctly */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Preserve layout systems */
-  [style*="display: flex"],
-  [style*="display: grid"] {
-    display: inherit !important;
-  }
-
-  /* Section headings - left align for print */
-  .heading.is-centered {
-    text-align: left !important;
-  }
-
-  /* Links - remove underlines */
-  a {
-    text-decoration: none;
-  }
-
-  /* Ensure proper contrast for print */
-  h1, h2, h3, h4, h5, h6, p, span, div {
-    color: inherit;
-  }
-
-  /* SVG and icon adjustments */
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-
-}

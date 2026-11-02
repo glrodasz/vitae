@@ -65,15 +65,6 @@ const Card: React.FC<CardProps> = ({ title, subtitle, items, isInverted }) => {
         .card--inverted :global(.paragraph) {
           color: var(--white);
         }
-
-        @media print {
-          .card {
-            width: 100% !important;
-            max-width: 100% !important;
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
-          }
-        }
       `}</style>
     </>
   );

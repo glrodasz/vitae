@@ -134,13 +134,6 @@ const Footer: React.FC = () => {
             object-position: center 150px;
           }
         }
-
-        @media print {
-          footer {
-            break-before: page;
-            page-break-before: always;
-          }
-        }
       `}</style>
     </>
   );

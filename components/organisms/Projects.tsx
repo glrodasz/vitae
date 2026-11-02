@@ -2,16 +2,13 @@ import React from "react";
 import PageContainer from "../layout/PageContainer";
 import Heading from "../atoms/Heading";
 import Project from "../molecules/Project";
-import { useViewMode } from "../../contexts/ViewModeContext";
 import { projects } from "../../data/projects";
 
 const Projects: React.FC = () => {
-  const { isFlattened } = useViewMode();
-
   return (
     <>
       <PageContainer>
-        <Heading size="md" isCentered={!isFlattened}>
+        <Heading size="md" isCentered>
           <strong>Selected</strong> projects
         </Heading>
         <div className="projects-grid">
@@ -32,13 +29,6 @@ const Projects: React.FC = () => {
           .projects-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 30px 50px;
-          }
-        }
-
-        @media print {
-          .projects-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 25px 40px !important;
           }
         }
       `}</style>

@@ -3,16 +3,12 @@ import PageContainer from "../layout/PageContainer";
 import Carousel from "../molecules/Carousel";
 import SkillCards from "../molecules/SkillCards";
 import SkillList from "../molecules/SkillList";
-import { useViewMode } from "../../contexts/ViewModeContext";
 import data from "../../data";
 
 const Skills: React.FC = () => {
-  const { isFlattened } = useViewMode();
-
   return (
     <PageContainer withCarousel>
       <Carousel
-        isFlattened={isFlattened}
         items={[
           {
             title: "Expertise",
