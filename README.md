@@ -1,8 +1,8 @@
 # Summary
 
-Senior Full-stack AI Engineer with 13+ years of experience building production systems at the intersection of web engineering and AI.
+Senior Full-stack AI Engineer with 14 years of experience building production systems at the intersection of web engineering and AI.
 
-At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations. Previously, I built microfrontend platform infrastructure at Klarna (serving 87M+ global consumers) and shipped identity management products at Auth0 during its hypergrowth from startup to $1B+ valuation.
+At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations. Previously, I built microfrontend platform infrastructure at Klarna (serving 87M+ global consumers) and shipped identity management products at Auth0 during its hypergrowth from startup to $1B+ valuation. Outside work, I build open-source agents on Google ADK and Gemini, designed so the model proposes and deterministic code decides.
 
 I combine deep JavaScript, TypeScript, and React expertise with hands-on AI engineering (RAG, agents, embeddings) and a strong track record of developer enablement, as a former Google Developer Expert (2019–2025), international conference speaker, and bootcamp instructor who has trained hundreds of developers across Latin America and Europe.
 
@@ -33,11 +33,11 @@ Former Google Developer Expert
 
 # Stack
 
-- **AI & LLM** — LangChain, LangSmith, Google ADK, CopilotKit, PGVector, RAG pipelines, prompt engineering, and LLM API integrations with OpenAI, Anthropic, and Google.
+- **AI & LLM** — LangChain, LangSmith, Google ADK, CopilotKit, PGVector, RAG pipelines, MCP servers and connectors, Gemini on Vertex AI, Ollama for local models, agent evals (prompt injection, grounding checks) and cost guardrails, prompt engineering, and LLM API integrations with OpenAI, Anthropic, and Google.
 - **Data** — PostgreSQL, BigQuery, MySQL, MongoDB, ElasticSearch, Kafka, and Firebase/Firestore, managing and querying datasets across millions of records in production.
-- **Cloud & DevOps** — GCP (CloudRun, CloudBuild, BigQuery, BigTable), AWS (S3, EC2, SQS, DynamoDB), Docker, Kubernetes, Datadog, CI/CD pipelines, and Linux (CentOS, Debian).
+- **Cloud & DevOps** — GCP (CloudRun, CloudBuild, Cloud Workflows, BigQuery, BigTable), AWS (S3, EC2, SQS, DynamoDB), Cloudflare (Workers, D1, Pages), Firebase Hosting, Docker, Kubernetes, Datadog, CI/CD pipelines, and Linux (CentOS, Debian).
 - **Auth & Identity** — OAuth, OIDC, Auth0, Firebase Auth, and WebAuthn/Passkeys integrated with providers such as Google, Meta, Spotify, and X for secure authentication flows.
-- **Backend platforms** — Node.js with Express and Hapi.js, Python services, GraphQL via Apollo and GraphQL Mesh, and REST APIs powering scalable server-side solutions.
+- **Backend platforms** — Node.js with Express, Fastify and Hapi.js, Python with FastAPI, Go and Rust services, GraphQL via Apollo and GraphQL Mesh, and REST APIs powering scalable server-side solutions.
 - **Methods & Delivery** — Scrum, Kanban, Scrumban, and Lean practices, paired with Design Systems, microfrontend architecture, and hands-on technical training for teams.
 
 # Frameworks
@@ -46,7 +46,7 @@ Former Google Developer Expert
 - **Testing** — Jest, Vitest, and Playwright for unit, integration, and end-to-end coverage, complemented by Storybook interaction tests and snapshot testing for regression prevention.
 - **UI systems** — Storybook for component development, Design Tokens for consistent branding, and Tailwind CSS, Material Design, and Ant Design for adaptable UI solutions.
 - **Build tooling** — Webpack and Vite production setups, plus NPM scripts and Yarn Workspaces for managing monorepos and dependency graphs across teams.
-- **Reactive platforms** — Meteor for reactive full-stack and mobile applications, leveraging its real-time data and pub/sub capabilities.
+- **AI-first engineering** — Agent workflows with Claude Code and Cursor, reusable agent skills, and PR-based review.
 
 # Careers
 
@@ -57,6 +57,8 @@ About: EQT is a global investment organization managing €350B+ in assets. Its 
 Functions: Senior Full-stack AI Engineer.
 
 ### Achievements
+- Forward Deployed Engineer, Infrastructure. Take the investment team's hackathon prototypes to production, starting with agentic screening of add-on M&A targets and an earnings-call screener for listed infrastructure companies, delivered as reusable agent skills over MCP data connectors.
+- AI Platform. Contributed to EQT's internal platform for AI agents (model gateway, agent identity, MCP layer); defined its adoption funnel metrics and built the dashboard tracking agent registrations, model traffic and MCP tool usage.
 - AI-Powered Deal Intelligence Tools. Built and shipped internal AI tools that leverage LLMs to streamline investment opportunity screening and enable faster, data-driven decision-making. Implemented RAG pipelines with PGVector for semantic search over proprietary deal data, and integrated LangChain-based workflows with LangSmith observability for production monitoring. Tech: Next.js, TypeScript, Python, LangChain, LangSmith, Google ADK, CopilotKit, PostgreSQL, PGVector, GCP, BigQuery, ElasticSearch, Datadog.
 - Design System Foundations. Established the foundations of a shared Design System with component scaffolding and automated testing infrastructure, enabling consistent UI/UX patterns across internal products and reducing frontend fragmentation across teams. Tech: React, TypeScript, Storybook, Playwright, Design Tokens.
 - Engineering Culture & Tech Debt Reduction. Led cross-team technical improvement initiatives, introduced new technologies, and organized recurring knowledge-sharing sessions that improved engineering practices and accelerated onboarding for new team members.
@@ -109,6 +111,35 @@ Functions: Full-stack Developer.
 - Platform Engineering. Played a key role in multiple corporate projects using MySQL and Java (Spring, Hibernate), and led the definition of the frontend architecture and tech stack for the company's products. Tech: Java, Spring, Hibernate, MySQL, JavaScript.
 - Process Modernization. Drove the migration from SVN to Git and championed the adoption of Scrum, fundamentally improving development velocity and team collaboration.
 
+# Selected Projects
+
+## Haggler
+Google ADK + Gemini agents tracking subscription prices in 67 countries. Grounded research, deterministic verdicts, hard cost ceilings.
+
+Stack: Python, Vertex AI, Astro
+- Repo: [github.com/glrodasz/haggler-agent](https://github.com/glrodasz/haggler-agent)
+- Live: [haggler.guillermorodas.com](https://haggler.guillermorodas.com)
+
+## Nido
+Family viewing agent on ADK + Gemini, with prompt-injection evals and a shared multi-family app in three languages.
+
+Stack: Python, Firebase, Astro
+- Repo: [github.com/glrodasz/nido-agent](https://github.com/glrodasz/nido-agent)
+- Live: [nido.guillermorodas.com](https://nido.guillermorodas.com)
+
+## Walleto
+Personal-finance planner with multi-currency and net worth.
+
+Stack: Next.js, TypeScript, Firestore, Auth0
+- Repo: [github.com/glrodasz/walleto](https://github.com/glrodasz/walleto)
+- Live: [walleto.guillermorodas.com](https://walleto.guillermorodas.com)
+
+## cero-api
+One API in six languages, held to a single contract test suite.
+
+Stack: TypeScript, Python, Go, Rust, PHP, Elixir
+- Repo: [github.com/glrodasz/cero-api](https://github.com/glrodasz/cero-api)
+
 # Knowledge
 
 ## Education
@@ -123,30 +154,6 @@ Functions: Full-stack Developer.
   - JavaScript Backend Career — 80 Hours, March 2019
   - English Career — 80 Hours, March 2019
   - Frontend Architect Career — 80 Hours, December 2018
-- **Actívate** — Google Analytics Course _(40 Hours, December 2017)_
-- **Coursera**
-  - Swift: programming for iOS — 30 Hours, March 2016
-  - Web Application Development with JavaScript and MongoDB — 8 Hours, March 2016
-  - Introduction to Meteor.js development — 12 Hours, February 2016
-- **Mejorando.la**
-  - Professional Backend Course — 12 Hours, February 2014
-  - Professional Frontend Course — 12 Hours, July 2013
-  - HTML5 Course — 20 Hours, July 2012
-- **Amazon Web Services** — AWS Business Professional Accreditation _(10 Hours, June 2014)_
-- **SENA**
-  - Database Design in SQL — 40 Hours, November 2010
-  - Variables and structures of control in POO: JAVA — 40 Hours, November 2010
-- **Universidad Nacional de Colombia** — Web programming with PHP and MySQL _(50 Hours, July 2010)_
-- **Institución Educativa Concejo de Medellín** — Middle Technical in Multimedia production and Software Design _(280 Hours, December 2007)_
-
-## Seminars
-
-- **Agiles.org** — VII Latin American Workshops on Agile Methodologies _(24 Hours, October 2014)_
-- **Campus Party Colombia**
-  - Campus Party 7 Colombia — 300 Hours, June 2014
-  - Campus Party 6 Colombia — 250 Hours, October 2013
-  - Campus Party 4 Colombia — 521 Hours, July 2011
-- **Google** — Google Developer Bus Bogota _(36 Hours, November 2013)_
 
 # Achievements
 
