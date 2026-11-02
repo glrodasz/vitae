@@ -33,6 +33,7 @@ Components follow **Atomic Design** pattern in `components/`:
 - `molecules/` - Composed components (Card, Carousel, Job, Item, SkillCards, SkillList, ThemeToggle, Country)
 - `organisms/` - Complex sections (Hero, Profile, Career, Skills, Knowledge, Footer, Relocation)
 - `layout/` - Layout components (PageContainer)
+- `resume/` - Document components for the CV at `/resume` (ResumeHeader, ResumeSection, ResumeEntry, ResumeList)
 
 All components are TypeScript (.tsx) with proper interface definitions for props.
 
@@ -40,6 +41,8 @@ All components are TypeScript (.tsx) with proper interface definitions for props
 All content lives in `data/` as TypeScript exports:
 - `achievements.ts`, `careers.ts`, `expertises.ts`, `frameworks.ts`
 - `knowledge.ts`, `languages.ts`, `stack.ts`, `summary.ts`
+- `profile.ts` (name, role, contact), `projects.ts`, `experience.ts` (years of experience)
+- `resume.ts` selects and formats the short CV from the other files (fields marked `resume`)
 - Imported via central `data/index.ts`
 - Type definitions in `types/data.ts` for all data structures
 
@@ -66,7 +69,10 @@ Theme managed through CSS custom properties in `styles/main.scss`:
 - TypeScript interfaces for all component props and data structures
 - Direct utility functions preferred over external libraries (see `utils.ts`)
 - Image optimization via Next.js `Image` component
-- Single-page layout (`pages/index.tsx`) assembling organisms
+- Single-page layout (`pages/index.tsx`) assembling organisms: the full archive
+- `/resume` (`pages/resume.tsx`) is the short, Harvard-style CV; `/print` redirects to it
+- Outputs from the same data: `README.md` (`yarn generate:readme`), `resume.md` (`yarn generate:resume-md`),
+  and `public/guillermo-rodas-cv.pdf` (`yarn generate:pdf`, run by `.github/workflows/pdf.yml`)
 - Global reset via `minireset.css`
 
 ## Important Conventions
