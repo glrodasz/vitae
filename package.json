@@ -12,6 +12,7 @@
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate:readme": "node scripts/generate-readme.js",
+    "generate:pdf": "node scripts/generate-pdf.js",
     "prepare": "git rev-parse --git-dir > /dev/null 2>&1 && git config core.hooksPath .githooks || true"
   },
   "author": "Guillermo Rodas",
