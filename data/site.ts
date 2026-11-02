@@ -1,3 +1,5 @@
+import { yearsOfExperience } from "./experience";
+
 /**
  * Canonical site URL for absolute OG/Twitter image URLs and canonical links.
  * Set NEXT_PUBLIC_SITE_URL in production (see .env.example).
@@ -10,8 +12,7 @@ export const pageTitle = "Guillermo Rodas | Curriculum Vitae";
 
 export const printPageTitle = "Guillermo Rodas | Curriculum Vitae (Print)";
 
-export const defaultDescription =
-  "Senior full-stack JavaScript engineer in Sweden. I help developers grow while shipping quality products. Google Developer Expert, Auth0 Ambassador, and Twitch Partner.";
+export const defaultDescription = `Senior Full-stack AI Engineer in Sweden building production AI systems: agents, RAG and MCP. ${yearsOfExperience} years across web, backend and developer enablement.`;
 
 export const printDescription =
   "Print-friendly curriculum vitae for Guillermo Rodas — senior full-stack engineer, educator, and community contributor.";
