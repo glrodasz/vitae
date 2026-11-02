@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import Heading from "../atoms/Heading";
-import Icon from "../atoms/Icon";
 
 interface CarouselItem {
   title: string;
@@ -47,10 +46,7 @@ const CarouselHeader: React.FC<CarouselHeaderProps> = ({ items, activeIndex, set
             onClick={() => setActiveIndex(index)}
           >
             <div className="tab-title">
-              <Icon
-                size="sm"
-                name={index === activeIndex ? "diamond" : "EMPTY"}
-              />
+              <span className="tab-marker" aria-hidden="true" />
               <Heading size="xxs" isMarginless>
                 {title}
               </Heading>
@@ -101,8 +97,20 @@ const CarouselHeader: React.FC<CarouselHeaderProps> = ({ items, activeIndex, set
 
         .tab-title {
           display: flex;
-          align-items: baseline;
+          align-items: center;
           gap: 8px;
+        }
+
+        .tab-marker {
+          width: 8px;
+          height: 8px;
+          margin: 0 2px;
+          flex-shrink: 0;
+          transform: rotate(45deg);
+        }
+
+        .tab.is-active .tab-marker {
+          background: var(--golden-yellow);
         }
       `}</style>
     </>

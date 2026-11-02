@@ -92,7 +92,7 @@ const ResumeEntry: React.FC<ResumeEntryProps> = ({
           left: -9pt;
           top: 0.62em;
           width: 4pt;
-          height: 1.2pt;
+          height: 1.5pt;
           background: var(--resume-accent-ink);
         }
       `}</style>
