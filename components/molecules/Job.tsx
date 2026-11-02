@@ -32,8 +32,15 @@ const Job: React.FC<JobProps> = ({ career }) => {
         {!!career.achievements?.length && <div className="job-achievements">
           <Heading size="xs">My achievements</Heading>
           <div className="job-achievements-list">
-            {career.achievements.map((achievement, index) => (
-              <Item key={index} icon="diamond-alt" text={achievement} />
+            {career.achievements.map((achievement) => (
+              <Item
+                key={achievement.title}
+                icon="diamond-alt"
+                type="secondary"
+                title={achievement.title}
+                text={achievement.description}
+                footer={achievement.tech?.join(" · ")}
+              />
             ))}
           </div>
         </div>}

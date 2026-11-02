@@ -3,10 +3,12 @@ import { FrameworkItem } from "../types/data";
 export const frameworks: FrameworkItem[] = [
   {
     title: "Frontend frameworks",
+    resume: "React, Next.js, TypeScript, Redux, Zustand, Storybook, Design Tokens, Tailwind CSS",
     text: "React (11+ years) with Hooks and state libraries like Redux and Zustand, Next.js for SSR and Server Components, and TypeScript across the stack.",
   },
   {
     title: "Testing",
+    resume: "Playwright, Vitest, Jest, Storybook interaction tests",
     text: "Jest, Vitest, and Playwright for unit, integration, and end-to-end coverage, complemented by Storybook interaction tests and snapshot testing for regression prevention.",
   },
   {
@@ -19,6 +21,7 @@ export const frameworks: FrameworkItem[] = [
   },
   {
     title: "AI-first engineering",
+    resume: "Claude Code, Cursor, reusable agent skills, PR-based review",
     text: "Agent workflows with Claude Code and Cursor, reusable agent skills, and PR-based review.",
   },
 ];

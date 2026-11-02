@@ -174,7 +174,13 @@ function formatCareers(lines, careers) {
       addLine(lines);
       addLine(lines, "### Achievements");
       career.achievements.forEach((achievement) => {
-        addLine(lines, `- ${achievement}`);
+        const tech = achievement.tech?.length
+          ? ` _Tech: ${achievement.tech.join(", ")}._`
+          : "";
+        addLine(
+          lines,
+          `- **${achievement.title}.** ${achievement.description}${tech}`
+        );
       });
     }
     if (index !== careers.length - 1) {

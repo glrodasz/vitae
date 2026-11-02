@@ -4,6 +4,14 @@ export interface Language {
   proeficiency: string;
 }
 
+export interface Achievement {
+  title: string;
+  description: string;
+  tech?: string[];
+  /** Short bullet for the one-page CV. Omit to keep it off the CV. */
+  resume?: string;
+}
+
 export interface Career {
   date: string | null;
   startDate: string;
@@ -11,19 +19,24 @@ export interface Career {
   company: string;
   url: string;
   logo: string;
+  /** One-line company description for the CV. */
+  tagline: string;
   about: string;
   functions: string;
-  achievements: string[];
+  achievements: Achievement[];
 }
 
 export interface StackItem {
   title: string;
   text: string;
+  /** Comma-separated keywords for the CV. Omit to keep it off the CV. */
+  resume?: string;
 }
 
 export interface FrameworkItem {
   title: string;
   text: string;
+  resume?: string;
 }
 
 export interface ExpertiseItem {
@@ -36,6 +49,8 @@ export interface KnowledgeItem {
   title: string;
   text: string | string[][];
   footer?: string;
+  /** Show this item on the CV. */
+  resume?: boolean;
 }
 
 export interface KnowledgeSection {
@@ -47,6 +62,8 @@ export interface AchievementItem {
   title: string;
   text: string | string[][];
   footer?: string;
+  /** Show this item on the CV. */
+  resume?: boolean;
 }
 
 export interface AchievementSection {
@@ -72,4 +89,18 @@ export interface Project {
   description: string;
   stack: string[];
   links: ProjectLink[];
+}
+
+export interface ContactLink {
+  label: string;
+  url: string;
+}
+
+export interface Profile {
+  name: string;
+  role: string;
+  location: string;
+  website: ContactLink;
+  email: string;
+  links: ContactLink[];
 }
