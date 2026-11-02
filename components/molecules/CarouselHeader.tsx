@@ -51,7 +51,7 @@ const CarouselHeader: React.FC<CarouselHeaderProps> = ({ items, activeIndex, set
                 size="sm"
                 name={index === activeIndex ? "diamond" : "EMPTY"}
               />
-              <Heading size="xxs" isMarginless freezeColor={true}>
+              <Heading size="xxs" isMarginless>
                 {title}
               </Heading>
             </div>
@@ -69,22 +69,34 @@ const CarouselHeader: React.FC<CarouselHeaderProps> = ({ items, activeIndex, set
         }
 
         .tab {
-          background: var(--golden-yellow);
-          width: 100%;
+          flex: 1 0 auto;
           text-align: center;
           padding: 10px 20px;
           cursor: pointer;
           display: flex;
           justify-content: center;
+          border-bottom: 2px solid var(--border);
+          transition: border-color 0.2s ease;
         }
 
-        .tab:not(.is-active) {
-          opacity: 0.5;
+        .tab :global(.heading) {
+          font-family: var(--font-mono);
+          font-weight: normal;
+          letter-spacing: 0.02em;
+          color: var(--heading-secondary);
         }
 
-        :global(.dark) .tab:not(.is-active) {
-          opacity: 1;
-          background: var(--light-cream);
+        .tab.is-active {
+          border-bottom-color: var(--golden-yellow);
+        }
+
+        .tab.is-active :global(.heading) {
+          font-weight: bold;
+          color: var(--text);
+        }
+
+        .tab:hover :global(.heading) {
+          color: var(--text);
         }
 
         .tab-title {

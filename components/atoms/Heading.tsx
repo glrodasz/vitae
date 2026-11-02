@@ -46,13 +46,13 @@ const Heading = ({
       </Tag>
       <style jsx>{`
         .heading {
-          font-family: "Hind", sans-serif;
+          font-family: var(--font-headings);
           line-height: 1;
           margin-bottom: 5px;
         }
 
         .heading :global(strong) {
-          color: var(--golden-yellow);
+          color: var(--primary);
         }
 
         .color-primary {

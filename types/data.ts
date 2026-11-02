@@ -99,6 +99,8 @@ export interface ContactLink {
 export interface Profile {
   name: string;
   role: string;
+  /** One-line pitch shown under the role on the web CV. */
+  tagline: string;
   location: string;
   website: ContactLink;
   email: string;

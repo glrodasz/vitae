@@ -8,7 +8,7 @@ export const siteUrl =
   (typeof process !== "undefined" && process.env.NEXT_PUBLIC_SITE_URL) ||
   "https://vitae.guillermorodas.com";
 
-export const pageTitle = "Guillermo Rodas | Curriculum Vitae";
+export const pageTitle = "Guillermo Rodas · Curriculum Vitae";
 
 export const resumePageTitle = "Guillermo Rodas · CV";
 

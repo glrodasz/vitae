@@ -1,10 +1,10 @@
 :root {
-	--golden-yellow: #f7df1d;
+	--golden-yellow: #edb305; /* Supernova 300, as on guillermorodas.com */
 	--scooter: #36b7c9;
 	--blue: #43B1F8;
-	--black: #000;
-	--storm-dust: #616161;
-	--bunker: #1A1A1A;
+	--black: #1a1a1a;
+	--storm-dust: #5c5c5c;
+	--bunker: #141414;
 	--white: #fff;
 	--concrete: #f3f1f1;
 	--gray: #B3B3B3;
@@ -21,13 +21,15 @@
 
 	/* Theme variables */
 	--background: var(--white);
-	--text: var(--black);
+	--text: #292929;
 	--text-inverted: var(--white);
-	--primary: var(--scooter);
+	--primary: var(--supernova-deep);
 	--secondary: var(--storm-dust);
 	--paragraph-primary: var(--storm-dust);
 	--paragraph-secondary: var(--black);
-	--heading-secondary: var(--scooter);
+	--heading-secondary: var(--storm-dust);
+	--surface: #f5f5f5;
+	--border: #e3e3e3;
 	--carousel-nav-bg: rgba(255, 255, 255, 0.8);
   --logo-shadow: rgba(255, 255, 255, 0.9);
   --relocation-connector-icon: var(--storm-dust);
@@ -39,11 +41,13 @@
     --background: var(--bunker);
     --text: var(--white);
     --text-inverted: var(--black);
-    --primary: var(--light-cream);
+    --primary: var(--supernova);
     --secondary: var(--concrete);
-    --paragraph-primary: var(--light-cream);
+    --paragraph-primary: #d6d6d6;
     --paragraph-secondary: var(--black);
-    --heading-secondary: var(--blue);
+    --heading-secondary: var(--gray);
+    --surface: #1f1f1f;
+    --border: #333333;
     --carousel-nav-bg: rgba(26, 26, 26, 0.85);
     --logo-shadow: rgba(0, 0, 0, 0.9);
     --relocation-connector-icon: var(--white);
@@ -52,13 +56,15 @@
   
   @mixin light-theme {
     --background: var(--white);
-    --text: var(--black);
+    --text: #292929;
     --text-inverted: var(--white);
-    --primary: var(--scooter);
+    --primary: var(--supernova-deep);
     --secondary: var(--storm-dust);
     --paragraph-primary: var(--storm-dust);
     --paragraph-secondary: var(--black);
-    --heading-secondary: var(--scooter);
+    --heading-secondary: var(--storm-dust);
+    --surface: #f5f5f5;
+    --border: #e3e3e3;
     --carousel-nav-bg: rgba(255, 255, 255, 0.8);
     --relocation-connector-icon: var(--storm-dust);
     --relocation-connector-stroke: var(--background);

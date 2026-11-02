@@ -9,8 +9,8 @@ const SkillCards: React.FC<SkillCardsProps> = ({ skills }) => {
   return (
     <>
       <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <Card key={skill.title} {...skill} isInverted={index % 2 !== 0} />
+        {skills.map((skill) => (
+          <Card key={skill.title} {...skill} />
         ))}
       </div>
       <style jsx>{`
