@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({ title, subtitle, items, isInverted }) => {
         />
         <div className="card-items">
         {items.map((item) => (
-          <Paragraph key={item} size="sm" color="secondary" isMarginless>{item}.</Paragraph>
+          <Paragraph key={item} size="sm" color="secondary" isMarginless>{item}</Paragraph>
         ))}
         </div>
       </div>
