@@ -76,6 +76,15 @@ const Job: React.FC<JobProps> = ({ career }) => {
           align-items: center;
         }
 
+        /* One logo box for every company: wide marks hit the width, tall ones the height. */
+        .job-header :global(.logo) {
+          width: 220px;
+          max-width: 100%;
+          height: 64px;
+          aspect-ratio: auto;
+          object-fit: contain;
+        }
+
         .job-details {
           display: flex;
           flex-direction: column;
@@ -103,6 +112,10 @@ const Job: React.FC<JobProps> = ({ career }) => {
 
           .job-header {
             align-items: flex-start;
+          }
+
+          .job-header :global(.logo) {
+            object-position: left center;
           }
 
           .job-achievements-list {
