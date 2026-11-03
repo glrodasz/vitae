@@ -1,19 +1,11 @@
+import profileContent from "../content/profile.yml";
+import type { ProfileContent } from "../types/content";
 import { Language } from "../types/data";
 
-export const languages: Language[] = [
-  {
-    title: "English",
-    flag: "🇬🇧",
-    proeficiency: "Fluent",
-  },
-  {
-    title: "Spanish",
-    flag: "🇪🇸",
-    proeficiency: "Native",
-  },
-  {
-    title: "Swedish",
-    flag: "🇸🇪",
-    proeficiency: "Elementary",
-  },
-];
+export const languages: Language[] = (profileContent as ProfileContent).languages.map(
+  (language) => ({
+    title: language.name,
+    flag: language.flag,
+    proeficiency: language.level,
+  })
+);

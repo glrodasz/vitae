@@ -11,6 +11,7 @@ import { knowledge } from "./knowledge";
 import { achievements } from "./achievements";
 import { resumeSummary } from "./summary";
 import { profile } from "./profile";
+import { skillsContent } from "./skills";
 
 export interface ResumeExperience {
   company: string;
@@ -59,15 +60,8 @@ export const resumeExperience: ResumeExperience[] = careers.map((career) => ({
 
 export const resumeProjects = projects;
 
-/** Most relevant first; groups not listed keep their data order after these. */
-const skillOrder = [
-  "AI & LLM",
-  "AI-first engineering",
-  "Backend platforms",
-  "Frontend frameworks",
-  "Cloud & DevOps",
-  "Data",
-];
+/** Most relevant first (content/skills.yml → cvOrder); groups not listed keep their data order after these. */
+const skillOrder = skillsContent.cvOrder;
 
 const skillRank = (title: string) => {
   const index = skillOrder.indexOf(title);

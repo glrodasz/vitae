@@ -1,0 +1,32 @@
+# About you. {years} is replaced with the years of experience.
+# cv: the short summary on the CV (/resume, PDF, resume.md).
+# paragraphs: the long summary on the web CV and README.
+
+cv: >-
+  Senior Forward Deployed Engineer with {years} years of experience building
+  production systems at the intersection of web engineering and AI. At EQT Group
+  I build agents, RAG pipelines and MCP integrations for the investment teams,
+  after building microfrontend platform infrastructure at Klarna and identity
+  products at Auth0. Former Google Developer Expert, international conference
+  speaker and bootcamp instructor.
+paragraphs:
+  - >-
+    Senior Forward Deployed Engineer with {years} years of experience building
+    production systems at the intersection of web engineering and AI.
+  - >-
+    At EQT Group, I contribute to the Motherbrain ecosystem, the private equity
+    industry's pioneering AI platform, monitoring 10M+ companies, delivering
+    AI-powered tools using LangChain, PGVector, and LLM integrations.
+  - >-
+    Previously, I built microfrontend platform infrastructure at Klarna (serving
+    87M+ global consumers) and shipped identity management products at Auth0
+    during its hypergrowth from startup to $1B+ valuation.
+  - >-
+    Outside work, I build open-source agents on Google ADK and Gemini, designed
+    so the model proposes and deterministic code decides.
+  - >-
+    I combine deep JavaScript, TypeScript, and React expertise with hands-on AI
+    engineering (RAG, agents, embeddings) and a strong track record of developer
+    enablement, as a former Google Developer Expert (2019–2025), international
+    conference speaker, and bootcamp instructor who has trained hundreds of
+    developers across Latin America and Europe.

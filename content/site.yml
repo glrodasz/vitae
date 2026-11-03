@@ -1,0 +1,33 @@
+# Page titles, meta descriptions, social card text, topics and social profiles
+# (SEO and structured data).
+# {years} is replaced with the years of experience.
+
+title: Guillermo Rodas · Curriculum Vitae
+cvTitle: Guillermo Rodas · CV
+description: >-
+  Senior Forward Deployed Engineer in Sweden building production AI systems:
+  agents, RAG and MCP. {years} years across web, backend and developer
+  enablement.
+cvDescription: >-
+  Short CV of Guillermo Rodas, Senior Forward Deployed Engineer in Sweden.
+socialImageAlt: Guillermo Rodas, Senior Forward Deployed Engineer. Curriculum Vitae.
+topics:
+  - AI engineering
+  - AI agents
+  - Retrieval-augmented generation
+  - Model Context Protocol
+  - LangChain
+  - TypeScript
+  - React
+  - Next.js
+  - Node.js
+  - Python
+  - Google Cloud
+socialProfiles:
+  - https://guillermorodas.com
+  - https://linkedin.com/in/guillermorodas
+  - https://github.com/glrodasz
+  - https://youtube.com/c/guillermorodas
+  - https://twitch.tv/guillermorodas
+  - https://x.com/germorodas
+  - https://instagram.com/germorodas

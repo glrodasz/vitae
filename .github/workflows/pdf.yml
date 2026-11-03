@@ -4,12 +4,16 @@ on:
   push:
     branches: [main]
     paths:
+      - 'content/**'
       - 'data/**'
       - 'types/**'
       - 'components/resume/**'
       - 'pages/resume.tsx'
       - 'pages/_document.tsx'
       - 'styles/**'
+      - 'scripts/content-schema.js'
+      - 'scripts/yaml-loader.js'
+      - 'next.config.js'
       - 'scripts/generate-pdf.js'
       - '.github/workflows/pdf.yml'
   workflow_dispatch:

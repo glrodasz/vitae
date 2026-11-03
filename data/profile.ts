@@ -1,20 +1,17 @@
+import profileContent from "../content/profile.yml";
+import type { ProfileContent } from "../types/content";
 import { Profile } from "../types/data";
 
+const content = profileContent as ProfileContent;
+
 export const profile: Profile = {
-  name: "Guillermo Rodas",
-  role: "Senior Forward Deployed Engineer",
-  tagline:
-    "I build production AI systems and help developer communities level up.",
-  location: "Stockholm, Sweden",
-  origin: "Colombia",
-  documentLabel: "Curriculum Vitae",
-  email: "me@guillermorodas.com",
-  website: { label: "guillermorodas.com", url: "https://guillermorodas.com" },
-  links: [
-    { label: "github.com/glrodasz", url: "https://github.com/glrodasz" },
-    {
-      label: "linkedin.com/in/guillermorodas",
-      url: "https://linkedin.com/in/guillermorodas",
-    },
-  ],
+  name: content.name,
+  role: content.role,
+  tagline: content.tagline,
+  location: content.location,
+  origin: content.origin,
+  documentLabel: content.documentLabel,
+  email: content.email,
+  website: content.website,
+  links: content.links,
 };

@@ -1,4 +1,10 @@
+import siteYaml from "../content/site.yml";
+import type { SiteContent } from "../types/content";
+import { fillYears } from "./content";
 import { yearsOfExperience } from "./experience";
+import { profile } from "./profile";
+
+const content = siteYaml as SiteContent;
 
 /**
  * Canonical site URL for absolute OG/Twitter image URLs and canonical links.
@@ -11,9 +17,9 @@ export const siteUrl =
 /** Host shown in the CV's top bar so visitors know which site they are on. */
 export const siteHost = new URL(siteUrl).host;
 
-export const pageTitle = "Guillermo Rodas · Curriculum Vitae";
+export const pageTitle = content.title;
 
-export const resumePageTitle = "Guillermo Rodas · CV";
+export const resumePageTitle = content.cvTitle;
 
 /** Static PDF generated from /resume by scripts/generate-pdf.mjs. */
 export const pdfPath = "/guillermo-rodas-cv.pdf";
@@ -22,15 +28,13 @@ export const pdfDarkPath = "/guillermo-rodas-cv-dark.pdf";
 /** The PDF that matches the theme the reader is looking at. */
 export const pdfPathFor = (isDarkMode: boolean) => (isDarkMode ? pdfDarkPath : pdfPath);
 
-export const defaultDescription = `Senior Forward Deployed Engineer in Sweden building production AI systems: agents, RAG and MCP. ${yearsOfExperience} years across web, backend and developer enablement.`;
+export const defaultDescription = fillYears(content.description, yearsOfExperience);
 
-export const resumeDescription =
-  "Short CV of Guillermo Rodas, Senior Forward Deployed Engineer in Sweden.";
+export const resumeDescription = content.cvDescription;
 
 /** 1200×630 social card (Open Graph / Twitter). */
 export const ogImagePath = "/images/og-card.png";
-export const ogImageAlt =
-  "Guillermo Rodas, Senior Forward Deployed Engineer. Curriculum Vitae.";
+export const ogImageAlt = content.socialImageAlt;
 
 /** Portrait used as the Person image in structured data. */
 export const portraitPath = "/images/guillermo-rodas.png";
@@ -41,25 +45,17 @@ export function absoluteUrl(path: string): string {
   return `${base}${p}`;
 }
 
-export const sameAs = [
-  "https://guillermorodas.com",
-  "https://linkedin.com/in/guillermorodas",
-  "https://github.com/glrodasz",
-  "https://youtube.com/c/guillermorodas",
-  "https://twitch.tv/guillermorodas",
-  "https://x.com/germorodas",
-  "https://instagram.com/germorodas",
-] as const;
+export const sameAs = content.socialProfiles;
 
 export const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Guillermo Rodas",
-  jobTitle: "Senior Forward Deployed Engineer",
+  name: profile.name,
+  jobTitle: profile.role,
   description: defaultDescription,
   url: absoluteUrl("/"),
   image: absoluteUrl(portraitPath),
-  email: "mailto:me@guillermorodas.com",
+  email: `mailto:${profile.email}`,
   worksFor: { "@type": "Organization", name: "EQT Group", url: "https://eqtgroup.com" },
   address: {
     "@type": "PostalAddress",
@@ -70,19 +66,7 @@ export const personJsonLd = {
     { "@type": "CollegeOrUniversity", name: "Universidad Nacional de Colombia" },
     { "@type": "EducationalOrganization", name: "Hyper Island" },
   ],
-  knowsAbout: [
-    "AI engineering",
-    "AI agents",
-    "Retrieval-augmented generation",
-    "Model Context Protocol",
-    "LangChain",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Python",
-    "Google Cloud",
-  ],
+  knowsAbout: content.topics,
   knowsLanguage: ["en", "es", "sv"],
   sameAs: [...sameAs],
 } as const;

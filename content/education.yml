@@ -1,0 +1,78 @@
+# Education, courses and seminars. Sections and items appear in this order.
+# Use description: for a single line, or entries: (name + date) for a list.
+# cv: true puts the item on the short CV.
+
+- title: Education
+  items:
+    - title: UX Designer Upskill
+      description: Hyper Island
+      date: October 2023 – May 2024
+      cv: true
+    - title: Technical assistant in Digital Graphic Design
+      description: CENSA
+      date: October 2017 – June 2018
+    - title: Systems engineering
+      badge: Undergraduate
+      description: Universidad Nacional de Colombia
+      date: January 2007 – January 2010
+      cv: true
+- title: Courses
+  items:
+    - title: Platzi
+      entries:
+        - name: JavaScript Backend Career
+          date: 80 Hours, March 2019
+        - name: English Career
+          date: 80 Hours, March 2019
+        - name: Frontend Architect Career
+          date: 80 Hours, December 2018
+    - title: Actívate
+      description: Google Analytics Course
+      date: 40 Hours, December 2017
+    - title: Coursera
+      entries:
+        - name: "Swift: programming for iOS"
+          date: 30 Hours, March 2016
+        - name: Web Application Development with JavaScript and MongoDB
+          date: 8 Hours, March 2016
+        - name: Introduction to Meteor.js development
+          date: 12 Hours, February 2016
+    - title: Mejorando.la
+      entries:
+        - name: Professional Backend Course
+          date: 12 Hours, February 2014
+        - name: Professional Frontend Course
+          date: 12 Hours, July 2013
+        - name: HTML5 Course
+          date: 20 Hours, July 2012
+    - title: Amazon Web Services
+      description: AWS Business Professional Accreditation
+      date: 10 Hours, June 2014
+    - title: SENA
+      entries:
+        - name: Database Design in SQL
+          date: 40 Hours, November 2010
+        - name: "Variables and structures of control in POO: JAVA"
+          date: 40 Hours, November 2010
+    - title: Universidad Nacional de Colombia
+      description: Web programming with PHP and MySQL
+      date: 50 Hours, July 2010
+    - title: Institución Educativa Concejo de Medellín
+      description: Middle Technical in Multimedia production and Software Design
+      date: 280 Hours, December 2007
+- title: Seminars
+  items:
+    - title: Agiles.org
+      description: VII Latin American Workshops on Agile Methodologies
+      date: 24 Hours, October 2014
+    - title: Campus Party Colombia
+      entries:
+        - name: Campus Party 7 Colombia
+          date: 300 Hours, June 2014
+        - name: Campus Party 6 Colombia
+          date: 250 Hours, October 2013
+        - name: Campus Party 4 Colombia
+          date: 521 Hours, July 2011
+    - title: Google
+      description: Google Developer Bus Bogota
+      date: 36 Hours, November 2013
