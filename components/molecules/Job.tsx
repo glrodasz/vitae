@@ -13,63 +13,62 @@ interface JobProps {
 
 const Job: React.FC<JobProps> = ({ career }) => {
   const achievements = career.achievements ?? [];
-  // Phones read top to bottom; desktop splits into two columns that each start
-  // right below their own block, so achievements sit just under the logo.
-  const renderAchievement = (index: number) => {
-    const achievement = achievements[index];
-    return (
-      <div key={achievement.title} className="job-achievement" style={{ order: 3 + index }}>
-        <Item
-          icon="diamond-alt"
-          type="secondary"
-          title={achievement.title}
-          text={achievement.description}
-          tags={achievement.tech}
-        />
-      </div>
-    );
-  };
-  const leftIndexes = achievements.map((_, index) => index).filter((index) => index % 2 === 0);
-  const rightIndexes = achievements.map((_, index) => index).filter((index) => index % 2 === 1);
 
   return (
     <>
       <div className="job">
-        <div className="job-column">
-          <div className="job-header">
-            <Logo logoName={career.logo} shouldInvert={true} />
-            <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
-          </div>
-          {!!achievements.length && (
-            <div className="job-achievements-heading">
-              <Heading tag="h3" size="xs">Achievements</Heading>
+        {/* Desktop: logo, url and functions | about. Phones: logo, url, about, functions. */}
+        <div className="job-info">
+          <div className="job-column">
+            <div className="job-header">
+              <Logo logoName={career.logo} shouldInvert={true} />
+              <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
             </div>
-          )}
-          {leftIndexes.map(renderAchievement)}
-        </div>
-
-        <div className="job-column">
-          <div className="job-details">
-            <div>
-              <Heading tag="h3" size="xs">About</Heading>
-              <Paragraph>{career.about}</Paragraph>
-            </div>
-
-            <div>
+            <div className="job-functions">
               <Heading tag="h3" size="xs">Functions</Heading>
               <Paragraph>{career.functions}</Paragraph>
             </div>
           </div>
-          {rightIndexes.map(renderAchievement)}
+          <div className="job-column">
+            <div className="job-about">
+              <Heading tag="h3" size="xs">About</Heading>
+              <Paragraph>{career.about}</Paragraph>
+            </div>
+          </div>
         </div>
+
+        {!!achievements.length && (
+          <div className="job-achievements">
+            <Heading tag="h3" size="xs">Achievements</Heading>
+            <div className="job-achievements-list">
+              {achievements.map((achievement) => (
+                <Item
+                  key={achievement.title}
+                  icon="diamond-alt"
+                  type="secondary"
+                  title={achievement.title}
+                  text={achievement.description}
+                  tags={achievement.tech}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <style jsx>{`
         .job {
           display: flex;
           flex-direction: column;
+          gap: 25px;
         }
 
-        /* Phones: the columns dissolve and the order props restore reading order. */
+        .job-info {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        /* Phones: the columns dissolve and order restores logo, about, functions. */
         .job-column {
           display: contents;
         }
@@ -80,7 +79,14 @@ const Job: React.FC<JobProps> = ({ career }) => {
           flex-direction: column;
           gap: 15px;
           align-items: center;
-          margin-bottom: 25px;
+        }
+
+        .job-about {
+          order: 1;
+        }
+
+        .job-functions {
+          order: 2;
         }
 
         /* One logo box for every company: wide marks hit the width, tall ones the height. */
@@ -92,21 +98,18 @@ const Job: React.FC<JobProps> = ({ career }) => {
           object-fit: contain;
         }
 
-        .job-details {
-          order: 1;
+        .job-achievements {
           display: flex;
           flex-direction: column;
-          gap: 25px;
-          margin-bottom: 25px;
-        }
-
-        .job-achievements-heading {
-          order: 2;
-          margin-bottom: 10px;
+          gap: 10px;
         }
 
         @media (min-width: 1140px) {
           .job {
+            gap: 40px;
+          }
+
+          .job-info {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             column-gap: 40px;
@@ -116,11 +119,7 @@ const Job: React.FC<JobProps> = ({ career }) => {
           .job-column {
             display: flex;
             flex-direction: column;
-          }
-
-          .job-header,
-          .job-details {
-            margin-bottom: 40px;
+            gap: 25px;
             padding-left: var(--job-text-indent, 30px);
           }
 
@@ -130,6 +129,13 @@ const Job: React.FC<JobProps> = ({ career }) => {
 
           .job-header :global(.logo) {
             object-position: left center;
+          }
+
+          .job-achievements-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 40px;
+            align-items: start;
           }
         }
       `}</style>
