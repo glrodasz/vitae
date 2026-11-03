@@ -15,7 +15,7 @@ const Profile: React.FC = () => {
           <strong>Personal</strong> profile
         </Heading>
 
-        <div>
+        <div className="profile-summary">
           {data.summary.map((paragraph, index) => (
             <Paragraph key={index} size="lg" isJustified={!isMobile}>
               {paragraph}
@@ -28,6 +28,16 @@ const Profile: React.FC = () => {
           display: flex;
           flex-direction: column;
           gap: 20px;
+        }
+
+        .profile-summary {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .profile-summary :global(.paragraph) {
+          margin-bottom: 0;
         }
 
       `}</style>
