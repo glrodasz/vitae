@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
                 <Link className="cv-cta" href="/resume">
                   2-Page version
                 </Link>
-                <a className="cv-cta is-primary" href={pdfPath} download>
+                <a className="cv-cta" href={pdfPath} download>
                   Download PDF <span aria-hidden="true">↓</span>
                 </a>
               </div>
@@ -206,18 +206,6 @@ const Hero: React.FC = () => {
         .cv-ctas :global(.cv-cta:hover),
         .cv-ctas :global(.cv-cta:focus-visible) {
           border-color: var(--golden-yellow);
-          color: var(--golden-yellow);
-        }
-
-        .cv-ctas :global(.cv-cta.is-primary) {
-          background: var(--golden-yellow);
-          border-color: var(--golden-yellow);
-          color: #1a1a1a;
-        }
-
-        .cv-ctas :global(.cv-cta.is-primary:hover),
-        .cv-ctas :global(.cv-cta.is-primary:focus-visible) {
-          background: transparent;
           color: var(--golden-yellow);
         }
 

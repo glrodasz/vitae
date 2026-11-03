@@ -63,8 +63,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           display: flex;
           align-items: baseline;
           gap: 8px;
-          border: 1px solid var(--border);
-          border-radius: 999px;
+          border: none;
           cursor: pointer;
           transition: background-color 0.2s ease;
         }
@@ -75,7 +74,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
 
         .toggle-container:hover,
         .toggle-container:focus-visible {
-          border-color: var(--golden-yellow);
+          box-shadow: inset 0 0 0 1px var(--golden-yellow);
         }
 
         .switch {
