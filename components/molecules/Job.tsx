@@ -82,7 +82,7 @@ const Job: React.FC<JobProps> = ({ career }) => {
           gap: 25px;
         }
 
-        /* Desktop: logo | about + functions, then achievements in two columns. */
+        /* Desktop: company info and achievements share one two-column grid. */
         @media (min-width: 1140px) {
           .job {
             gap: 40px;
@@ -90,9 +90,15 @@ const Job: React.FC<JobProps> = ({ career }) => {
 
           .job-info {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             align-items: start;
             gap: 40px;
+          }
+
+          /* Same columns as the achievements, indented to their text past the bullet. */
+          .job-header,
+          .job-details {
+            padding-left: var(--job-text-indent, 30px);
           }
 
           .job-header {
