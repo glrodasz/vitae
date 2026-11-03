@@ -20,19 +20,21 @@ const Job: React.FC<JobProps> = ({ career }) => {
             <Logo logoName={career.logo} shouldInvert={true} />
             <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
           </div>
-          <div>
-            <Heading tag="h3" size="xs">About</Heading>
-            <Paragraph>{career.about}</Paragraph>
-          </div>
+          <div className="job-details">
+            <div>
+              <Heading tag="h3" size="xs">About</Heading>
+              <Paragraph>{career.about}</Paragraph>
+            </div>
 
-          <div>
-            <Heading tag="h3" size="xs">Functions</Heading>
-            <Paragraph>{career.functions}</Paragraph>
+            <div>
+              <Heading tag="h3" size="xs">Functions</Heading>
+              <Paragraph>{career.functions}</Paragraph>
+            </div>
           </div>
         </div>
 
         {!!career.achievements?.length && <div className="job-achievements">
-          <Heading tag="h3" size="xs">My achievements</Heading>
+          <Heading tag="h3" size="xs">Achievements</Heading>
           <div className="job-achievements-list">
             {career.achievements.map((achievement) => (
               <Item
@@ -74,32 +76,34 @@ const Job: React.FC<JobProps> = ({ career }) => {
           align-items: center;
         }
 
+        .job-details {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        /* Desktop: logo | about + functions, then achievements in two columns. */
         @media (min-width: 1140px) {
           .job {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 35px;
+            gap: 40px;
           }
 
           .job-info {
-            grid-column: 1;
-            grid-row: 1;
-            align-self: start;
-            position: sticky;
-            top: calc(var(--document-bar-height) + 24px);
-          }
-
-          .job-achievements {
-            grid-column: 2;
-            grid-row: 1;
-          }
-
-          .job-achievements > :global(.heading) {
-            margin-left: 25px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+            align-items: start;
+            gap: 40px;
           }
 
           .job-header {
             align-items: flex-start;
+          }
+
+          .job-achievements-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 40px;
+            align-items: start;
           }
         }
       `}</style>
