@@ -10,16 +10,36 @@ import { pdfPath } from "../../data/site";
  * CV masthead: a record card with the essentials, not a marketing hero.
  */
 const Hero: React.FC = () => {
-  const facts: { label: string; value: string; href?: string; isWide?: boolean }[] = [
+  const languageList = (
+    <span className="cv-languages">
+      {languages.map((language, index) => (
+        <React.Fragment key={language.title}>
+          {index > 0 && (
+            <span className="cv-separator" aria-hidden="true">
+              •
+            </span>
+          )}
+          <span className="cv-language">
+            {language.title} <span className="cv-level">{language.proeficiency}</span>
+          </span>
+        </React.Fragment>
+      ))}
+    </span>
+  );
+
+  const facts: {
+    label: string;
+    value: React.ReactNode;
+    href?: string;
+    isWide?: boolean;
+  }[] = [
     { label: "Role", value: profile.role },
     { label: "Based in", value: profile.location },
     { label: "Experience", value: `${yearsOfExperience} years` },
     { label: "Contact", value: profile.email, href: `mailto:${profile.email}` },
     {
       label: "Languages",
-      value: languages
-        .map((language) => `${language.title} (${language.proeficiency.toLowerCase()})`)
-        .join(", "),
+      value: languageList,
       isWide: true,
     },
   ];
@@ -120,6 +140,41 @@ const Hero: React.FC = () => {
           color: inherit;
           text-decoration: none;
           border-bottom: 1px solid var(--golden-yellow);
+        }
+
+        .cv-facts :global(.cv-languages) {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 4px 12px;
+        }
+
+        .cv-facts :global(.cv-language) {
+          white-space: nowrap;
+        }
+
+        .cv-facts :global(.cv-level) {
+          margin-left: 2px;
+          color: var(--heading-secondary);
+          font-family: var(--font-mono);
+          font-size: 0.75em;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+        }
+
+        .cv-facts :global(.cv-separator) {
+          color: var(--golden-yellow);
+        }
+
+        /* On narrow screens each language gets its own line, no separators. */
+        @media (max-width: 639px) {
+          .cv-facts :global(.cv-languages) {
+            flex-direction: column;
+          }
+
+          .cv-facts :global(.cv-separator) {
+            display: none;
+          }
         }
 
         .cv-ctas {
