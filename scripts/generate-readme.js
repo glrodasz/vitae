@@ -221,8 +221,9 @@ function formatKnowledge(lines, knowledge) {
 
     section.items.forEach((item) => {
       const text = item.text;
+      const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
       if (Array.isArray(text)) {
-        addLine(lines, `- **${item.title}**`);
+        addLine(lines, `- **${title}**`);
         text.forEach((entry) => {
           const [title, detail] = entry;
           addLine(lines, `  - ${title} — ${detail}`);
@@ -232,7 +233,7 @@ function formatKnowledge(lines, knowledge) {
         }
       } else {
         const footer = item.footer ? ` _(${item.footer})_` : "";
-        addLine(lines, `- **${item.title}** — ${text}${footer}`);
+        addLine(lines, `- **${title}** — ${text}${footer}`);
       }
     });
 
@@ -254,8 +255,9 @@ function formatAchievements(lines, achievements) {
 
     section.items.forEach((item) => {
       const text = item.text;
+      const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
       if (Array.isArray(text)) {
-        addLine(lines, `- **${item.title}**`);
+        addLine(lines, `- **${title}**`);
         text.forEach((entry) => {
           const [title, detail] = entry;
           addLine(lines, `  - ${title} — ${detail}`);
@@ -265,7 +267,7 @@ function formatAchievements(lines, achievements) {
         }
       } else {
         const footer = item.footer ? ` _(${item.footer})_` : "";
-        addLine(lines, `- **${item.title}** — ${text}${footer}`);
+        addLine(lines, `- **${title}** — ${text}${footer}`);
       }
     });
 

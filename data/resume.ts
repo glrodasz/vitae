@@ -73,7 +73,7 @@ export const resumeEducation: ResumeLine[] = knowledge
   .flatMap((section) => section.items)
   .filter((item) => item.resume)
   .map((item) => ({
-    label: item.title,
+    label: item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title,
     text: formatEntries(item.text),
     meta: item.footer,
   }));

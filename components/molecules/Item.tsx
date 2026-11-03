@@ -16,7 +16,7 @@ const Paragraphs: React.FC<ParagraphsProps> = ({ text }) => {
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {text.map(([description, date]) => {
           return (
-            <div key={description}>
+            <div key={description} className="sub-entry">
               <Paragraph isMarginless>{description}</Paragraph>
               <Heading
                 color="secondary"
@@ -45,6 +45,7 @@ interface ItemProps {
   type?: ItemType;
   text?: string | string[][];
   footer?: string;
+  badge?: string;
   tags?: string[];
   isSameLine?: boolean;
 }
@@ -56,6 +57,7 @@ const Item: React.FC<ItemProps> = ({
   type = "primary",
   text,
   footer,
+  badge,
   tags,
   isSameLine
 }) => {
@@ -80,10 +82,18 @@ const Item: React.FC<ItemProps> = ({
         <div className={classNames("content", {
           "is-same-line": isSameLine,
         })}>
-          {title && (
+          {title && !badge && (
             <Heading size={getHeadingSize(type)} color={type} isMarginless>
               {title}
             </Heading>
+          )}
+          {title && badge && (
+            <div className="title-row">
+              <Heading size={getHeadingSize(type)} color={type} isMarginless>
+                {title}
+              </Heading>
+              <span className="badge">{badge}</span>
+            </div>
           )}
           {text && <Paragraphs text={text} />}
           {footer && (
@@ -107,6 +117,30 @@ const Item: React.FC<ItemProps> = ({
           flex-direction: column;
           width: 100%;
           gap: 2px;
+        }
+
+        /* Name + date pairs: the name reads a step above the date, below the title. */
+        .item :global(.sub-entry .paragraph) {
+          color: var(--text);
+          font-weight: 500;
+        }
+
+        .title-row {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 4px 8px;
+        }
+
+        .badge {
+          padding: 2px 8px;
+          border: 1px solid color-mix(in srgb, var(--heading-secondary) 45%, transparent);
+          border-radius: 999px;
+          color: var(--heading-secondary);
+          font-family: var(--font-headings);
+          font-size: 1.1rem;
+          line-height: 1.2;
+          white-space: nowrap;
         }
 
         .has-tags {

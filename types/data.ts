@@ -47,6 +47,8 @@ export interface ExpertiseItem {
 
 export interface KnowledgeItem {
   title: string;
+  /** Short qualifier shown as a tag next to the title, e.g. "Undergraduate". */
+  badge?: string;
   text: string | string[][];
   footer?: string;
   /** Show this item on the CV. */
