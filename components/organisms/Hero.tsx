@@ -5,12 +5,14 @@ import PageContainer from "../layout/PageContainer";
 import { profile } from "../../data/profile";
 import { languages } from "../../data/languages";
 import { yearsOfExperience } from "../../data/experience";
-import { pdfPath, portraitPath } from "../../data/site";
+import { pdfPathFor, portraitPath } from "../../data/site";
+import useTheme from "../../hooks/useTheme";
 
 /**
  * CV masthead: a record card with the essentials, not a marketing hero.
  */
 const Hero: React.FC = () => {
+  const { isDarkMode } = useTheme();
   const languageList = (
     <span className="cv-languages">
       {languages.map((language, index) => (
@@ -74,7 +76,7 @@ const Hero: React.FC = () => {
                 <Link className="cv-cta" href="/resume">
                   2-Page version
                 </Link>
-                <a className="cv-cta is-primary" href={pdfPath} download>
+                <a className="cv-cta is-primary" href={pdfPathFor(isDarkMode)} download>
                   Download PDF <span aria-hidden="true">↓</span>
                 </a>
               </div>
@@ -272,7 +274,7 @@ const Hero: React.FC = () => {
             position: relative;
             z-index: 1;
             flex-direction: row;
-            align-items: center;
+            align-items: stretch;
             gap: 56px;
           }
 
@@ -314,31 +316,49 @@ const Hero: React.FC = () => {
             margin-top: 32px;
           }
 
+          /* Full photo rising from the bottom edge of the dark band. */
+          .cv-record-body {
+            align-self: center;
+          }
+
           .cv-portrait {
             display: block;
             position: relative;
-            flex: 0 0 400px;
+            flex: 0 0 460px;
+            align-self: flex-end;
+            margin-bottom: -64px;
+          }
+
+          /* Diamond behind the torso, where the photo carries its weight. */
+          .cv-portrait::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 66%;
+            width: 300px;
+            height: 300px;
+            background: var(--golden-yellow);
+            transform: translate(-50%, -50%) rotate(45deg);
           }
 
           .cv-portrait-frame {
             position: relative;
-            aspect-ratio: 1;
-            background: var(--golden-yellow);
-            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-            overflow: hidden;
+            z-index: 1;
+            height: 600px;
           }
 
           .cv-portrait-frame :global(img) {
             position: absolute;
-            inset: 6% 0 0;
+            inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: top;
+            object-fit: contain;
+            object-position: bottom center;
           }
 
           .cv-portrait-accent {
             position: absolute;
+            z-index: 2;
             background: var(--golden-yellow);
             transform: rotate(45deg);
           }
@@ -346,15 +366,15 @@ const Hero: React.FC = () => {
           .cv-portrait-accent.is-large {
             width: 40px;
             height: 40px;
-            left: -12px;
-            top: 40px;
+            left: 0;
+            top: 260px;
           }
 
           .cv-portrait-accent.is-small {
             width: 24px;
             height: 24px;
-            right: 16px;
-            bottom: 24px;
+            right: 8px;
+            bottom: 120px;
           }
         }
       `}</style>
