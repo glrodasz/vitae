@@ -40,7 +40,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           isInline
           weight={"bold"}
           color={isDark ? "disabled" : "primary"}
-          freezeColor={true}
         >
           Light
         </Heading>
@@ -53,14 +52,13 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           isInline
           weight={"bold"}
           color={isDark ? "primary" : "disabled"}
-          freezeColor={true}
         >
           Dark
         </Heading>
       </button>
       <style jsx>{`
         .toggle-container {
-          background: var(--white);
+          background: var(--surface);
           padding: 8px 12px;
           display: flex;
           align-items: baseline;
@@ -68,15 +66,20 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           border: none;
           cursor: pointer;
           transition: background-color 0.2s ease;
-		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .toggle-container.hidden {
           display: none;
         }
 
-        .toggle-container:hover {
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+        /* Subtle edge plus a faint layered glow instead of a bright solid border. */
+        .toggle-container:hover,
+        .toggle-container:focus-visible {
+          outline: none;
+          box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--golden-yellow) 35%, transparent),
+            0 0 4px color-mix(in srgb, var(--golden-yellow) 18%, transparent),
+            0 0 12px color-mix(in srgb, var(--golden-yellow) 10%, transparent),
+            0 0 24px color-mix(in srgb, var(--golden-yellow) 6%, transparent);
         }
 
         .switch {

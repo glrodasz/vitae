@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 interface HeadingProps {
   children: ReactNode;
-  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   size?: "xxs" | "xs" | "sm" | "md" | "lg";
   color?: "primary" | "secondary" | "disabled";
   weight?: "normal" | "bold";
@@ -17,7 +17,7 @@ interface HeadingProps {
 
 const Heading = ({
   children,
-  tag = "h1",
+  tag = "p",
   size = "lg",
   color = "primary",
   weight = "bold",
@@ -46,13 +46,13 @@ const Heading = ({
       </Tag>
       <style jsx>{`
         .heading {
-          font-family: "Hind", sans-serif;
+          font-family: var(--font-headings);
           line-height: 1;
           margin-bottom: 5px;
         }
 
         .heading :global(strong) {
-          color: var(--golden-yellow);
+          color: var(--primary);
         }
 
         .color-primary {
@@ -114,6 +114,12 @@ const Heading = ({
 
         .weight-bold {
           font-weight: bold;
+        }
+
+        @media (max-width: 1139px) {
+          .size-md {
+            font-size: clamp(2rem, 7.2vw, 3.6rem);
+          }
         }
 
         @media (min-width: 1140px) {

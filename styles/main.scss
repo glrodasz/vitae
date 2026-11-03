@@ -1,28 +1,40 @@
 :root {
-	--golden-yellow: #f7df1d;
+	--golden-yellow: #edb305; /* Supernova 300, as on guillermorodas.com */
 	--scooter: #36b7c9;
 	--blue: #43B1F8;
-	--black: #000;
-	--storm-dust: #616161;
-	--bunker: #1A1A1A;
+	--black: #1a1a1a;
+	--storm-dust: #5c5c5c;
+	--bunker: #141414;
 	--white: #fff;
 	--concrete: #f3f1f1;
 	--gray: #B3B3B3;
 	--light-cream: #FEFADF;
 	
+	/* Brand: shared with guillermorodas.com */
+	--font-headings: "DM Sans", "Inter", sans-serif;
+	--font-body: "Inter", system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, monospace;
+	--supernova: #edb305;
+	--supernova-deep: #cd8901;
+	--on-accent: #1a1a1a;
+	--accent: var(--supernova);
+
+	/* Height of the sticky document bar; sticky carousels sit below it. */
+	--document-bar-height: 52px;
+
 	/* Theme variables */
 	--background: var(--white);
-	--text: var(--black);
+	--text: #292929;
 	--text-inverted: var(--white);
-	--primary: var(--scooter);
+	--primary: var(--supernova-deep);
 	--secondary: var(--storm-dust);
 	--paragraph-primary: var(--storm-dust);
 	--paragraph-secondary: var(--black);
-	--heading-secondary: var(--scooter);
+	--heading-secondary: var(--storm-dust);
+	--surface: #f5f5f5;
+	--border: #e3e3e3;
 	--carousel-nav-bg: rgba(255, 255, 255, 0.8);
   --logo-shadow: rgba(255, 255, 255, 0.9);
-  --relocation-connector-icon: var(--storm-dust);
-  --relocation-connector-stroke: var(--background);
   }
   
   /* SASS mixins for theme variables */
@@ -30,29 +42,29 @@
     --background: var(--bunker);
     --text: var(--white);
     --text-inverted: var(--black);
-    --primary: var(--light-cream);
+    --primary: var(--supernova);
     --secondary: var(--concrete);
-    --paragraph-primary: var(--light-cream);
+    --paragraph-primary: #d6d6d6;
     --paragraph-secondary: var(--black);
-    --heading-secondary: var(--blue);
+    --heading-secondary: var(--gray);
+    --surface: #1f1f1f;
+    --border: #333333;
     --carousel-nav-bg: rgba(26, 26, 26, 0.85);
     --logo-shadow: rgba(0, 0, 0, 0.9);
-    --relocation-connector-icon: var(--white);
-    --relocation-connector-stroke: var(--background);
   }
   
   @mixin light-theme {
     --background: var(--white);
-    --text: var(--black);
+    --text: #292929;
     --text-inverted: var(--white);
-    --primary: var(--scooter);
+    --primary: var(--supernova-deep);
     --secondary: var(--storm-dust);
     --paragraph-primary: var(--storm-dust);
     --paragraph-secondary: var(--black);
-    --heading-secondary: var(--scooter);
+    --heading-secondary: var(--storm-dust);
+    --surface: #f5f5f5;
+    --border: #e3e3e3;
     --carousel-nav-bg: rgba(255, 255, 255, 0.8);
-    --relocation-connector-icon: var(--storm-dust);
-    --relocation-connector-stroke: var(--background);
   }
   
   /* Apply dark theme based on system preferences */
@@ -73,6 +85,13 @@
   
   html {
 	font-size: 12px;
+  }
+
+  /* Phones: scale the whole rem-based type ramp down a notch. */
+  @media (max-width: 639px) {
+    html {
+      font-size: 11px;
+    }
   }
   
   html, #__next {
@@ -99,83 +118,3 @@
     background: var(--background);
     z-index: -1;
   }
-
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-
-@media print {
-  /* Page setup */
-  @page {
-    size: A4;
-    margin: 12mm;
-  }
-
-  /* Force color printing - preserve backgrounds and colors */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-
-  /* Remove animations and transitions */
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  /* Root and body adjustments */
-  html {
-    font-size: 10px;
-  }
-
-  body {
-    background-color: var(--background) !important;
-  }
-
-  body.footer-visible {
-    background-color: var(--background) !important;
-  }
-
-  body.footer-visible::before {
-    display: none;
-  }
-
-  /* Ensure images print correctly */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Preserve layout systems */
-  [style*="display: flex"],
-  [style*="display: grid"] {
-    display: inherit !important;
-  }
-
-  /* Section headings - left align for print */
-  .heading.is-centered {
-    text-align: left !important;
-  }
-
-  /* Links - remove underlines */
-  a {
-    text-decoration: none;
-  }
-
-  /* Ensure proper contrast for print */
-  h1, h2, h3, h4, h5, h6, p, span, div {
-    color: inherit;
-  }
-
-  /* SVG and icon adjustments */
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-
-}

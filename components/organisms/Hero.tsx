@@ -1,210 +1,382 @@
 import React from "react";
-import PageContainer from "../layout/PageContainer";
-import Heading from "../atoms/Heading";
-import Logo from "../atoms/Logo";
-import Paragraph from "../atoms/Paragraph";
-import Relocation from "./Relocation";
+import Link from "next/link";
 import Image from "next/image";
-import ThemeToggle from "../molecules/ThemeToggle";
-import useBreakpoints from "../../hooks/useBreakpoints";
+import PageContainer from "../layout/PageContainer";
+import { profile } from "../../data/profile";
+import { languages } from "../../data/languages";
+import { yearsOfExperience } from "../../data/experience";
+import { pdfPathFor, portraitPath } from "../../data/site";
+import useTheme from "../../hooks/useTheme";
 
+/**
+ * CV masthead: a record card with the essentials, not a marketing hero.
+ */
 const Hero: React.FC = () => {
-  const { isMobile } = useBreakpoints();
+  const { isDarkMode } = useTheme();
+  const languageList = (
+    <span className="cv-languages">
+      {languages.map((language, index) => (
+        <React.Fragment key={language.title}>
+          {index > 0 && (
+            <span className="cv-separator" aria-hidden="true">
+              •
+            </span>
+          )}
+          <span className="cv-language">
+            {language.title} <span className="cv-level">{language.proeficiency}</span>
+          </span>
+        </React.Fragment>
+      ))}
+    </span>
+  );
+
+  const facts: {
+    label: string;
+    value: React.ReactNode;
+    href?: string;
+    isWide?: boolean;
+  }[] = [
+    { label: "Role", value: profile.role },
+    { label: "Based in", value: profile.location },
+    { label: "Experience", value: `${yearsOfExperience} years` },
+    { label: "Contact", value: profile.email, href: `mailto:${profile.email}` },
+    {
+      label: "Languages",
+      value: languageList,
+      isWide: true,
+    },
+  ];
+
+  const [firstName, ...lastNames] = profile.name.split(" ");
 
   return (
     <>
-      <header>
-        <PageContainer fullHeight>
-          <div className="hero-layout">
-            <div className="hero-content-wrapper">
-              <div className="hero-text">
-                <div className="hero-logo">
-                  <Logo shouldInvert="-light" />
-                </div>
-                <Heading size="sm">Hello,</Heading>
-                <div className="hero-fullname">
-                  <Heading>
-                    I&apos;m <strong>Guillermo</strong>
-                  </Heading>
-                  <Heading>Rodas</Heading>
-                </div>
-                <Paragraph size="xl">
-                  I build production AI systems and help developer communities
-                  level up.
-                </Paragraph>
-                <div className="hero-relocation">
-                  <Relocation />
-                </div>
+      <header className="cv-masthead">
+        <PageContainer>
+          <div className="cv-record">
+            <div className="cv-record-body">
+              <h1 data-brand-anchor>
+                <span className="cv-first-name">{firstName}</span> {lastNames.join(" ")}
+              </h1>
+              <p className="cv-tagline">{profile.tagline}</p>
+              <dl className="cv-facts">
+                {facts.map((fact) => (
+                  <div
+                    key={fact.label}
+                    className={fact.isWide ? "cv-fact is-wide" : "cv-fact"}
+                  >
+                    <dt>{fact.label}</dt>
+                    <dd>
+                      {fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="cv-ctas">
+                <Link className="cv-cta" href="/resume">
+                  2-Page version
+                </Link>
+                <a className="cv-cta is-primary" href={pdfPathFor(isDarkMode)} download>
+                  Download PDF <span aria-hidden="true">↓</span>
+                </a>
               </div>
             </div>
-            <div className="hero-photo-container">
-              <Image
-                className="hero-photo"
-                src="/images/guillermo-rodas.png"
-                alt="Guillermo Rodas"
-                width={800}
-                height={800}
-                priority
-              />
-            </div>
-            <div className="hero-theme-toggle">
-              <ThemeToggle isHidden={isMobile} />
+            <div className="cv-portrait" aria-hidden="true">
+              <div className="cv-portrait-frame">
+                <Image src={portraitPath} alt="" width={800} height={800} priority />
+              </div>
+              <span className="cv-portrait-accent is-large" />
+              <span className="cv-portrait-accent is-small" />
             </div>
           </div>
         </PageContainer>
       </header>
       <style jsx>{`
-        header {
-          --relocation-height: 130px;
-          --header-mobile-min-height: 600px;
-
-          position: relative;
-          height: auto;
-          min-height: var(--header-mobile-min-height);
-          margin-bottom: var(--relocation-height);
-          box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+        .cv-masthead {
+          padding: 40px 0;
         }
 
-        .hero-layout {
+        .cv-record {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          height: 100%;
+          gap: 24px;
+        }
+
+
+        h1 {
+          font-family: var(--font-headings);
+          font-size: 3.2rem;
+          font-weight: 700;
+          line-height: 1.1;
+          color: var(--text);
+        }
+
+        .cv-tagline {
+          margin-top: 6px;
+          font-family: var(--font-body);
+          font-size: 1.6rem;
+          line-height: 1.5;
+          color: var(--paragraph-primary);
+        }
+
+        .cv-facts {
+          display: grid;
+          grid-template-columns: 1fr;
+          margin-top: 20px;
+        }
+
+        .cv-fact {
+          display: grid;
+          grid-template-columns: 110px 1fr;
+          gap: 12px;
+          padding: 8px 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .cv-fact:last-child {
+          border-bottom: none;
+        }
+
+        dt {
+          font-family: var(--font-mono);
+          font-size: 1.15rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--heading-secondary);
+          padding-top: 2px;
+          padding-right: 4px;
+          text-align: right;
+        }
+
+        dd {
+          margin: 0;
+          font-family: var(--font-body);
+          font-size: 1.5rem;
+          color: var(--text);
+        }
+
+        dd a {
+          color: inherit;
+          text-decoration: none;
+          border-bottom: 1px solid var(--golden-yellow);
+        }
+
+        .cv-facts :global(.cv-languages) {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 4px 12px;
+        }
+
+        .cv-facts :global(.cv-language) {
+          white-space: nowrap;
+        }
+
+        .cv-facts :global(.cv-level) {
+          margin-left: 2px;
+          color: var(--heading-secondary);
+          font-family: var(--font-mono);
+          font-size: 0.75em;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+        }
+
+        .cv-facts :global(.cv-separator) {
+          color: var(--golden-yellow);
+        }
+
+        /* On narrow screens each language gets its own line, no separators. */
+        @media (max-width: 639px) {
+          .cv-facts :global(.cv-languages) {
+            flex-direction: column;
+          }
+
+          .cv-facts :global(.cv-separator) {
+            display: none;
+          }
+        }
+
+        .cv-ctas {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 24px;
+        }
+
+        .cv-ctas :global(.cv-cta) {
+          display: inline-flex;
           align-items: center;
-        }
-
-        .hero-content-wrapper {
-          width: 100%;
-        }
-
-        .hero-text {
-          display: flex;
-          flex-direction: column;
-          -webkit-text-stroke: 3px var(--text-inverted);
-          paint-order: stroke fill;
-        }
-
-        .hero-text :global(.freeze-mode) {
-          -webkit-text-stroke: 3px var(--text-inverted) !important;
-        }
-
-        .hero-logo {
-          display: flex;
           justify-content: center;
-          margin: 20px auto;
-          min-height: 120px;
+          gap: 6px;
+          padding: 10px 18px;
+          border: 1px solid var(--text);
+          border-radius: 999px;
+          color: var(--text);
+          font-family: var(--font-mono);
+          font-size: 1.2rem;
+          letter-spacing: 0.04em;
+          text-decoration: none;
+          transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
 
-        .hero-photo-container {
-          width: 100%;
-          height: auto;
-          display: flex;
-          justify-content: center;
+        .cv-ctas :global(.cv-cta:hover),
+        .cv-ctas :global(.cv-cta:focus-visible) {
+          border-color: var(--golden-yellow);
+          color: var(--golden-yellow);
         }
 
-        .hero-photo {
-          --photo-mobile-max-width: 800px;
-
-          display: block;
-          bottom: 0;
-          margin: 0 auto;
-          width: 100%;
-          max-width: var(--photo-mobile-max-width);
-          aspect-ratio: 1;
+        .cv-ctas :global(.cv-cta.is-primary) {
+          background: var(--golden-yellow);
+          border-color: var(--golden-yellow);
+          color: #1a1a1a;
         }
 
-        .hero-relocation {
-          position: absolute;
-          bottom: calc(var(--relocation-height) * -1);
-          left: 0;
-          right: 0;
+        .cv-ctas :global(.cv-cta.is-primary:hover),
+        .cv-ctas :global(.cv-cta.is-primary:focus-visible) {
+          background: transparent;
+          color: var(--golden-yellow);
         }
 
-        .hero-theme-toggle {
-          position: absolute;
-          top: 70px;
-          right: 5%;
-          z-index: 10;
+        @media (max-width: 480px) {
+          .cv-ctas :global(.cv-cta) {
+            flex: 1 1 0;
+          }
+        }
+
+        .cv-portrait {
+          display: none;
         }
 
         @media (min-width: 1140px) {
-          header {
-            --header-desktop-max-height: 950px;
+          /* Dark band on desktop in both themes, like the footer. */
+          .cv-masthead {
+            --text: var(--white);
+            --paragraph-primary: #d9d6cf;
+            --heading-secondary: #9a958a;
+            --border: #3a3a3a;
 
-            display: flex;
-            align-items: center;
-            background: url("/vectors/hero.svg") no-repeat;
-            background-position: top right;
-            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            padding: 64px 0;
+            background: var(--black);
+          }
+
+          .cv-masthead::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -180px;
+            width: 520px;
+            height: 520px;
+            background: color-mix(in srgb, var(--golden-yellow) 14%, transparent);
+            transform: translateY(-50%) rotate(45deg);
+          }
+
+          .cv-record {
+            position: relative;
+            z-index: 1;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 56px;
+          }
+
+          .cv-record-body {
+            flex: 1;
+            min-width: 0;
+          }
+
+          h1 {
+            font-size: 6.4rem;
+            line-height: 1.02;
+            letter-spacing: -0.01em;
+          }
+
+          .cv-first-name {
+            color: var(--golden-yellow);
+          }
+
+          .cv-tagline {
+            margin-top: 12px;
+            font-size: 2rem;
+            max-width: 36ch;
+          }
+
+          .cv-facts {
+            margin-top: 32px;
+          }
+
+          .cv-fact {
+            grid-template-columns: 130px 1fr;
+            padding: 10px 0;
+          }
+
+          dd {
+            font-size: 1.7rem;
+          }
+
+          .cv-ctas {
+            margin-top: 32px;
+          }
+
+          /* Full photo rising from the bottom edge of the dark band. */
+          .cv-record-body {
+            align-self: center;
+          }
+
+          .cv-portrait {
+            display: block;
+            position: relative;
+            flex: 0 0 460px;
+            align-self: flex-end;
+            margin-bottom: -64px;
+          }
+
+          /* Diamond behind the torso, where the photo carries its weight. */
+          .cv-portrait::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 66%;
+            width: 300px;
+            height: 300px;
+            background: var(--golden-yellow);
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+
+          .cv-portrait-frame {
+            position: relative;
+            z-index: 1;
+            height: 600px;
+          }
+
+          .cv-portrait-frame :global(img) {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
-            max-height: var(--header-desktop-max-height);
-            margin-bottom: 0;
-          }
-
-          .hero-text {
-            align-items: flex-start;
-          }
-
-          .hero-layout {
-            flex-direction: row;
-            justify-content: center;
-          }
-
-          .hero-photo-container {
-            height: 800px;
-          }
-
-          .hero-photo {
-            --photo-desktop-min-width: 500px;
-
-            max-height: 100%;
             object-fit: contain;
-            align-self: flex-end;
-            min-width: var(--photo-desktop-min-width);
-            margin-top: 100px;
+            object-position: bottom center;
           }
 
-          .hero-logo {
+          .cv-portrait-accent {
             position: absolute;
-            top: 30px;
-            height: 120px;
+            z-index: 2;
+            background: var(--golden-yellow);
+            transform: rotate(45deg);
           }
 
-          .hero-fullname {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+          .cv-portrait-accent.is-large {
+            width: 40px;
+            height: 40px;
+            left: 0;
+            top: 260px;
           }
 
-          .hero-fullname strong {
-            -webkit-text-stroke: 3px var(--black);
-          }
-
-          .hero-relocation {
-            position: relative;
-            bottom: 0;
-          }
-        }
-
-        @media print {
-          header {
-            box-shadow: none !important;
-            min-height: auto !important;
-          }
-
-          .hero-theme-toggle {
-            display: none !important;
-          }
-
-          .hero-layout {
-            gap: 30px;
-          }
-
-          .hero-photo {
-            max-width: 400px !important;
-            max-height: 400px !important;
-            object-fit: contain !important;
+          .cv-portrait-accent.is-small {
+            width: 24px;
+            height: 24px;
+            right: 8px;
+            bottom: 120px;
           }
         }
       `}</style>

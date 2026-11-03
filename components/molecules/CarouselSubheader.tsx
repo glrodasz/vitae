@@ -33,11 +33,18 @@ const CarouselSubheader: React.FC<CarouselSubheaderProps> = ({
           onClick={handleClickPrev}
           shouldInvert={true}
         />
-        <Heading size="xs" isCentered isMarginless isComfortable>
-          <strong>
-            {items[activeIndex].subtitle || items[activeIndex].title}
-          </strong>
-        </Heading>
+        <div className="titles">
+          <Heading size="xs" isCentered isMarginless isComfortable>
+            <strong>
+              {items[activeIndex].subtitle || items[activeIndex].title}
+            </strong>
+          </Heading>
+          {items[activeIndex].heading && (
+            <Heading size="xs" isCentered isMarginless isComfortable>
+              {items[activeIndex].heading}
+            </Heading>
+          )}
+        </div>
         <Icon
           name="chevron-right"
           isRounded
@@ -46,9 +53,6 @@ const CarouselSubheader: React.FC<CarouselSubheaderProps> = ({
           shouldInvert={true}
         />
       </div>
-      {items[activeIndex].heading && (
-        <Heading size="xs" isCentered>{items[activeIndex].heading}</Heading>
-      )}
       </div>
       <style jsx>{`
         .content {
@@ -64,6 +68,17 @@ const CarouselSubheader: React.FC<CarouselSubheaderProps> = ({
           justify-content: center;
         }
 
+        .titles {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .titles :global(.heading) {
+          line-height: 1.15;
+        }
+
         .content :global(.heading) {
           --subheader-width: 180px;
 
@@ -73,6 +88,10 @@ const CarouselSubheader: React.FC<CarouselSubheaderProps> = ({
         @media (min-width: 1140px) {
           .subheader {
             max-width: fit-content;
+          }
+
+          .content :global(.heading) {
+            --subheader-width: 260px;
           }
         }
       `}</style>

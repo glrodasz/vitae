@@ -174,10 +174,36 @@ function formatCareers(lines, careers) {
       addLine(lines);
       addLine(lines, "### Achievements");
       career.achievements.forEach((achievement) => {
-        addLine(lines, `- ${achievement}`);
+        const tech = achievement.tech?.length
+          ? ` _Tech: ${achievement.tech.join(", ")}._`
+          : "";
+        addLine(
+          lines,
+          `- **${achievement.title}.** ${achievement.description}${tech}`
+        );
       });
     }
     if (index !== careers.length - 1) {
+      addLine(lines);
+    }
+  });
+
+  addLine(lines);
+}
+
+function formatProjects(lines, projects) {
+  addLine(lines, "# Selected Projects");
+  addLine(lines);
+
+  projects.forEach((project, index) => {
+    addLine(lines, `## ${project.name}`);
+    addLine(lines, project.description);
+    addLine(lines);
+    addLine(lines, `Stack: ${project.stack.join(", ")}`);
+    project.links.forEach((link) => {
+      addLine(lines, `- ${link.label}: ${formatLink(link.url)}`);
+    });
+    if (index !== projects.length - 1) {
       addLine(lines);
     }
   });
@@ -195,8 +221,9 @@ function formatKnowledge(lines, knowledge) {
 
     section.items.forEach((item) => {
       const text = item.text;
+      const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
       if (Array.isArray(text)) {
-        addLine(lines, `- **${item.title}**`);
+        addLine(lines, `- **${title}**`);
         text.forEach((entry) => {
           const [title, detail] = entry;
           addLine(lines, `  - ${title} — ${detail}`);
@@ -206,7 +233,7 @@ function formatKnowledge(lines, knowledge) {
         }
       } else {
         const footer = item.footer ? ` _(${item.footer})_` : "";
-        addLine(lines, `- **${item.title}** — ${text}${footer}`);
+        addLine(lines, `- **${title}** — ${text}${footer}`);
       }
     });
 
@@ -228,8 +255,9 @@ function formatAchievements(lines, achievements) {
 
     section.items.forEach((item) => {
       const text = item.text;
+      const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
       if (Array.isArray(text)) {
-        addLine(lines, `- **${item.title}**`);
+        addLine(lines, `- **${title}**`);
         text.forEach((entry) => {
           const [title, detail] = entry;
           addLine(lines, `  - ${title} — ${detail}`);
@@ -239,7 +267,7 @@ function formatAchievements(lines, achievements) {
         }
       } else {
         const footer = item.footer ? ` _(${item.footer})_` : "";
-        addLine(lines, `- **${item.title}** — ${text}${footer}`);
+        addLine(lines, `- **${title}** — ${text}${footer}`);
       }
     });
 
@@ -258,6 +286,7 @@ function main() {
   const stackModule = loadTsModule(path.join(projectRoot, "data", "stack"));
   const frameworksModule = loadTsModule(path.join(projectRoot, "data", "frameworks"));
   const careersModule = loadTsModule(path.join(projectRoot, "data", "careers"));
+  const projectsModule = loadTsModule(path.join(projectRoot, "data", "projects"));
   const knowledgeModule = loadTsModule(path.join(projectRoot, "data", "knowledge"));
   const achievementsModule = loadTsModule(path.join(projectRoot, "data", "achievements"));
 
@@ -267,6 +296,7 @@ function main() {
   formatStack(lines, stackModule.stack);
   formatFrameworks(lines, frameworksModule.frameworks);
   formatCareers(lines, careersModule.careers);
+  formatProjects(lines, projectsModule.projects);
   formatKnowledge(lines, knowledgeModule.knowledge);
   formatAchievements(lines, achievementsModule.achievements);
 
@@ -274,4 +304,8 @@ function main() {
   fs.writeFileSync(path.join(projectRoot, "README.md"), `${output}\n`, "utf8");
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { loadTsModule, formatLink, projectRoot };

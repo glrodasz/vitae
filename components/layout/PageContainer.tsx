@@ -20,6 +20,12 @@ const PageContainer = ({ children, fullHeight, withCarousel }: PageContainerProp
           ${fullHeight ? "height: 100%;" : ""}
         }
 
+        @media (max-width: 639px) {
+          .container {
+            padding: 0 ${withCarousel ? "0" : "16px"};
+          }
+        }
+
         @media (min-width: 1140px) {
           .container {
             max-width: 1280px;

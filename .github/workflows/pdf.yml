@@ -1,0 +1,68 @@
+name: Generate CV PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'types/**'
+      - 'components/resume/**'
+      - 'pages/resume.tsx'
+      - 'pages/_document.tsx'
+      - 'styles/**'
+      - 'scripts/generate-pdf.js'
+      - '.github/workflows/pdf.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: generate-pdf
+  cancel-in-progress: true
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build
+        run: yarn build
+
+      # Playwright stays out of package.json; install it on the side.
+      - name: Install Playwright
+        run: |
+          npm install --no-save --prefix "$RUNNER_TEMP/pw" playwright@1.49.1
+          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps chromium
+
+      - name: Generate PDF
+        env:
+          NODE_PATH: ${{ runner.temp }}/pw/node_modules
+        run: node scripts/generate-pdf.js
+
+      - name: Commit PDF if it changed
+        run: |
+          PDFS="public/guillermo-rodas-cv.pdf public/guillermo-rodas-cv-dark.pdf"
+          if git diff --quiet -- $PDFS && \
+             git ls-files --error-unmatch $PDFS >/dev/null 2>&1; then
+            echo "PDF unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add $PDFS
+          git commit -m "chore(pdf): regenerate CV PDFs"
+          git push

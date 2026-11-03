@@ -12,38 +12,90 @@ interface JobProps {
 }
 
 const Job: React.FC<JobProps> = ({ career }) => {
+  const achievements = career.achievements ?? [];
+
   return (
     <>
       <div className="job">
-        <div className="job-header">
-          <Logo logoName={career.logo} shouldInvert={true} />
-          <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
-        </div>
-        <div>
-          <Heading size="xs">About</Heading>
-          <Paragraph>{career.about}</Paragraph>
-        </div>
-
-        <div>
-          <Heading size="xs">Functions</Heading>
-          <Paragraph>{career.functions}</Paragraph>
-        </div>
-
-        {!!career.achievements?.length && <div className="job-achievements">
-          <Heading size="xs">My achievements</Heading>
-          <div className="job-achievements-list">
-            {career.achievements.map((achievement, index) => (
-              <Item key={index} icon="diamond-alt" text={achievement} />
-            ))}
+        {/* Desktop: logo, url and functions | about. Phones: logo, url, about, functions. */}
+        <div className="job-info">
+          <div className="job-column">
+            <div className="job-header">
+              <Logo logoName={career.logo} shouldInvert={true} />
+              <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
+            </div>
+            <div className="job-functions">
+              <Heading tag="h3" size="xs">Functions</Heading>
+              <Paragraph>{career.functions}</Paragraph>
+            </div>
           </div>
-        </div>}
+          <div className="job-column">
+            <div className="job-about">
+              <Heading tag="h3" size="xs">About</Heading>
+              <Paragraph>{career.about}</Paragraph>
+            </div>
+          </div>
+        </div>
+
+        {!!achievements.length && (
+          <div className="job-achievements">
+            <Heading tag="h3" size="xs">Achievements</Heading>
+            <div className="job-achievements-list">
+              {achievements.map((achievement) => (
+                <Item
+                  key={achievement.title}
+                  icon="diamond-alt"
+                  type="secondary"
+                  title={achievement.title}
+                  text={achievement.description}
+                  tags={achievement.tech}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <style jsx>{`
         .job {
           display: flex;
           flex-direction: column;
-          justify-content: center;
           gap: 25px;
+        }
+
+        .job-info {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        /* Phones: the columns dissolve and order restores logo, about, functions. */
+        .job-column {
+          display: contents;
+        }
+
+        .job-header {
+          order: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          align-items: center;
+        }
+
+        .job-about {
+          order: 1;
+        }
+
+        .job-functions {
+          order: 2;
+        }
+
+        /* One logo box for every company: wide marks hit the width, tall ones the height. */
+        .job-header :global(.logo) {
+          width: 220px;
+          max-width: 100%;
+          height: 64px;
+          aspect-ratio: auto;
+          object-fit: contain;
         }
 
         .job-achievements {
@@ -52,79 +104,38 @@ const Job: React.FC<JobProps> = ({ career }) => {
           gap: 10px;
         }
 
-        .job-header {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          align-items: center;
-        }
-
         @media (min-width: 1140px) {
           .job {
+            gap: 40px;
+          }
+
+          .job-info {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 35px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 40px;
+            align-items: start;
           }
 
-          .job-achievements {
-            grid-column: 2;
-            grid-row: 1/5;
-          }
-
-          .job-achievements > :global(.heading) {
-            margin-left: 25px;
+          .job-column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding-left: var(--job-text-indent, 30px);
           }
 
           .job-header {
             align-items: flex-start;
           }
-        }
-
-        @media print {
-          .job {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 35px !important;
-            grid-template-areas:
-              "header achievements"
-              "about achievements"
-              "functions achievements" !important;
-          }
-
-          .job-header {
-            grid-area: header !important;
-            align-items: flex-start !important;
-          }
 
           .job-header :global(.logo) {
-            max-width: 200px !important;
-            width: 100% !important;
-            height: auto !important;
-          }
-
-          .job-header :global(a) {
-            text-align: left !important;
-            align-self: flex-start !important;
-          }
-
-          .job > div:nth-child(2) {
-            grid-area: about !important;
-          }
-
-          .job > div:nth-child(3) {
-            grid-area: functions !important;
-          }
-
-          .job-achievements {
-            grid-area: achievements !important;
-            grid-column: 2 !important;
-            grid-row: 1 / 5 !important;
+            object-position: left center;
           }
 
           .job-achievements-list {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 40px;
+            align-items: start;
           }
         }
       `}</style>

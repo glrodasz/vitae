@@ -1,4 +1,5 @@
 import { ExpertiseItem } from "../types/data";
+import { yearsOfExperience } from "./experience";
 
 export const expertises: ExpertiseItem[] = [
   {
@@ -10,7 +11,7 @@ export const expertises: ExpertiseItem[] = [
   },
   {
     title: "Full-stack Web Engineering",
-    subtitle: `${new Date().getFullYear() - 2012} years of experience`,
+    subtitle: `${yearsOfExperience} years of experience`,
     items: [
       "React, TypeScript, and Next.js on the frontend; Node.js, Python, and GraphQL on the backend, shipping at scale across Klarna, Auth0, and EQT with microfrontend architectures and design systems.",
     ],

@@ -14,11 +14,11 @@ const Footer: React.FC = () => {
             <img className="footer-logo" src={`/vectors/footer.svg`} alt="" />
 
             <div className="footer-content">
-              <Heading>
-                <strong>Say Hello!</strong>
+              <Heading tag="h2">
+                <strong>Say Hello</strong>
               </Heading>
               <Paragraph isInverted>
-                It would be a pleasure to meet you!
+                Drop a quick hello or ask any question. I&apos;m always happy to hear from you.
               </Paragraph>
               <div className="footer-icon-list">
                 <div className="footer-icon-item">
@@ -33,29 +33,23 @@ const Footer: React.FC = () => {
                     guillermorodas.com
                   </Link>
                 </div>
-                <div className="footer-icon-item">
-                  <Icon name="bubble" />
-                  <Link href="https://undefined.sh" isInverted>
-                    undefined.sh
-                  </Link>
-                </div>
               </div>
               <div className="footer-social">
-                <Heading size="xxs" isInverted isMarginless>
-                  @guillermorodas
-                </Heading>
                 <div>
-                  <Link href="https://youtube.com/c/guillermorodas" isInline>
-                    <Icon name="youtube" hasBackground />
+                  <Link href="https://x.com/germorodas" isInline>
+                    <Icon name="x" hasBackground />
+                  </Link>
+                  <Link href="https://instagram.com/germorodas" isInline>
+                    <Icon name="instagram" hasBackground />
+                  </Link>
+                  <Link href="https://linkedin.com/in/guillermorodas" isInline>
+                    <Icon name="linkedin" hasBackground />
                   </Link>
                   <Link href="https://twitch.tv/guillermorodas" isInline>
                     <Icon name="twitch" hasBackground />
                   </Link>
-                  <Link href="https://x.com/guillermorodas" isInline>
-                    <Icon name="x" hasBackground />
-                  </Link>
-                  <Link href="https://instagram.com/_guillermorodas" isInline>
-                    <Icon name="instagram" hasBackground />
+                  <Link href="https://youtube.com/c/guillermorodas" isInline>
+                    <Icon name="youtube" hasBackground />
                   </Link>
                 </div>
               </div>
@@ -85,6 +79,7 @@ const Footer: React.FC = () => {
           flex-direction: column;
           align-items: center;
           padding-bottom: 50px;
+          text-align: center;
         }
 
         .footer-icon-list {
@@ -121,6 +116,7 @@ const Footer: React.FC = () => {
             align-items: flex-start;
             grid-column: 2/3;
             padding-bottom: 0;
+            text-align: left;
           }
 
           .footer-social {
@@ -132,13 +128,6 @@ const Footer: React.FC = () => {
             height: 100%;
             object-fit: contain;
             object-position: center 150px;
-          }
-        }
-
-        @media print {
-          footer {
-            break-before: page;
-            page-break-before: always;
           }
         }
       `}</style>

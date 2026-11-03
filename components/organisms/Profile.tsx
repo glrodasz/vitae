@@ -2,7 +2,6 @@ import React from "react";
 import Heading from "../atoms/Heading";
 import Paragraph from "../atoms/Paragraph";
 import PageContainer from "../layout/PageContainer";
-import Item from "../molecules/Item";
 import data from "../../data";
 import useBreakpoints from "../../hooks/useBreakpoints";
 
@@ -12,29 +11,13 @@ const Profile: React.FC = () => {
   return (
     <PageContainer>
       <div className="profile">
-        <Heading size="md" isCentered>
+        <Heading tag="h2" size="md" isCentered>
           <strong>Personal</strong> profile
         </Heading>
 
-        <div>
-          <Item icon="language" title="Languages" />
-          <div className="languages">
-            {data.languages.map((language, index) => (
-              <Item
-                key={index}
-                flag={language.flag}
-                title={language.title}
-                type="secondary"
-                text={language.proeficiency}
-                isSameLine={isMobile}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div>
+        <div className="profile-summary">
           {data.summary.map((paragraph, index) => (
-            <Paragraph key={index} size="lg" isJustified={!isMobile}>
+            <Paragraph key={index} size={isMobile ? "md" : "lg"}>
               {paragraph}
             </Paragraph>
           ))}
@@ -47,17 +30,16 @@ const Profile: React.FC = () => {
           gap: 20px;
         }
 
-        .languages {
+        .profile-summary {
           display: flex;
           flex-direction: column;
+          gap: 16px;
         }
 
-        @media (min-width: 1140px) {
-          .languages {
-            flex-direction: row;
-            grid-gap: 30px;
-          }
+        .profile-summary :global(.paragraph) {
+          margin-bottom: 0;
         }
+
       `}</style>
     </PageContainer>
   );

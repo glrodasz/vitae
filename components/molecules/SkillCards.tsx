@@ -9,8 +9,8 @@ const SkillCards: React.FC<SkillCardsProps> = ({ skills }) => {
   return (
     <>
       <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <Card key={skill.title} {...skill} isInverted={index % 2 !== 0} />
+        {skills.map((skill) => (
+          <Card key={skill.title} {...skill} />
         ))}
       </div>
       <style jsx>{`
@@ -24,14 +24,6 @@ const SkillCards: React.FC<SkillCardsProps> = ({ skills }) => {
           .skills-grid {
             justify-content: space-between;
             flex-wrap: nowrap;
-          }
-        }
-
-        @media print {
-          .skills-grid {
-            flex-wrap: wrap !important;
-            justify-content: space-between !important;
-            gap: 30px 30px;
           }
         }
       `}</style>

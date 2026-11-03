@@ -6,11 +6,13 @@ export const achievements: AchievementSection[] = [
     items: [
       {
         title: "Google Developer Expert",
+        resume: true,
         text: "Web Technologies",
         footer: "2019 – 2025",
       },
       {
         title: "Auth0 Ambassador",
+        resume: true,
         text: "Identity & Security",
         footer: "2022 – 2024",
       },
@@ -26,6 +28,7 @@ export const achievements: AchievementSection[] = [
     items: [
       {
         title: "The Language of AI: Probability",
+        resume: true,
         text: [
           ["DevFest Ourense", "November 2025"],
           ["DevFest Mediterranean", "December 2025"],
@@ -33,6 +36,7 @@ export const achievements: AchievementSection[] = [
       },
       {
         title: "WebAuthn & Passkeys: The Future of Authentication",
+        resume: true,
         text: [
           ["DevFest Singapore, EpicHey!", "November 2023"],
           ["DevFest Zagreb", "October 2023"],
@@ -63,14 +67,15 @@ export const achievements: AchievementSection[] = [
       },
       {
         title: "Bootcamp Instructor",
+        resume: true,
         text: [
           // Bootcamp de JavaScript
           // Bootcamp de React Avanzo con Next.js
           // Bootcamp de Diseño, Interfaces y CSS para Frontends
           ["Código Facilito", "October 2022, February 2023, March 2024"],
-          ["Undefined Academy", "March 2023 - October 2023"],
-          ["Platzi Master", "November 2020 - September 2022"],
-          ["World Tech Makers", "June 2017 - August 2017"],
+          ["Undefined Academy", "March 2023 – October 2023"],
+          ["Platzi Master", "November 2020 – September 2022"],
+          ["World Tech Makers", "June 2017 – August 2017"],
         ],
       },
       {
@@ -85,9 +90,9 @@ export const achievements: AchievementSection[] = [
       {
         title: "Community Organizer",
         text: [
-          ["CSS Conf Colombia", "April 2021 - December 2023"],
-          ["CSS Community Dev", "June 2018 - December 2023"],
-          ["Medellín Java", "December 2014 - November 2016"],
+          ["CSS Conf Colombia", "April 2021 – December 2023"],
+          ["CSS Community Dev", "June 2018 – December 2023"],
+          ["Medellín Java", "December 2014 – November 2016"],
         ],
       },
     ],

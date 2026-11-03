@@ -1,11 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import { useSwipeable } from "react-swipeable";
 
 import CarouselHeader from "./CarouselHeader";
 import CarouselSubheader from "./CarouselSubheader";
-import Heading from "../atoms/Heading";
-import Paragraph from "../atoms/Paragraph";
 
 interface CarouselItem {
   title: string;
@@ -16,15 +14,35 @@ interface CarouselItem {
 
 interface CarouselProps {
   items: CarouselItem[];
-  isFlattened?: boolean;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
+const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const carouselNavRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const isFirstRender = useRef(true);
   const lastItemIndex = items.length - 1;
   const minSwipeDistance = 50;
+
+  // Switching tabs brings the section back to its top, so the new tab is
+  // read from the start instead of from the old tab's scroll position.
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const container = containerRef.current;
+    if (!container) return;
+    const barHeight =
+      parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--document-bar-height")
+      ) || 0;
+    const top = container.getBoundingClientRect().top + window.scrollY - barHeight;
+    if (window.scrollY > top) {
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }, [activeIndex]);
 
   const handleClickPrev = () => {
     if (activeIndex >= 1) {
@@ -51,79 +69,14 @@ const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
     trackTouch: true,
   });
 
-  // Flattened mode: render all items as a simple vertical stack
-  if (isFlattened) {
-    return (
-      <>
-      <div className="carousel-container carousel-container--flattened">
-        {items.map((item, index) => (
-          <div key={index} className="carousel-slide carousel-slide--flattened">
-            {item.title && (
-              <Heading tag="h3" size="sm" weight="bold" isMarginless>
-                {item.title}
-                </Heading>
-              )}
-              {item.subtitle && (
-                <Heading tag="h4" size="xs" weight="bold" isMarginless>
-                  {item.subtitle}
-                </Heading>
-              )}
-              {item.heading && (
-                <Paragraph color="secondary" isMarginless>
-                  {item.heading}
-                </Paragraph>
-              )}
-              {item.content}
-            </div>
-          ))}
-        </div>
-        <style jsx>{`
-          .carousel-container--flattened {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            width: 100%;
-          }
-
-          .carousel-slide--flattened {
-            width: 100%;
-          }
-
-          .carousel-slide--flattened > :global(.knowledge-masonry) {
-            display: block;
-          }
-
-          .carousel-slide--flattened > :global(.heading:first-child) {
-            margin-bottom: 10px;
-          }
-
-          .carousel-slide--flattened > :global(.heading:nth-child(2)) {
-            margin-bottom: 8px;
-          }
-
-          .carousel-slide--flattened > :global(.paragraph) {
-            margin-bottom: 20px;
-          }
-
-          .carousel-slide--flattened > :global(.paragraph.color-secondary) {
-            color: var(--text);
-          }
-
-          @media print {
-            .carousel-container--flattened {
-              gap: 30px;
-            }
-          }
-        `}</style>
-      </>
-    );
-  }
-
-  // Normal interactive mode
   return (
     <>
       <div
         {...swipeHandlers}
+        ref={(element: HTMLDivElement | null) => {
+          swipeHandlers.ref(element);
+          containerRef.current = element;
+        }}
         className="carousel-container"
       >
         <div className="carousel-navigation" ref={carouselNavRef}>
@@ -170,7 +123,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
           flex-direction: column;
           position: sticky;
           gap: 35px;
-          top: 0;
+          top: var(--document-bar-height);
           background: var(--carousel-nav-bg);
           backdrop-filter: blur(10px);
           padding-bottom: 20px;
@@ -195,6 +148,18 @@ const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
           z-index: 10;
         }
 
+        @media (max-width: 639px) {
+          .carousel-slide--active {
+            padding: 28px 16px 0;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .carousel-navigation {
+            gap: 20px;
+          }
+        }
+
         .carousel-slide--active > :global(.knowledge-masonry) {
           display: block;
         }
@@ -202,31 +167,24 @@ const Carousel: React.FC<CarouselProps> = ({ items, isFlattened = false }) => {
         @media (min-width: 768px) {
           .carousel-navigation {
             position: relative;
+            /* With position: relative, a non-zero top would shift the tabs onto the content. */
+            top: 0;
+            gap: 12px;
+            padding-bottom: 12px;
+          }
+
+          /* Keep the arrows off the strip's edges. */
+          .carousel-navigation :global(.subheader) {
+            padding: 0 12px;
           }
 
           .carousel-slide {
             padding: 0;
           }
-        }
 
-        @media print {
-          .carousel-navigation {
-            display: none !important;
-            position: relative !important;
-          }
-
-          .carousel-slide {
-            height: auto !important;
-            opacity: 1 !important;
-            padding: 0 !important;
-          }
-
-          .carousel-slide > :global(.knowledge-masonry) {
-            display: block !important;
-          }
-
-          .carousel-container {
-            gap: 30px;
+          /* Breathing room between the section bar and the content. */
+          .carousel-slide--active {
+            padding-top: 24px;
           }
         }
       `}</style>

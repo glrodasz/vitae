@@ -36,7 +36,7 @@ const Paragraph = ({
       </p>
       <style jsx>{`
         .paragraph {
-          font-family: "Lato", sans-serif;
+          font-family: var(--font-body);
           font-size: 1.6rem;
           line-height: 1.5;
           margin-bottom: 10px;
@@ -51,7 +51,7 @@ const Paragraph = ({
         }
 
         .color-tertiary {
-          color: var(--scooter);
+          color: var(--primary);
         }
 
         .size-xl {

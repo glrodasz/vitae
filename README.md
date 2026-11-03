@@ -1,8 +1,12 @@
 # Summary
 
-Senior Full-stack AI Engineer with 13+ years of experience building production systems at the intersection of web engineering and AI.
+Senior Forward Deployed Engineer with 14 years of experience building production systems at the intersection of web engineering and AI.
 
-At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations. Previously, I built microfrontend platform infrastructure at Klarna (serving 87M+ global consumers) and shipped identity management products at Auth0 during its hypergrowth from startup to $1B+ valuation.
+At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations.
+
+Previously, I built microfrontend platform infrastructure at Klarna (serving 87M+ global consumers) and shipped identity management products at Auth0 during its hypergrowth from startup to $1B+ valuation.
+
+Outside work, I build open-source agents on Google ADK and Gemini, designed so the model proposes and deterministic code decides.
 
 I combine deep JavaScript, TypeScript, and React expertise with hands-on AI engineering (RAG, agents, embeddings) and a strong track record of developer enablement, as a former Google Developer Expert (2019–2025), international conference speaker, and bootcamp instructor who has trained hundreds of developers across Latin America and Europe.
 
@@ -33,11 +37,11 @@ Former Google Developer Expert
 
 # Stack
 
-- **AI & LLM** — LangChain, LangSmith, Google ADK, CopilotKit, PGVector, RAG pipelines, prompt engineering, and LLM API integrations with OpenAI, Anthropic, and Google.
+- **AI & LLM** — LangChain, LangSmith, Google ADK, CopilotKit, PGVector, RAG pipelines, MCP servers and connectors, Gemini on Vertex AI, Ollama for local models, agent evals (prompt injection, grounding checks) and cost guardrails, prompt engineering, and LLM API integrations with OpenAI, Anthropic, and Google.
 - **Data** — PostgreSQL, BigQuery, MySQL, MongoDB, ElasticSearch, Kafka, and Firebase/Firestore, managing and querying datasets across millions of records in production.
-- **Cloud & DevOps** — GCP (CloudRun, CloudBuild, BigQuery, BigTable), AWS (S3, EC2, SQS, DynamoDB), Docker, Kubernetes, Datadog, CI/CD pipelines, and Linux (CentOS, Debian).
+- **Cloud & DevOps** — GCP (CloudRun, CloudBuild, Cloud Workflows, BigQuery, BigTable), AWS (S3, EC2, SQS, DynamoDB), Cloudflare (Workers, D1, Pages), Firebase Hosting, Docker, Kubernetes, Datadog, CI/CD pipelines, and Linux (CentOS, Debian).
 - **Auth & Identity** — OAuth, OIDC, Auth0, Firebase Auth, and WebAuthn/Passkeys integrated with providers such as Google, Meta, Spotify, and X for secure authentication flows.
-- **Backend platforms** — Node.js with Express and Hapi.js, Python services, GraphQL via Apollo and GraphQL Mesh, and REST APIs powering scalable server-side solutions.
+- **Backend platforms** — Node.js with Express, Fastify and Hapi.js, Python with FastAPI, Go and Rust services, GraphQL via Apollo and GraphQL Mesh, and REST APIs powering scalable server-side solutions.
 - **Methods & Delivery** — Scrum, Kanban, Scrumban, and Lean practices, paired with Design Systems, microfrontend architecture, and hands-on technical training for teams.
 
 # Frameworks
@@ -46,7 +50,7 @@ Former Google Developer Expert
 - **Testing** — Jest, Vitest, and Playwright for unit, integration, and end-to-end coverage, complemented by Storybook interaction tests and snapshot testing for regression prevention.
 - **UI systems** — Storybook for component development, Design Tokens for consistent branding, and Tailwind CSS, Material Design, and Ant Design for adaptable UI solutions.
 - **Build tooling** — Webpack and Vite production setups, plus NPM scripts and Yarn Workspaces for managing monorepos and dependency graphs across teams.
-- **Reactive platforms** — Meteor for reactive full-stack and mobile applications, leveraging its real-time data and pub/sub capabilities.
+- **AI-first engineering** — Agent workflows with Claude Code and Cursor, reusable agent skills, and PR-based review.
 
 # Careers
 
@@ -54,12 +58,14 @@ Former Google Developer Expert
 Start Date: August 2021
 URL: [www.eqtgroup.com](https://www.eqtgroup.com)
 About: EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.
-Functions: Senior Full-stack AI Engineer.
+Functions: Senior Forward Deployed Engineer.
 
 ### Achievements
-- AI-Powered Deal Intelligence Tools. Built and shipped internal AI tools that leverage LLMs to streamline investment opportunity screening and enable faster, data-driven decision-making. Implemented RAG pipelines with PGVector for semantic search over proprietary deal data, and integrated LangChain-based workflows with LangSmith observability for production monitoring. Tech: Next.js, TypeScript, Python, LangChain, LangSmith, Google ADK, CopilotKit, PostgreSQL, PGVector, GCP, BigQuery, ElasticSearch, Datadog.
-- Design System Foundations. Established the foundations of a shared Design System with component scaffolding and automated testing infrastructure, enabling consistent UI/UX patterns across internal products and reducing frontend fragmentation across teams. Tech: React, TypeScript, Storybook, Playwright, Design Tokens.
-- Engineering Culture & Tech Debt Reduction. Led cross-team technical improvement initiatives, introduced new technologies, and organized recurring knowledge-sharing sessions that improved engineering practices and accelerated onboarding for new team members.
+- **Forward Deployed Engineer, Infrastructure.** Take the investment team's hackathon prototypes to production, starting with agentic screening of add-on M&A targets and an earnings-call screener for listed infrastructure companies, delivered as reusable agent skills over MCP data connectors.
+- **AI Platform.** Contributed to EQT's internal platform for AI agents (model gateway, agent identity, MCP layer); defined its adoption funnel metrics and built the dashboard tracking agent registrations, model traffic and MCP tool usage.
+- **AI-Powered Deal Intelligence Tools.** Built and shipped internal AI tools that leverage LLMs to streamline investment opportunity screening and enable faster, data-driven decision-making. Implemented RAG pipelines with PGVector for semantic search over proprietary deal data, and integrated LangChain-based workflows with LangSmith observability for production monitoring. _Tech: Next.js, TypeScript, Python, LangChain, LangSmith, Google ADK, CopilotKit, PostgreSQL, PGVector, GCP, BigQuery, ElasticSearch, Datadog._
+- **Design System Foundations.** Established the foundations of a shared Design System with component scaffolding and automated testing infrastructure, enabling consistent UI/UX patterns across internal products and reducing frontend fragmentation across teams. _Tech: React, TypeScript, Storybook, Playwright, Design Tokens._
+- **Engineering Culture & Tech Debt Reduction.** Led cross-team technical improvement initiatives, introduced new technologies, and organized recurring knowledge-sharing sessions that improved engineering practices and accelerated onboarding for new team members.
 
 ## Klarna
 Date: 2019
@@ -70,8 +76,8 @@ About: Klarna is a global fintech serving 87M+ consumers and 250,000+ merchants,
 Functions: Engineer (Foundations team).
 
 ### Achievements
-- Microfrontend Platform Infrastructure. As a member of the Foundations team, designed and maintained 20+ shared UI packages consumed by 5+ product teams. These microfrontend packages formed the core interface layer used in Klarna's flagship checkout, payments, and consumer-facing products, supporting experiences that served millions of transactions daily. Tech: React, TypeScript, JavaScript, Microfrontend Architecture, NPM, Yarn Workspaces.
-- Continuous Delivery Transformation. Drove improvements to the continuous delivery pipeline, transitioning the team from 5–10 scattered micro-deployments to a streamlined daily deployment cadence with on-demand hotfix capability, directly reducing deployment friction and improving release reliability for dependent teams. Tech: CI/CD, NPM scripts, automated testing, deployment pipelines.
+- **Microfrontend Platform Infrastructure.** As a member of the Foundations team, designed and maintained 20+ shared UI packages consumed by 5+ product teams. These microfrontend packages formed the core interface layer used in Klarna's flagship checkout, payments, and consumer-facing products, supporting experiences that served millions of transactions daily. _Tech: React, TypeScript, JavaScript, Microfrontend Architecture, NPM, Yarn Workspaces._
+- **Continuous Delivery Transformation.** Drove improvements to the continuous delivery pipeline, transitioning the team from 5–10 scattered micro-deployments to a streamlined daily deployment cadence with on-demand hotfix capability, directly reducing deployment friction and improving release reliability for dependent teams. _Tech: CI/CD, NPM scripts, automated testing, deployment pipelines._
 
 ## Auth0
 Date: 2016
@@ -82,7 +88,7 @@ About: Auth0 is a cloud identity platform (now part of Okta) that safeguards bil
 Functions: Engineer.
 
 ### Achievements
-- Internal Products & Developer Tooling. Developed multiple internal products powering Auth0's platform operations, using Hapi.js, MongoDB, React, and Redux. Enhanced the team's development workflow by introducing Storybook for component development and snapshot testing for regression prevention, which improved development velocity and reduced visual regressions across the product suite. Tech: React, Redux, Hapi.js, MongoDB, Node.js, Storybook, snapshot testing.
+- **Internal Products & Developer Tooling.** Developed multiple internal products powering Auth0's platform operations, using Hapi.js, MongoDB, React, and Redux. Enhanced the team's development workflow by introducing Storybook for component development and snapshot testing for regression prevention, which improved development velocity and reduced visual regressions across the product suite. _Tech: React, Redux, Hapi.js, MongoDB, Node.js, Storybook, snapshot testing._
 
 ## Huge
 Date: 2015
@@ -93,9 +99,9 @@ About: Huge is a global digital agency working with Fortune 500 brands to redefi
 Functions: Web Engineer.
 
 ### Achievements
-- Fintech Web Application. Contributed to a Fintech web app using React and Redux, optimized for cross-browser and cross-device compatibility, including legacy support for IE10 on Windows and Safari on iPhone 4S. Tech: React, Redux, Vanilla JavaScript, cross-browser development.
-- Mobile Web Performance. Led frontend development on a performance-critical mobile web app, ensuring seamless behavior across diverse devices and browsers.
-- Technical Training. Facilitated multiple technical training sessions for both Frontend and QA teams, raising engineering standards across the office.
+- **Fintech Web Application.** Contributed to a Fintech web app using React and Redux, optimized for cross-browser and cross-device compatibility, including legacy support for IE10 on Windows and Safari on iPhone 4S. _Tech: React, Redux, Vanilla JavaScript, cross-browser development._
+- **Mobile Web Performance.** Led frontend development on a performance-critical mobile web app, ensuring seamless behavior across diverse devices and browsers.
+- **Technical Training.** Facilitated multiple technical training sessions for both Frontend and QA teams, raising engineering standards across the office.
 
 ## Komet Sales
 Date: 2012
@@ -106,16 +112,46 @@ About: Komet is a SaaS platform for the floral industry that gives businesses th
 Functions: Full-stack Developer.
 
 ### Achievements
-- Platform Engineering. Played a key role in multiple corporate projects using MySQL and Java (Spring, Hibernate), and led the definition of the frontend architecture and tech stack for the company's products. Tech: Java, Spring, Hibernate, MySQL, JavaScript.
-- Process Modernization. Drove the migration from SVN to Git and championed the adoption of Scrum, fundamentally improving development velocity and team collaboration.
+- **Platform Engineering.** Played a key role in multiple corporate projects using MySQL and Java (Spring, Hibernate), and led the definition of the frontend architecture and tech stack for the company's products. _Tech: Java, Spring, Hibernate, MySQL, JavaScript._
+- **Process Modernization.** Drove the migration from SVN to Git and championed the adoption of Scrum, fundamentally improving development velocity and team collaboration.
+
+# Selected Projects
+
+## Haggler Agent
+Google ADK + Gemini agents tracking subscription prices in 67 countries. Grounded research, deterministic verdicts, hard cost ceilings.
+
+Stack: Python, Vertex AI, Astro
+- Repo: [github.com/glrodasz/haggler-agent](https://github.com/glrodasz/haggler-agent)
+- Live: [haggler.guillermorodas.com](https://haggler.guillermorodas.com)
+
+## Nido Agent
+Family viewing agent on ADK + Gemini, with prompt-injection evals and a shared multi-family app in three languages.
+
+Stack: Python, Firebase, Astro
+- Repo: [github.com/glrodasz/nido-agent](https://github.com/glrodasz/nido-agent)
+- Live: [nido.guillermorodas.com](https://nido.guillermorodas.com)
+
+## Walleto
+Personal-finance planner with multi-currency and net worth.
+
+Stack: Next.js, TypeScript, Firestore, Auth0
+- Repo: [github.com/glrodasz/walleto](https://github.com/glrodasz/walleto)
+- Live: [walleto.guillermorodas.com](https://walleto.guillermorodas.com)
+
+## Timepass
+Native Apple Silicon menu bar world clock with country flags. Pure AppKit + SwiftUI, no Electron.
+
+Stack: Swift, SwiftUI, AppKit, macOS
+- Repo: [github.com/glrodasz/timepass](https://github.com/glrodasz/timepass)
+- Live: [timepass.guillermorodas.com](https://timepass.guillermorodas.com)
 
 # Knowledge
 
 ## Education
 
-- **UX Designer Upskill** — Hyper Island _(October 2023 — May 2024)_
-- **Technical assistant in Digital Graphic Design** — CENSA _(October 2017 — June 2018)_
-- **Systems engineering (undergraduate)** — Universidad Nacional de Colombia _(January 2007 — January 2010)_
+- **UX Designer Upskill** — Hyper Island _(October 2023 – May 2024)_
+- **Technical assistant in Digital Graphic Design** — CENSA _(October 2017 – June 2018)_
+- **Systems engineering (undergraduate)** — Universidad Nacional de Colombia _(January 2007 – January 2010)_
 
 ## Courses
 
@@ -175,18 +211,18 @@ Functions: Full-stack Developer.
   - Código Facilito — September 2023
 - **Bootcamp Instructor**
   - Código Facilito — October 2022, February 2023, March 2024
-  - Undefined Academy — March 2023 - October 2023
-  - Platzi Master — November 2020 - September 2022
-  - World Tech Makers — June 2017 - August 2017
+  - Undefined Academy — March 2023 – October 2023
+  - Platzi Master — November 2020 – September 2022
+  - World Tech Makers — June 2017 – August 2017
 - **Mentor**
   - Women Developer Academy Europe — October 2021, October 2023
   - Hyper Island — March 2021
   - The Konferense — September 2020
   - Techstars Startup Weekend — June 2019
 - **Community Organizer**
-  - CSS Conf Colombia — April 2021 - December 2023
-  - CSS Community Dev — June 2018 - December 2023
-  - Medellín Java — December 2014 - November 2016
+  - CSS Conf Colombia — April 2021 – December 2023
+  - CSS Community Dev — June 2018 – December 2023
+  - Medellín Java — December 2014 – November 2016
 
 ## Podcasts
 

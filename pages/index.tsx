@@ -1,15 +1,18 @@
 import Head from "next/head";
 
 import Hero from "../components/organisms/Hero";
+import DocumentBar from "../components/molecules/DocumentBar";
 import {
   absoluteUrl,
   defaultDescription,
+  ogImageAlt,
   ogImagePath,
   pageTitle,
   personJsonLd,
 } from "../data/site";
 import Profile from "../components/organisms/Profile";
 import Career from "../components/organisms/Career";
+import Projects from "../components/organisms/Projects";
 import Footer from "../components/organisms/Footer";
 import Skills from "../components/organisms/Skills";
 import Knowledge from "../components/organisms/Knowledge";
@@ -28,15 +31,17 @@ const Index = () => {
         <meta property="og:description" content={defaultDescription} />
         <meta property="og:url" content={absoluteUrl("/")} />
         <meta property="og:image" content={absoluteUrl(ogImagePath)} />
-        <meta
-          property="og:image:alt"
-          content="Guillermo Rodas — portrait photo"
-        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={ogImageAlt} />
+        <meta property="og:site_name" content="Guillermo Rodas" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={defaultDescription} />
         <meta name="twitter:image" content={absoluteUrl(ogImagePath)} />
+        <meta name="twitter:image:alt" content={ogImageAlt} />
+        <meta name="twitter:creator" content="@germorodas" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -48,11 +53,13 @@ const Index = () => {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
+      <DocumentBar />
       <div className="container">
         <Hero />
         <Profile />
         <Skills />
         <Career />
+        <Projects />
         <Knowledge title={["Recognition", "& community"]} items={achievements} />
         <Knowledge title={["Knowledge", "background"]} items={knowledge} />
         <Footer />

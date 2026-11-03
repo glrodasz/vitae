@@ -2,7 +2,7 @@
  * Calculates the duration between two dates in a human-readable format
  * @param startDate - The start date in a human-readable format (e.g., "August 2021")
  * @param endDate - The end date in a human-readable format or null for current date
- * @returns A human-readable duration (e.g., "5 months", "3 years", "2 years 10 months")
+ * @returns The total duration in months (e.g., "5 months", "36 months")
  */
 export const calculateDuration = (startDate: string, endDate: string | null): string => {
   // Parse the dates more reliably
@@ -34,31 +34,9 @@ export const calculateDuration = (startDate: string, endDate: string | null): st
     return "";
   }
 
-  // Calculate the difference in years and months
-  let years = end.getFullYear() - start.getFullYear();
-  let months = end.getMonth() - start.getMonth();
+  // Total months, counting both the start and the end month.
+  const totalMonths =
+    (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
 
-  // Adjust for negative months
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  // Round up months (add 1 month)
-  months += 1;
-
-  // Adjust if months exceed 12
-  if (months >= 12) {
-    years += Math.floor(months / 12);
-    months = months % 12;
-  }
-
-  // Format the duration string
-  if (years === 0) {
-    return `${months} ${months === 1 ? 'month' : 'months'}`;
-  } else if (months === 0) {
-    return `${years} ${years === 1 ? 'year' : 'years'}`;
-  } else {
-    return `${years} ${years === 1 ? 'year' : 'years'} ${months} ${months === 1 ? 'month' : 'months'}`;
-  }
+  return `${totalMonths} ${totalMonths === 1 ? 'month' : 'months'}`;
 };

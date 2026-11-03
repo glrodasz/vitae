@@ -6,18 +6,21 @@ export const knowledge: KnowledgeSection[] = [
     items: [
       {
         title: "UX Designer Upskill",
+        resume: true,
         text: "Hyper Island",
-        footer: "October 2023 — May 2024",
+        footer: "October 2023 – May 2024",
       },
       {
         title: "Technical assistant in Digital Graphic Design",
         text: "CENSA",
-        footer: "October 2017 — June 2018",
+        footer: "October 2017 – June 2018",
       },
       {
-        title: "Systems engineering (undergraduate)",
+        title: "Systems engineering",
+        badge: "Undergraduate",
+        resume: true,
         text: "Universidad Nacional de Colombia",
-        footer: "January 2007 — January 2010",
+        footer: "January 2007 – January 2010",
       },
     ],
   },

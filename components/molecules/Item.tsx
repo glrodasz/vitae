@@ -1,5 +1,6 @@
 import Icon from "../atoms/Icon";
 import Heading from "../atoms/Heading";
+import Tags from "../atoms/Tags";
 import Paragraph from "../atoms/Paragraph";
 import classNames from "classnames";
 
@@ -15,7 +16,7 @@ const Paragraphs: React.FC<ParagraphsProps> = ({ text }) => {
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {text.map(([description, date]) => {
           return (
-            <div key={description}>
+            <div key={description} className="sub-entry">
               <Paragraph isMarginless>{description}</Paragraph>
               <Heading
                 color="secondary"
@@ -44,6 +45,8 @@ interface ItemProps {
   type?: ItemType;
   text?: string | string[][];
   footer?: string;
+  badge?: string;
+  tags?: string[];
   isSameLine?: boolean;
 }
 
@@ -54,11 +57,16 @@ const Item: React.FC<ItemProps> = ({
   type = "primary",
   text,
   footer,
+  badge,
+  tags,
   isSameLine
 }) => {
   return (
     <>
-      <div className="item">
+      <div className={classNames("item", {
+        "has-title": !!title && !!(icon || flag),
+        "has-tags": !!tags?.length,
+      })}>
         {(icon || flag) && (
           <div
             className={classNames("media", {
@@ -74,10 +82,18 @@ const Item: React.FC<ItemProps> = ({
         <div className={classNames("content", {
           "is-same-line": isSameLine,
         })}>
-          {title && (
-            <Heading size={getHeadingSize(type)} color={type} isMarginless>
+          {title && !badge && (
+            <Heading tag="h3" size={getHeadingSize(type)} color={type} isMarginless>
               {title}
             </Heading>
+          )}
+          {title && badge && (
+            <div className="title-row">
+              <Heading tag="h3" size={getHeadingSize(type)} color={type} isMarginless>
+                {title}
+              </Heading>
+              <span className="badge">{badge}</span>
+            </div>
           )}
           {text && <Paragraphs text={text} />}
           {footer && (
@@ -85,6 +101,7 @@ const Item: React.FC<ItemProps> = ({
               {footer}
             </Heading>
           )}
+          {!!tags?.length && <Tags items={tags} />}
         </div>
       </div>
       <style jsx>{`
@@ -102,8 +119,61 @@ const Item: React.FC<ItemProps> = ({
           gap: 2px;
         }
 
+        /* Name + date pairs: the name reads a step above the date, below the title. */
+        .item :global(.sub-entry .paragraph) {
+          color: var(--text);
+          font-weight: 500;
+        }
+
+        .title-row {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 4px 8px;
+        }
+
+        .badge {
+          padding: 2px 8px;
+          border: 1px solid color-mix(in srgb, var(--heading-secondary) 45%, transparent);
+          border-radius: 999px;
+          color: var(--heading-secondary);
+          font-family: var(--font-headings);
+          font-size: 1.1rem;
+          line-height: 1.2;
+          white-space: nowrap;
+        }
+
+        /* Titled entries are separated evenly, with or without tags. */
+        .has-title,
+        .has-tags {
+          margin-bottom: 32px;
+        }
+
         .is-centered-with-text {
           margin-top: 5px;
+        }
+
+        /* Phones: only the title sits beside the icon; the rest uses the full width. */
+        @media (max-width: 639px) {
+          .has-title {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 10px;
+            row-gap: 4px;
+            align-items: center;
+          }
+
+          .has-title .content {
+            display: contents;
+          }
+
+          .has-title .content > :global(*) {
+            grid-column: 1 / -1;
+          }
+
+          .has-title .content > :global(:first-child) {
+            grid-column: 2;
+          }
         }
 
         @media (min-width: 1140px) {
