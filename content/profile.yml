@@ -1,0 +1,29 @@
+# Who you are: name, role, contact links and spoken languages.
+# careerStart is the year your career began; it feeds {years} everywhere.
+
+name: Guillermo Rodas
+role: Senior Forward Deployed Engineer
+tagline: I build production AI systems and help developer communities level up.
+location: Stockholm, Sweden
+origin: Colombia
+documentLabel: Curriculum Vitae
+email: me@guillermorodas.com
+careerStart: 2012
+website:
+  label: guillermorodas.com
+  url: https://guillermorodas.com
+links:
+  - label: github.com/glrodasz
+    url: https://github.com/glrodasz
+  - label: linkedin.com/in/guillermorodas
+    url: https://linkedin.com/in/guillermorodas
+languages:
+  - name: English
+    flag: 🇬🇧
+    level: Fluent
+  - name: Spanish
+    flag: 🇪🇸
+    level: Native
+  - name: Swedish
+    flag: 🇸🇪
+    level: Elementary

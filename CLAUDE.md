@@ -37,14 +37,20 @@ Components follow **Atomic Design** pattern in `components/`:
 
 All components are TypeScript (.tsx) with proper interface definitions for props.
 
-### Data Layer
-All content lives in `data/` as TypeScript exports:
-- `achievements.ts`, `careers.ts`, `expertises.ts`, `frameworks.ts`
-- `knowledge.ts`, `languages.ts`, `stack.ts`, `summary.ts`
-- `profile.ts` (name, role, contact), `projects.ts`, `experience.ts` (years of experience)
-- `resume.ts` selects and formats the short CV from the other files (fields marked `resume`)
-- Imported via central `data/index.ts`
-- Type definitions in `types/data.ts` for all data structures
+### Content & Data Layer
+All CV text lives in `content/*.yml` (see `content/README.md`), so it can be edited without touching code:
+- `profile.yml`, `summary.yml`, `careers.yml`, `projects.yml`, `skills.yml`, `education.yml`, `achievements.yml`, `site.yml`
+- `scripts/content-schema.js` validates every file (unknown/missing fields, dates, logos) and reports `file:line`;
+  run it with `yarn validate:content` (also runs in the loader, pre-push and CI)
+- `scripts/yaml-loader.js` is registered in `next.config.js` for Turbopack (`yarn dev`) and webpack (`yarn build`),
+  so `import x from "../content/x.yml"` works anywhere; `types/yaml.d.ts` types it as `unknown`
+- Content shapes in `types/content.ts` (keep in sync with `scripts/content-schema.js`)
+
+`data/*.ts` is a thin typed layer over the YAML: it fills the `{years}` placeholder, maps YAML names to the
+view types in `types/data.ts` (e.g. `cv` → `resume`, `role` → `functions`), and holds code-only values (site URL,
+PDF paths, JSON-LD structure). `resume.ts` selects and formats the short CV (items with `cv:`).
+- Imported via central `data/index.ts` and per-file imports
+- Add new content as YAML fields, not as hardcoded strings in `data/*.ts` or components
 
 ### Custom Hooks (`hooks/`)
 - `useTheme.ts` - Detects and tracks theme changes via MutationObserver on `<html>` class
@@ -71,7 +77,7 @@ Theme managed through CSS custom properties in `styles/main.scss`:
 - Image optimization via Next.js `Image` component
 - Single-page layout (`pages/index.tsx`) assembling organisms: the full archive
 - `/resume` (`pages/resume.tsx`) is the short, Harvard-style CV; `/print` redirects to it
-- Outputs from the same data: `README.md` (`yarn generate:readme`), `resume.md` (`yarn generate:resume-md`),
+- Outputs from the same content: `README.md` (`yarn generate:readme`), `resume.md` (`yarn generate:resume-md`),
   and `public/guillermo-rodas-cv.pdf` (`yarn generate:pdf`, run by `.github/workflows/pdf.yml`)
 - Global reset via `minireset.css`
 

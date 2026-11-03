@@ -1,0 +1,139 @@
+# Recognition and speaking. Sections and items appear in this order.
+# Use description: for a single line, or entries: (name + date) for a list.
+# cv: true puts the item on the short CV.
+
+- title: Recognition
+  items:
+    - title: Google Developer Expert
+      description: Web Technologies
+      date: 2019 – 2025
+      cv: true
+    - title: Auth0 Ambassador
+      description: Identity & Security
+      date: 2022 – 2024
+      cv: true
+    - title: Twitch Partner
+      description: Live Coding & Developer Education
+      date: 2020 – 2025
+- title: Speaking
+  items:
+    - title: "The Language of AI: Probability"
+      entries:
+        - name: DevFest Ourense
+          date: November 2025
+        - name: DevFest Mediterranean
+          date: December 2025
+      cv: true
+    - title: "WebAuthn & Passkeys: The Future of Authentication"
+      entries:
+        - name: DevFest Singapore, EpicHey!
+          date: November 2023
+        - name: DevFest Zagreb
+          date: October 2023
+      cv: true
+    - title: Why everyone should do streaming live coding?
+      entries:
+        - name: DevFest Stockholm
+          date: December 2022
+        - name: Nerdearla
+          date: August 2022
+- title: Mentorship
+  items:
+    - title: Online Teacher
+      entries:
+        - name: Platzi
+          date: December 2018, July 2019, March 2023
+        - name: Código Facilito
+          date: September 2023
+    - title: Bootcamp Instructor
+      entries:
+        - name: Código Facilito
+          date: October 2022, February 2023, March 2024
+        - name: Undefined Academy
+          date: March 2023 – October 2023
+        - name: Platzi Master
+          date: November 2020 – September 2022
+        - name: World Tech Makers
+          date: June 2017 – August 2017
+      cv: true
+    - title: Mentor
+      entries:
+        - name: Women Developer Academy Europe
+          date: October 2021, October 2023
+        - name: Hyper Island
+          date: March 2021
+        - name: The Konferense
+          date: September 2020
+        - name: Techstars Startup Weekend
+          date: June 2019
+    - title: Community Organizer
+      entries:
+        - name: CSS Conf Colombia
+          date: April 2021 – December 2023
+        - name: CSS Community Dev
+          date: June 2018 – December 2023
+        - name: Medellín Java
+          date: December 2014 – November 2016
+- title: Podcasts
+  items:
+    - title: "AI and Humans: Invincible Innovation"
+      description: "Staying Ahead in AI: Practical Insights for Developers"
+      date: April 2025
+    - title: freeCodeCamp en Español
+      description: From Java to JavaScript
+      date: December 2023
+    - title: Humans of Platzi
+      description: The power of English and networking
+      date: July 2023
+    - title: EnPixeles
+      description: Creating communities in post-pandemic
+      date: December 2021
+    - title: 24H24L
+      description: I already know how to code, what's next?
+      date: December 2021
+    - title: La liga del código
+      description: Security in the Front-end
+      date: August 2020
+- title: Meetups
+  items:
+    - title: Laravel Dev & Vue
+      description: Handling Security in the Front-end
+      date: June 2020
+    - title: Magenta Codes
+      description: How to succeed as a Full-Stack Engineer
+      date: April 2020
+    - title: Medellin CSS
+      entries:
+        - name: Don't use a pre-processor anymore
+          date: August 2020
+        - name: Tips for giving a talk
+          date: June 2019
+        - name: CSS Layout
+          date: June 2018
+        - name: How to scale CSS in Design Systems
+          date: October 2018
+        - name: The Last CSS Framework
+          date: April 2018
+    - title: Medellin Java
+      entries:
+        - name: Modern Web apps with jHipster
+          date: May 2015
+        - name: Introduction to Spring Security
+          date: April 2015
+        - name: Spring Core advantages
+          date: January 2015
+    - title: NodeCo
+      description: In the middle of the middleware
+      date: March 2019
+    - title: ReactJS Top
+      description: The future of state management
+      date: March 2019
+    - title: Wordpress Medellín
+      description: WooCommerce and React
+      date: October 2018
+    - title: Medellin JS
+      description: How to quit using jQuery
+      date: May 2015
+    - title: Medellin PHP
+      description: How to install Laravel in Codio
+      date: October 2014

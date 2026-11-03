@@ -11,6 +11,7 @@
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "validate:content": "node scripts/content-schema.js",
     "generate:readme": "node scripts/generate-readme.js",
     "generate:resume-md": "node scripts/generate-resume-md.js",
     "generate:pdf": "node scripts/generate-pdf.js",
@@ -37,7 +38,8 @@
     "eslint": "^9.18.0",
     "eslint-config-next": "^15.5.7",
     "sass": "^1.86.3",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "yaml": "^2.8.1"
   },
   "packageManager": "yarn@4.1.1+sha256.f3cc0eda8e5560e529c7147565b30faa43b4e472d90e8634d7134a37c7f59781"
 }

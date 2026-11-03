@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const ts = require("typescript");
+const { parseContent } = require("./content-schema");
+
+const readContentFile = (filePath) => parseContent(fs.readFileSync(filePath, "utf8"), filePath);
 
 const projectRoot = path.resolve(__dirname, "..");
 
@@ -32,6 +35,12 @@ function loadTsModule(requestPath) {
 
   if (moduleCache.has(resolvedPath)) {
     return moduleCache.get(resolvedPath).exports;
+  }
+
+  if (/\.ya?ml$/.test(resolvedPath)) {
+    const module = { exports: readContentFile(resolvedPath) };
+    moduleCache.set(resolvedPath, module);
+    return module.exports;
   }
 
   const code = fs.readFileSync(resolvedPath, "utf8");

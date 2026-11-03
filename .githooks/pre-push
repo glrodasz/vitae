@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+yarn validate:content
+
 echo "Running generate:readme and generate:resume-md before push..."
 
 yarn generate:readme
