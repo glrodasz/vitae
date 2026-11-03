@@ -61,7 +61,10 @@ const Item: React.FC<ItemProps> = ({
 }) => {
   return (
     <>
-      <div className={classNames("item", { "has-title": !!title && !!(icon || flag) })}>
+      <div className={classNames("item", {
+        "has-title": !!title && !!(icon || flag),
+        "has-tags": !!tags?.length,
+      })}>
         {(icon || flag) && (
           <div
             className={classNames("media", {
@@ -104,6 +107,10 @@ const Item: React.FC<ItemProps> = ({
           flex-direction: column;
           width: 100%;
           gap: 2px;
+        }
+
+        .has-tags {
+          margin-bottom: 32px;
         }
 
         .is-centered-with-text {
