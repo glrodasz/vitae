@@ -40,7 +40,8 @@ const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) =>
         .resume-list {
           display: flex;
           flex-direction: column;
-          gap: 3pt;
+          /* Enough air that each row reads as its own item. */
+          gap: 6pt;
         }
 
         .resume-list-row {

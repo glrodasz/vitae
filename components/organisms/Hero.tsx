@@ -248,6 +248,12 @@ const Hero: React.FC = () => {
         }
 
         @media (min-width: 1140px) {
+          /* Smaller so the three languages fit on one line in the fact column. */
+          .cv-facts :global(.cv-languages) {
+            font-size: 0.85em;
+            column-gap: 10px;
+          }
+
           /* Dark band on desktop in both themes, like the footer. */
           .cv-masthead {
             --text: var(--white);
