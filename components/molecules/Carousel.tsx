@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import { useSwipeable } from "react-swipeable";
 
@@ -20,8 +20,29 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const carouselNavRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const isFirstRender = useRef(true);
   const lastItemIndex = items.length - 1;
   const minSwipeDistance = 50;
+
+  // Switching tabs brings the section back to its top, so the new tab is
+  // read from the start instead of from the old tab's scroll position.
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const container = containerRef.current;
+    if (!container) return;
+    const barHeight =
+      parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--document-bar-height")
+      ) || 0;
+    const top = container.getBoundingClientRect().top + window.scrollY - barHeight;
+    if (window.scrollY > top) {
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }, [activeIndex]);
 
   const handleClickPrev = () => {
     if (activeIndex >= 1) {
@@ -52,6 +73,10 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
     <>
       <div
         {...swipeHandlers}
+        ref={(element: HTMLDivElement | null) => {
+          swipeHandlers.ref(element);
+          containerRef.current = element;
+        }}
         className="carousel-container"
       >
         <div className="carousel-navigation" ref={carouselNavRef}>

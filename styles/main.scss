@@ -86,6 +86,13 @@
   html {
 	font-size: 12px;
   }
+
+  /* Phones: scale the whole rem-based type ramp down a notch. */
+  @media (max-width: 639px) {
+    html {
+      font-size: 11px;
+    }
+  }
   
   html, #__next {
 	  height: 100%;
