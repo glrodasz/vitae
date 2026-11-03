@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import PageContainer from "../layout/PageContainer";
 import { profile } from "../../data/profile";
@@ -28,15 +27,6 @@ const Hero: React.FC = () => {
       <header className="cv-masthead">
         <PageContainer>
           <div className="cv-record">
-            <figure className="cv-photo">
-              <Image
-                src="/images/guillermo-rodas.png"
-                alt={profile.name}
-                width={192}
-                height={192}
-                priority
-              />
-            </figure>
             <div className="cv-record-body">
               <h1>{profile.name}</h1>
               <p className="cv-tagline">{profile.tagline}</p>
@@ -71,22 +61,6 @@ const Hero: React.FC = () => {
           gap: 24px;
         }
 
-        .cv-photo {
-          flex-shrink: 0;
-          width: 96px;
-          margin: 0;
-          padding: 4px;
-          border: 1px solid var(--border);
-          background: var(--surface);
-        }
-
-        .cv-photo :global(img) {
-          display: block;
-          width: 100%;
-          height: auto;
-          aspect-ratio: 1;
-          object-fit: cover;
-        }
 
         h1 {
           font-family: var(--font-headings);
@@ -166,10 +140,6 @@ const Hero: React.FC = () => {
             flex-direction: row;
             align-items: flex-start;
             gap: 40px;
-          }
-
-          .cv-photo {
-            width: 140px;
           }
 
           .cv-record-body {
