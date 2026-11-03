@@ -144,6 +144,8 @@ const Hero: React.FC = () => {
           text-transform: uppercase;
           color: var(--heading-secondary);
           padding-top: 2px;
+          padding-right: 4px;
+          text-align: right;
         }
 
         dd {
