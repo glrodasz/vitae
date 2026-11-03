@@ -4,6 +4,7 @@ import PageContainer from "../layout/PageContainer";
 import { profile } from "../../data/profile";
 import { languages } from "../../data/languages";
 import { yearsOfExperience } from "../../data/experience";
+import { pdfPath } from "../../data/site";
 
 /**
  * CV masthead: a record card with the essentials, not a marketing hero.
@@ -44,11 +45,14 @@ const Hero: React.FC = () => {
                   </div>
                 ))}
               </dl>
-              <p className="cv-links">
-                <Link href="/resume">Two-page version</Link>
-                <span aria-hidden="true"> · </span>
-                <a href={profile.website.url}>{profile.website.label} ↗</a>
-              </p>
+              <div className="cv-ctas">
+                <Link className="cv-cta" href="/resume">
+                  2-Page version
+                </Link>
+                <a className="cv-cta is-primary" href={pdfPath} download>
+                  Download PDF <span aria-hidden="true">↓</span>
+                </a>
+              </div>
             </div>
           </div>
         </PageContainer>
@@ -118,23 +122,50 @@ const Hero: React.FC = () => {
           border-bottom: 1px solid var(--golden-yellow);
         }
 
-        .cv-links {
-          display: none;
-          margin-top: 16px;
+        .cv-ctas {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 24px;
+        }
+
+        .cv-ctas :global(.cv-cta) {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 10px 18px;
+          border: 1px solid var(--text);
+          border-radius: 999px;
+          color: var(--text);
           font-family: var(--font-mono);
           font-size: 1.2rem;
-          color: var(--heading-secondary);
-        }
-
-        .cv-links :global(a) {
-          color: var(--text);
+          letter-spacing: 0.04em;
           text-decoration: none;
+          transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
 
-        /* The document bar drops these links below 900px. */
-        @media (max-width: 899px) {
-          .cv-links {
-            display: block;
+        .cv-ctas :global(.cv-cta:hover),
+        .cv-ctas :global(.cv-cta:focus-visible) {
+          border-color: var(--golden-yellow);
+          color: var(--golden-yellow);
+        }
+
+        .cv-ctas :global(.cv-cta.is-primary) {
+          background: var(--golden-yellow);
+          border-color: var(--golden-yellow);
+          color: #1a1a1a;
+        }
+
+        .cv-ctas :global(.cv-cta.is-primary:hover),
+        .cv-ctas :global(.cv-cta.is-primary:focus-visible) {
+          background: transparent;
+          color: var(--golden-yellow);
+        }
+
+        @media (max-width: 480px) {
+          .cv-ctas :global(.cv-cta) {
+            flex: 1 1 0;
           }
         }
 

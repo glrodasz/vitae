@@ -1,8 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import { profile } from "../../data/profile";
-import { pdfPath, siteHost } from "../../data/site";
+import { siteHost } from "../../data/site";
 
 /**
  * Sticky strip that names the document and the host at every scroll
@@ -18,15 +17,6 @@ const DocumentBar: React.FC = () => {
             <span className="document-bar-host"> · {siteHost}</span>
           </p>
           <nav className="document-bar-actions" aria-label="CV actions">
-            <a href={pdfPath} download>
-              <span className="document-bar-long">Download </span>PDF ↓
-            </a>
-            <Link className="document-bar-secondary" href="/resume">
-              Two-page version
-            </Link>
-            <a className="document-bar-secondary" href={profile.website.url}>
-              {profile.website.label} ↗
-            </a>
             <ThemeToggle isHidden={false} />
           </nav>
         </div>
@@ -80,26 +70,9 @@ const DocumentBar: React.FC = () => {
           gap: 6px 18px;
         }
 
-        .document-bar-actions :global(a) {
-          color: var(--text);
-          text-decoration: none;
-          border-bottom: 1px solid transparent;
-        }
-
-        .document-bar-actions :global(a:hover) {
-          border-bottom-color: var(--golden-yellow);
-        }
-
         /* The bar has a fixed height, so it drops parts instead of wrapping. */
         @media (max-width: 1279px) {
           .document-bar-host {
-            display: none;
-          }
-        }
-
-        /* These links move into the masthead (Hero) on narrower screens. */
-        @media (max-width: 899px) {
-          .document-bar-actions :global(.document-bar-secondary) {
             display: none;
           }
         }
@@ -116,10 +89,6 @@ const DocumentBar: React.FC = () => {
 
           .document-bar-actions {
             gap: 12px;
-          }
-
-          .document-bar-long {
-            display: none;
           }
         }
 

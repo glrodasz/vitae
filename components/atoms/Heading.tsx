@@ -116,6 +116,12 @@ const Heading = ({
           font-weight: bold;
         }
 
+        @media (max-width: 1139px) {
+          .size-md {
+            font-size: clamp(2rem, 7.2vw, 3.6rem);
+          }
+        }
+
         @media (min-width: 1140px) {
           .heading :global(strong.shadow) {
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2),
