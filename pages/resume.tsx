@@ -30,7 +30,7 @@ const Resume = () => {
       <nav className="resume-toolbar" aria-label="CV actions">
         <Link href="/">← Full CV</Link>
         <a className="resume-toolbar-primary" href={pdfPath} download>
-          Download PDF
+          Download PDF <span aria-hidden="true">↓</span>
         </a>
       </nav>
 
@@ -111,12 +111,26 @@ const Resume = () => {
           text-decoration: none;
         }
 
+        /* Same primary button as the Download PDF CTA under the masthead. */
         .resume-toolbar .resume-toolbar-primary {
-          padding: 8px 14px;
-          border-radius: 6px;
-          background: var(--accent);
-          color: var(--on-accent);
-          font-weight: 600;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 10px 18px;
+          border: 1px solid var(--golden-yellow);
+          border-radius: 999px;
+          background: var(--golden-yellow);
+          color: #1a1a1a;
+          font-family: var(--font-mono);
+          font-size: 1.2rem;
+          letter-spacing: 0.04em;
+          transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .resume-toolbar .resume-toolbar-primary:hover,
+        .resume-toolbar .resume-toolbar-primary:focus-visible {
+          background: transparent;
+          color: var(--golden-yellow);
         }
 
         .resume {
