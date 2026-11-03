@@ -5,7 +5,7 @@ export const profile: Profile = {
   role: "Senior Forward Deployed Engineer",
   tagline:
     "I build production AI systems and help developer communities level up.",
-  location: "Sweden",
+  location: "Stockholm, Sweden",
   origin: "Colombia",
   documentLabel: "Curriculum Vitae",
   email: "me@guillermorodas.com",

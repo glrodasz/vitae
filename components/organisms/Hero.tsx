@@ -11,7 +11,7 @@ import { yearsOfExperience } from "../../data/experience";
 const Hero: React.FC = () => {
   const facts: { label: string; value: string; href?: string; isWide?: boolean }[] = [
     { label: "Role", value: profile.role },
-    { label: "Based in", value: `${profile.location}, from ${profile.origin}` },
+    { label: "Based in", value: profile.location },
     { label: "Experience", value: `${yearsOfExperience} years` },
     { label: "Contact", value: profile.email, href: `mailto:${profile.email}` },
     {

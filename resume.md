@@ -1,6 +1,6 @@
 # Guillermo Rodas
 
-**Senior Forward Deployed Engineer** · Sweden
+**Senior Forward Deployed Engineer** · Stockholm, Sweden
 
 [me@guillermorodas.com](mailto:me@guillermorodas.com) · [guillermorodas.com](https://guillermorodas.com) · [github.com/glrodasz](https://github.com/glrodasz) · [linkedin.com/in/guillermorodas](https://linkedin.com/in/guillermorodas)
 
