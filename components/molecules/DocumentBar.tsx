@@ -136,8 +136,8 @@ const DocumentBar: React.FC = () => {
 
         .document-bar-brand :global(.document-bar-brand-mark) {
           flex-shrink: 0;
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
         }
 
         .document-bar-brand-text {
@@ -159,7 +159,7 @@ const DocumentBar: React.FC = () => {
 
         .document-bar-brand-tagline {
           font-family: var(--font-body);
-          font-size: 1.05rem;
+          font-size: 0.9rem;
           color: var(--heading-secondary);
           white-space: nowrap;
         }
@@ -197,12 +197,12 @@ const DocumentBar: React.FC = () => {
           }
 
           .document-bar-brand :global(.document-bar-brand-mark) {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
           }
 
           .document-bar-brand-name {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
           }
 
