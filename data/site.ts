@@ -17,6 +17,10 @@ export const resumePageTitle = "Guillermo Rodas · CV";
 
 /** Static PDF generated from /resume by scripts/generate-pdf.mjs. */
 export const pdfPath = "/guillermo-rodas-cv.pdf";
+export const pdfDarkPath = "/guillermo-rodas-cv-dark.pdf";
+
+/** The PDF that matches the theme the reader is looking at. */
+export const pdfPathFor = (isDarkMode: boolean) => (isDarkMode ? pdfDarkPath : pdfPath);
 
 export const defaultDescription = `Senior Forward Deployed Engineer in Sweden building production AI systems: agents, RAG and MCP. ${yearsOfExperience} years across web, backend and developer enablement.`;
 

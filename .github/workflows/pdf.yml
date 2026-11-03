@@ -55,13 +55,14 @@ jobs:
 
       - name: Commit PDF if it changed
         run: |
-          if git diff --quiet -- public/guillermo-rodas-cv.pdf && \
-             git ls-files --error-unmatch public/guillermo-rodas-cv.pdf >/dev/null 2>&1; then
+          PDFS="public/guillermo-rodas-cv.pdf public/guillermo-rodas-cv-dark.pdf"
+          if git diff --quiet -- $PDFS && \
+             git ls-files --error-unmatch $PDFS >/dev/null 2>&1; then
             echo "PDF unchanged."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/guillermo-rodas-cv.pdf
-          git commit -m "chore(pdf): regenerate CV PDF"
+          git add $PDFS
+          git commit -m "chore(pdf): regenerate CV PDFs"
           git push

@@ -14,7 +14,10 @@ const path = require("path");
 const { chromium } = require("playwright");
 
 const projectRoot = path.resolve(__dirname, "..");
-const outputPath = path.join(projectRoot, "public", "guillermo-rodas-cv.pdf");
+const outputs = [
+  { theme: "light", file: path.join(projectRoot, "public", "guillermo-rodas-cv.pdf") },
+  { theme: "dark", file: path.join(projectRoot, "public", "guillermo-rodas-cv-dark.pdf") },
+];
 const port = Number(process.env.PORT || 3100);
 const maxPages = 2;
 
@@ -40,6 +43,28 @@ function startServer() {
   });
 }
 
+/**
+ * Chromium leaves the page margins white. For the dark PDF the side margins
+ * move into the sheet's padding and the top/bottom margins are painted by
+ * header and footer templates, so every page is dark edge to edge.
+ */
+async function darkPdfOptions(page) {
+  const verticalMargin = "14mm";
+  await page.addStyleTag({
+    content: `@page { margin: ${verticalMargin} 0; } .resume { padding: 0 16mm !important; }`,
+  });
+  const band = `<div style="width:100%;height:${verticalMargin};margin:0;background:#1a1a1a;-webkit-print-color-adjust:exact;print-color-adjust:exact;"></div>`;
+  const reset = "<style>#header,#footer{padding:0 !important;}</style>";
+  return {
+    format: "A4",
+    printBackground: true,
+    displayHeaderFooter: true,
+    headerTemplate: reset + band,
+    footerTemplate: reset + band,
+    margin: { top: verticalMargin, bottom: verticalMargin, left: "0", right: "0" },
+  };
+}
+
 /** Chromium stamps creation dates into the PDF; ignore them when comparing. */
 function sameContent(a, b) {
   const strip = (pdf) =>
@@ -59,29 +84,41 @@ async function main() {
     await waitForServer(`${baseUrl}/resume`);
 
     const browser = await chromium.launch();
-    const page = await browser.newPage();
-    await page.goto(`${baseUrl}/resume`, { waitUntil: "networkidle" });
-    await page.evaluate(() => document.fonts.ready);
-    await page.emulateMedia({ media: "print" });
+    let overLimit = null;
 
-    const pdf = await page.pdf({
-      format: "A4",
-      printBackground: true,
-      preferCSSPageSize: true,
-    });
-    await browser.close();
+    for (const { theme, file } of outputs) {
+      const page = await browser.newPage();
+      await page.goto(`${baseUrl}/resume`, { waitUntil: "networkidle" });
+      await page.evaluate((isDark) => {
+        document.documentElement.classList.toggle("dark", isDark);
+      }, theme === "dark");
+      await page.evaluate(() => document.fonts.ready);
+      await page.emulateMedia({ media: "print" });
 
-    const pages = countPages(pdf);
-    const relativeOutput = path.relative(projectRoot, outputPath);
-    if (fs.existsSync(outputPath) && sameContent(fs.readFileSync(outputPath), pdf)) {
-      console.log(`${relativeOutput} is up to date (${pages} pages)`);
-    } else {
-      fs.writeFileSync(outputPath, pdf);
-      console.log(`Wrote ${relativeOutput} (${pages} pages)`);
+      const pdf = await page.pdf(theme === "dark" ? await darkPdfOptions(page) : {
+        format: "A4",
+        printBackground: true,
+        preferCSSPageSize: true,
+      });
+      await page.close();
+
+      const pages = countPages(pdf);
+      const relativeOutput = path.relative(projectRoot, file);
+      if (fs.existsSync(file) && sameContent(fs.readFileSync(file), pdf)) {
+        console.log(`${relativeOutput} is up to date (${pages} pages)`);
+      } else {
+        fs.writeFileSync(file, pdf);
+        console.log(`Wrote ${relativeOutput} (${pages} pages)`);
+      }
+
+      if (pages > maxPages) {
+        overLimit = `${relativeOutput} is ${pages} pages; the limit is ${maxPages}.`;
+      }
     }
 
-    if (pages > maxPages) {
-      throw new Error(`The CV is ${pages} pages; the limit is ${maxPages}.`);
+    await browser.close();
+    if (overLimit) {
+      throw new Error(overLimit);
     }
   } finally {
     if (server) server.kill();

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import DocumentBar from "../components/molecules/DocumentBar";
+import useTheme from "../hooks/useTheme";
 import ResumeHeader from "../components/resume/ResumeHeader";
 import ResumeSection from "../components/resume/ResumeSection";
 import ResumeEntry from "../components/resume/ResumeEntry";
@@ -9,7 +11,7 @@ import {
   absoluteUrl,
   ogImageAlt,
   ogImagePath,
-  pdfPath,
+  pdfPathFor,
   resumeDescription,
   resumePageTitle,
 } from "../data/site";
@@ -24,6 +26,7 @@ import {
 } from "../data/resume";
 
 const Resume = () => {
+  const { isDarkMode } = useTheme();
   return (
     <>
       <Head>
@@ -50,9 +53,15 @@ const Resume = () => {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
 
+      <div className="resume-document-bar">
+        <DocumentBar />
+      </div>
+
       <nav className="resume-toolbar" aria-label="CV actions">
-        <Link href="/">← Full CV</Link>
-        <a className="resume-toolbar-primary" href={pdfPath} download>
+        <Link className="resume-toolbar-back" href="/">
+          <span aria-hidden="true">←</span> Full CV
+        </Link>
+        <a className="resume-toolbar-primary" href={pdfPathFor(isDarkMode)} download>
           Download PDF <span aria-hidden="true">↓</span>
         </a>
       </nav>
@@ -134,6 +143,26 @@ const Resume = () => {
           text-decoration: none;
         }
 
+        /* Same outline button as the "2-Page version" CTA on the full CV. */
+        .resume-toolbar :global(.resume-toolbar-back) {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 10px 18px;
+          border: 1px solid var(--text);
+          border-radius: 999px;
+          font-family: var(--font-mono);
+          font-size: 1.2rem;
+          letter-spacing: 0.04em;
+          transition: color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .resume-toolbar :global(.resume-toolbar-back:hover),
+        .resume-toolbar :global(.resume-toolbar-back:focus-visible) {
+          border-color: var(--golden-yellow);
+          color: var(--golden-yellow);
+        }
+
         /* Same primary button as the Download PDF CTA under the masthead. */
         .resume-toolbar .resume-toolbar-primary {
           display: inline-flex;
@@ -161,12 +190,13 @@ const Resume = () => {
           --resume-muted: #5c5c5c;
           --resume-accent: #edb305;
           --resume-accent-ink: #cd8901;
+          --resume-paper: #fff;
           box-sizing: border-box;
           max-width: 210mm;
           min-height: 297mm;
           margin: 0 auto 48px;
           padding: 16mm 16mm 18mm;
-          background: #fff;
+          background: var(--resume-paper);
           color: var(--resume-text);
           font-family: var(--font-body);
           font-size: 9.5pt;
@@ -204,8 +234,18 @@ const Resume = () => {
           }
         }
 
+        /* Dark sheet, so the dark PDF matches the dark site. */
+        :global(html.dark) .resume {
+          --resume-text: #f2f2f2;
+          --resume-muted: #a6a6a6;
+          --resume-accent-ink: #edb305;
+          --resume-paper: #1a1a1a;
+          box-shadow: 0 0 0 1px #2c2c2c;
+        }
+
         @media print {
-          .resume-toolbar {
+          .resume-toolbar,
+          .resume-document-bar {
             display: none;
           }
 
@@ -228,6 +268,11 @@ const Resume = () => {
           html,
           body {
             background: #fff !important;
+          }
+
+          html.dark,
+          html.dark body {
+            background: #1a1a1a !important;
           }
         }
       `}</style>
