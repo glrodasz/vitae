@@ -2,7 +2,7 @@ import { Profile } from "../types/data";
 
 export const profile: Profile = {
   name: "Guillermo Rodas",
-  role: "Senior Full-stack AI Engineer",
+  role: "Senior Forward Deployed Engineer",
   tagline:
     "I build production AI systems and help developer communities level up.",
   location: "Sweden",

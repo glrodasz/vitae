@@ -18,10 +18,10 @@ export const resumePageTitle = "Guillermo Rodas · CV";
 /** Static PDF generated from /resume by scripts/generate-pdf.mjs. */
 export const pdfPath = "/guillermo-rodas-cv.pdf";
 
-export const defaultDescription = `Senior Full-stack AI Engineer in Sweden building production AI systems: agents, RAG and MCP. ${yearsOfExperience} years across web, backend and developer enablement.`;
+export const defaultDescription = `Senior Forward Deployed Engineer in Sweden building production AI systems: agents, RAG and MCP. ${yearsOfExperience} years across web, backend and developer enablement.`;
 
 export const resumeDescription =
-  "Short CV of Guillermo Rodas, Senior Full-stack AI Engineer in Sweden.";
+  "Short CV of Guillermo Rodas, Senior Forward Deployed Engineer in Sweden.";
 
 // FIXME: Create a proper image for social networks
 export const ogImagePath = "/images/guillermo-rodas.png";
@@ -44,7 +44,7 @@ export const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Guillermo Rodas",
-  jobTitle: "Senior Full-stack Engineer",
+  jobTitle: "Senior Forward Deployed Engineer",
   url: absoluteUrl("/"),
   image: absoluteUrl(ogImagePath),
   sameAs: [...sameAs],

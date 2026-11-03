@@ -11,7 +11,7 @@ export const careers: Career[] = [
     tagline: "Global investment organization, €350B+ in assets",
     about:
       "EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.",
-    functions: "Senior Full-stack AI Engineer.",
+    functions: "Senior Forward Deployed Engineer.",
     achievements: [
       {
         title: "Forward Deployed Engineer, Infrastructure",

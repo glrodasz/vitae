@@ -1,16 +1,16 @@
 # Guillermo Rodas
 
-**Senior Full-stack AI Engineer** · Sweden
+**Senior Forward Deployed Engineer** · Sweden
 
 [me@guillermorodas.com](mailto:me@guillermorodas.com) · [guillermorodas.com](https://guillermorodas.com) · [github.com/glrodasz](https://github.com/glrodasz) · [linkedin.com/in/guillermorodas](https://linkedin.com/in/guillermorodas)
 
 ## Summary
 
-Senior Full-stack AI Engineer with 14 years of experience building production systems at the intersection of web engineering and AI. At EQT Group I build agents, RAG pipelines and MCP integrations for the investment teams, after building microfrontend platform infrastructure at Klarna and identity products at Auth0. Former Google Developer Expert, international conference speaker and bootcamp instructor.
+Senior Forward Deployed Engineer with 14 years of experience building production systems at the intersection of web engineering and AI. At EQT Group I build agents, RAG pipelines and MCP integrations for the investment teams, after building microfrontend platform infrastructure at Klarna and identity products at Auth0. Former Google Developer Expert, international conference speaker and bootcamp instructor.
 
 ## Experience
 
-### EQT Group — Senior Full-stack AI Engineer
+### EQT Group — Senior Forward Deployed Engineer
 _Global investment organization, €350B+ in assets_ · August 2021 – Present
 
 - Take the investment team's hackathon prototypes to production: agentic screening of add-on M&A targets and an earnings-call screener, delivered as reusable agent skills over MCP data connectors.

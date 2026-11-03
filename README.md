@@ -1,6 +1,6 @@
 # Summary
 
-Senior Full-stack AI Engineer with 14 years of experience building production systems at the intersection of web engineering and AI.
+Senior Forward Deployed Engineer with 14 years of experience building production systems at the intersection of web engineering and AI.
 
 At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations.
 
@@ -58,7 +58,7 @@ Former Google Developer Expert
 Start Date: August 2021
 URL: [www.eqtgroup.com](https://www.eqtgroup.com)
 About: EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.
-Functions: Senior Full-stack AI Engineer.
+Functions: Senior Forward Deployed Engineer.
 
 ### Achievements
 - **Forward Deployed Engineer, Infrastructure.** Take the investment team's hackathon prototypes to production, starting with agentic screening of add-on M&A targets and an earnings-call screener for listed infrastructure companies, delivered as reusable agent skills over MCP data connectors.
