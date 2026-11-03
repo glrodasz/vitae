@@ -12,14 +12,43 @@ interface JobProps {
 }
 
 const Job: React.FC<JobProps> = ({ career }) => {
+  const achievements = career.achievements ?? [];
+  // Phones read top to bottom; desktop splits into two columns that each start
+  // right below their own block, so achievements sit just under the logo.
+  const renderAchievement = (index: number) => {
+    const achievement = achievements[index];
+    return (
+      <div key={achievement.title} className="job-achievement" style={{ order: 3 + index }}>
+        <Item
+          icon="diamond-alt"
+          type="secondary"
+          title={achievement.title}
+          text={achievement.description}
+          tags={achievement.tech}
+        />
+      </div>
+    );
+  };
+  const leftIndexes = achievements.map((_, index) => index).filter((index) => index % 2 === 0);
+  const rightIndexes = achievements.map((_, index) => index).filter((index) => index % 2 === 1);
+
   return (
     <>
       <div className="job">
-        <div className="job-info">
+        <div className="job-column">
           <div className="job-header">
             <Logo logoName={career.logo} shouldInvert={true} />
             <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
           </div>
+          {!!achievements.length && (
+            <div className="job-achievements-heading">
+              <Heading tag="h3" size="xs">Achievements</Heading>
+            </div>
+          )}
+          {leftIndexes.map(renderAchievement)}
+        </div>
+
+        <div className="job-column">
           <div className="job-details">
             <div>
               <Heading tag="h3" size="xs">About</Heading>
@@ -31,49 +60,27 @@ const Job: React.FC<JobProps> = ({ career }) => {
               <Paragraph>{career.functions}</Paragraph>
             </div>
           </div>
+          {rightIndexes.map(renderAchievement)}
         </div>
-
-        {!!career.achievements?.length && <div className="job-achievements">
-          <Heading tag="h3" size="xs">Achievements</Heading>
-          <div className="job-achievements-list">
-            {career.achievements.map((achievement) => (
-              <Item
-                key={achievement.title}
-                icon="diamond-alt"
-                type="secondary"
-                title={achievement.title}
-                text={achievement.description}
-                tags={achievement.tech}
-              />
-            ))}
-          </div>
-        </div>}
       </div>
       <style jsx>{`
         .job {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          gap: 25px;
         }
 
-        .job-info {
-          display: flex;
-          flex-direction: column;
-          gap: 25px;
-        }
-
-        .job-achievements {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
+        /* Phones: the columns dissolve and the order props restore reading order. */
+        .job-column {
+          display: contents;
         }
 
         .job-header {
+          order: 0;
           display: flex;
           flex-direction: column;
           gap: 15px;
           align-items: center;
+          margin-bottom: 25px;
         }
 
         /* One logo box for every company: wide marks hit the width, tall ones the height. */
@@ -86,27 +93,34 @@ const Job: React.FC<JobProps> = ({ career }) => {
         }
 
         .job-details {
+          order: 1;
           display: flex;
           flex-direction: column;
           gap: 25px;
+          margin-bottom: 25px;
         }
 
-        /* Desktop: company info and achievements share one two-column grid. */
+        .job-achievements-heading {
+          order: 2;
+          margin-bottom: 10px;
+        }
+
         @media (min-width: 1140px) {
           .job {
-            gap: 40px;
-          }
-
-          .job-info {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 40px;
             align-items: start;
-            gap: 40px;
           }
 
-          /* Same columns as the achievements, indented to their text past the bullet. */
+          .job-column {
+            display: flex;
+            flex-direction: column;
+          }
+
           .job-header,
           .job-details {
+            margin-bottom: 40px;
             padding-left: var(--job-text-indent, 30px);
           }
 
@@ -116,13 +130,6 @@ const Job: React.FC<JobProps> = ({ career }) => {
 
           .job-header :global(.logo) {
             object-position: left center;
-          }
-
-          .job-achievements-list {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            column-gap: 40px;
-            align-items: start;
           }
         }
       `}</style>
