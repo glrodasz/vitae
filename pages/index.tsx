@@ -32,7 +32,7 @@ const Index = () => {
         <meta property="og:image" content={absoluteUrl(ogImagePath)} />
         <meta
           property="og:image:alt"
-          content="Guillermo Rodas — portrait photo"
+          content="Guillermo Rodas, portrait photo"
         />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />

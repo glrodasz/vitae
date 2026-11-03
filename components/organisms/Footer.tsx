@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 <strong>Say Hello</strong>
               </Heading>
               <Paragraph isInverted>
-                Drop a quick hello or ask any question — I&apos;m always happy to hear from you.
+                Drop a quick hello or ask any question. I&apos;m always happy to hear from you.
               </Paragraph>
               <div className="footer-icon-list">
                 <div className="footer-icon-item">

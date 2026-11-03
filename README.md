@@ -149,9 +149,9 @@ Stack: Swift, SwiftUI, AppKit, macOS
 
 ## Education
 
-- **UX Designer Upskill** — Hyper Island _(October 2023 — May 2024)_
-- **Technical assistant in Digital Graphic Design** — CENSA _(October 2017 — June 2018)_
-- **Systems engineering (undergraduate)** — Universidad Nacional de Colombia _(January 2007 — January 2010)_
+- **UX Designer Upskill** — Hyper Island _(October 2023 – May 2024)_
+- **Technical assistant in Digital Graphic Design** — CENSA _(October 2017 – June 2018)_
+- **Systems engineering (undergraduate)** — Universidad Nacional de Colombia _(January 2007 – January 2010)_
 
 ## Courses
 

@@ -60,8 +60,8 @@ _SaaS platform for the floral industry_ · August 2012 – May 2015
 
 ## Education
 
-- **UX Designer Upskill**, Hyper Island (October 2023 — May 2024)
-- **Systems engineering (undergraduate)**, Universidad Nacional de Colombia (January 2007 — January 2010)
+- **UX Designer Upskill**, Hyper Island (October 2023 – May 2024)
+- **Systems engineering (undergraduate)**, Universidad Nacional de Colombia (January 2007 – January 2010)
 
 ## Recognition & speaking
 
