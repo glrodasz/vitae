@@ -117,14 +117,14 @@ Functions: Full-stack Developer.
 
 # Selected Projects
 
-## Haggler
+## Haggler Agent
 Google ADK + Gemini agents tracking subscription prices in 67 countries. Grounded research, deterministic verdicts, hard cost ceilings.
 
 Stack: Python, Vertex AI, Astro
 - Repo: [github.com/glrodasz/haggler-agent](https://github.com/glrodasz/haggler-agent)
 - Live: [haggler.guillermorodas.com](https://haggler.guillermorodas.com)
 
-## Nido
+## Nido Agent
 Family viewing agent on ADK + Gemini, with prompt-injection evals and a shared multi-family app in three languages.
 
 Stack: Python, Firebase, Astro

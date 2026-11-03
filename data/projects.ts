@@ -2,7 +2,7 @@ import { Project } from "../types/data";
 
 export const projects: Project[] = [
   {
-    name: "Haggler",
+    name: "Haggler Agent",
     description:
       "Google ADK + Gemini agents tracking subscription prices in 67 countries. Grounded research, deterministic verdicts, hard cost ceilings.",
     stack: ["Python", "Vertex AI", "Astro"],
@@ -12,7 +12,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "Nido",
+    name: "Nido Agent",
     description:
       "Family viewing agent on ADK + Gemini, with prompt-injection evals and a shared multi-family app in three languages.",
     stack: ["Python", "Firebase", "Astro"],

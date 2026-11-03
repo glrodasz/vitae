@@ -42,8 +42,8 @@ _SaaS platform for the floral industry_ · August 2012 – May 2015
 
 ## Selected projects
 
-- **Haggler** (Python, Vertex AI, Astro): Google ADK + Gemini agents tracking subscription prices in 67 countries. Grounded research, deterministic verdicts, hard cost ceilings. [github.com/glrodasz/haggler-agent](https://github.com/glrodasz/haggler-agent) · [haggler.guillermorodas.com](https://haggler.guillermorodas.com)
-- **Nido** (Python, Firebase, Astro): Family viewing agent on ADK + Gemini, with prompt-injection evals and a shared multi-family app in three languages. [github.com/glrodasz/nido-agent](https://github.com/glrodasz/nido-agent) · [nido.guillermorodas.com](https://nido.guillermorodas.com)
+- **Haggler Agent** (Python, Vertex AI, Astro): Google ADK + Gemini agents tracking subscription prices in 67 countries. Grounded research, deterministic verdicts, hard cost ceilings. [github.com/glrodasz/haggler-agent](https://github.com/glrodasz/haggler-agent) · [haggler.guillermorodas.com](https://haggler.guillermorodas.com)
+- **Nido Agent** (Python, Firebase, Astro): Family viewing agent on ADK + Gemini, with prompt-injection evals and a shared multi-family app in three languages. [github.com/glrodasz/nido-agent](https://github.com/glrodasz/nido-agent) · [nido.guillermorodas.com](https://nido.guillermorodas.com)
 - **Walleto** (Next.js, TypeScript, Firestore, Auth0): Personal-finance planner with multi-currency and net worth. [github.com/glrodasz/walleto](https://github.com/glrodasz/walleto) · [walleto.guillermorodas.com](https://walleto.guillermorodas.com)
 - **Timepass** (Swift, SwiftUI, AppKit, macOS): Native Apple Silicon menu bar world clock with country flags. Pure AppKit + SwiftUI, no Electron. [github.com/glrodasz/timepass](https://github.com/glrodasz/timepass) · [timepass.guillermorodas.com](https://timepass.guillermorodas.com)
 
