@@ -89,6 +89,10 @@ const CarouselSubheader: React.FC<CarouselSubheaderProps> = ({
           .subheader {
             max-width: fit-content;
           }
+
+          .content :global(.heading) {
+            --subheader-width: 260px;
+          }
         }
       `}</style>
     </>

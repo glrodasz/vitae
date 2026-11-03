@@ -17,7 +17,7 @@ const Profile: React.FC = () => {
 
         <div className="profile-summary">
           {data.summary.map((paragraph, index) => (
-            <Paragraph key={index} size={isMobile ? "md" : "lg"} isJustified={!isMobile}>
+            <Paragraph key={index} size={isMobile ? "md" : "lg"}>
               {paragraph}
             </Paragraph>
           ))}

@@ -15,18 +15,20 @@ const Job: React.FC<JobProps> = ({ career }) => {
   return (
     <>
       <div className="job">
-        <div className="job-header">
-          <Logo logoName={career.logo} shouldInvert={true} />
-          <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
-        </div>
-        <div>
-          <Heading tag="h3" size="xs">About</Heading>
-          <Paragraph>{career.about}</Paragraph>
-        </div>
+        <div className="job-info">
+          <div className="job-header">
+            <Logo logoName={career.logo} shouldInvert={true} />
+            <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
+          </div>
+          <div>
+            <Heading tag="h3" size="xs">About</Heading>
+            <Paragraph>{career.about}</Paragraph>
+          </div>
 
-        <div>
-          <Heading tag="h3" size="xs">Functions</Heading>
-          <Paragraph>{career.functions}</Paragraph>
+          <div>
+            <Heading tag="h3" size="xs">Functions</Heading>
+            <Paragraph>{career.functions}</Paragraph>
+          </div>
         </div>
 
         {!!career.achievements?.length && <div className="job-achievements">
@@ -53,6 +55,12 @@ const Job: React.FC<JobProps> = ({ career }) => {
           gap: 25px;
         }
 
+        .job-info {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+        }
+
         .job-achievements {
           display: flex;
           flex-direction: column;
@@ -73,9 +81,17 @@ const Job: React.FC<JobProps> = ({ career }) => {
             gap: 35px;
           }
 
+          .job-info {
+            grid-column: 1;
+            grid-row: 1;
+            align-self: start;
+            position: sticky;
+            top: calc(var(--document-bar-height) + 24px);
+          }
+
           .job-achievements {
             grid-column: 2;
-            grid-row: 1/5;
+            grid-row: 1;
           }
 
           .job-achievements > :global(.heading) {
