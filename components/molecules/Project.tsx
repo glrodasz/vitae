@@ -105,22 +105,23 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 5px 12px;
-          border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+          padding: 7px 14px;
+          border: 1px solid var(--golden-yellow);
           border-radius: 999px;
-          color: var(--heading-secondary);
+          background: var(--golden-yellow);
+          color: #1a1a1a;
           font-family: var(--font-headings);
           font-size: 1.3rem;
-          font-weight: 500;
+          font-weight: 600;
           line-height: 1;
           text-decoration: none;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          transition: background 0.15s ease, color 0.15s ease;
         }
 
         .link-button:hover,
         .link-button:focus-visible {
-          color: var(--primary);
-          border-color: var(--primary);
+          background: transparent;
+          color: var(--golden-yellow);
         }
       `}</style>
     </>
