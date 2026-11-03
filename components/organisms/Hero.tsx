@@ -56,7 +56,6 @@ const Hero: React.FC = () => {
       <style jsx>{`
         .cv-masthead {
           padding: 40px 0;
-          border-bottom: 1px solid var(--border);
         }
 
         .cv-record {
