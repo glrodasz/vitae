@@ -26,6 +26,16 @@ export interface ResumeLine {
   meta?: string;
 }
 
+/** A name with an optional date, so the CV can style the date apart. */
+export interface ResumeDatedEntry {
+  name: string;
+  date?: string;
+}
+
+export interface ResumeRecognitionLine extends ResumeLine {
+  entries: ResumeDatedEntry[];
+}
+
 const withoutTrailingPeriod = (text: string) => text.replace(/\.$/, "");
 
 const formatEntries = (text: string | string[][]) =>
@@ -78,7 +88,7 @@ export const resumeEducation: ResumeLine[] = knowledge
     meta: item.footer,
   }));
 
-export const resumeRecognition: ResumeLine[] = achievements
+export const resumeRecognition: ResumeRecognitionLine[] = achievements
   .flatMap((section) => section.items)
   .filter((item) => item.resume)
   .map((item) => ({
@@ -86,4 +96,7 @@ export const resumeRecognition: ResumeLine[] = achievements
     text: item.footer
       ? `${formatEntries(item.text)} (${item.footer})`
       : formatEntries(item.text),
+    entries: Array.isArray(item.text)
+      ? item.text.map(([name, date]) => ({ name, date }))
+      : [{ name: item.text, date: item.footer }],
   }));

@@ -244,11 +244,33 @@ const Hero: React.FC = () => {
         }
 
         @media (min-width: 1140px) {
+          /* Dark band on desktop in both themes, like the footer. */
           .cv-masthead {
+            --text: var(--white);
+            --paragraph-primary: #d9d6cf;
+            --heading-secondary: #9a958a;
+            --border: #3a3a3a;
+
+            position: relative;
+            overflow: hidden;
             padding: 64px 0;
+            background: var(--black);
+          }
+
+          .cv-masthead::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -180px;
+            width: 520px;
+            height: 520px;
+            background: color-mix(in srgb, var(--golden-yellow) 14%, transparent);
+            transform: translateY(-50%) rotate(45deg);
           }
 
           .cv-record {
+            position: relative;
+            z-index: 1;
             flex-direction: row;
             align-items: center;
             gap: 56px;

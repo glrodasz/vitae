@@ -69,4 +69,4 @@ _SaaS platform for the floral industry_ · August 2012 – May 2015
 - **Auth0 Ambassador:** Identity & Security (2022 – 2024)
 - **The Language of AI: Probability:** DevFest Ourense (November 2025), DevFest Mediterranean (December 2025)
 - **WebAuthn & Passkeys: The Future of Authentication:** DevFest Singapore, EpicHey! (November 2023), DevFest Zagreb (October 2023)
-- **Bootcamp Instructor:** Código Facilito (October 2022, February 2023, March 2024), Undefined Academy (March 2023 - October 2023), Platzi Master (November 2020 - September 2022), World Tech Makers (June 2017 - August 2017)
+- **Bootcamp Instructor:** Código Facilito (October 2022, February 2023, March 2024), Undefined Academy (March 2023 – October 2023), Platzi Master (November 2020 – September 2022), World Tech Makers (June 2017 – August 2017)

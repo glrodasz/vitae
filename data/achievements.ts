@@ -73,9 +73,9 @@ export const achievements: AchievementSection[] = [
           // Bootcamp de React Avanzo con Next.js
           // Bootcamp de Diseño, Interfaces y CSS para Frontends
           ["Código Facilito", "October 2022, February 2023, March 2024"],
-          ["Undefined Academy", "March 2023 - October 2023"],
-          ["Platzi Master", "November 2020 - September 2022"],
-          ["World Tech Makers", "June 2017 - August 2017"],
+          ["Undefined Academy", "March 2023 – October 2023"],
+          ["Platzi Master", "November 2020 – September 2022"],
+          ["World Tech Makers", "June 2017 – August 2017"],
         ],
       },
       {
@@ -90,9 +90,9 @@ export const achievements: AchievementSection[] = [
       {
         title: "Community Organizer",
         text: [
-          ["CSS Conf Colombia", "April 2021 - December 2023"],
-          ["CSS Community Dev", "June 2018 - December 2023"],
-          ["Medellín Java", "December 2014 - November 2016"],
+          ["CSS Conf Colombia", "April 2021 – December 2023"],
+          ["CSS Community Dev", "June 2018 – December 2023"],
+          ["Medellín Java", "December 2014 – November 2016"],
         ],
       },
     ],

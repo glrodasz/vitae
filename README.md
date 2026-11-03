@@ -211,18 +211,18 @@ Stack: Swift, SwiftUI, AppKit, macOS
   - Código Facilito — September 2023
 - **Bootcamp Instructor**
   - Código Facilito — October 2022, February 2023, March 2024
-  - Undefined Academy — March 2023 - October 2023
-  - Platzi Master — November 2020 - September 2022
-  - World Tech Makers — June 2017 - August 2017
+  - Undefined Academy — March 2023 – October 2023
+  - Platzi Master — November 2020 – September 2022
+  - World Tech Makers — June 2017 – August 2017
 - **Mentor**
   - Women Developer Academy Europe — October 2021, October 2023
   - Hyper Island — March 2021
   - The Konferense — September 2020
   - Techstars Startup Weekend — June 2019
 - **Community Organizer**
-  - CSS Conf Colombia — April 2021 - December 2023
-  - CSS Community Dev — June 2018 - December 2023
-  - Medellín Java — December 2014 - November 2016
+  - CSS Conf Colombia — April 2021 – December 2023
+  - CSS Community Dev — June 2018 – December 2023
+  - Medellín Java — December 2014 – November 2016
 
 ## Podcasts
 

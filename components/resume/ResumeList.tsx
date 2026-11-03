@@ -3,6 +3,8 @@ import React from "react";
 interface ResumeListItem {
   label: string;
   text: string;
+  /** When present, rendered instead of text with each date styled as metadata. */
+  entries?: { name: string; date?: string }[];
 }
 
 interface ResumeListProps {
@@ -18,7 +20,19 @@ const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) =>
         {items.map((item) => (
           <div key={item.label} className="resume-list-row">
             <dt>{item.label}</dt>
-            <dd>{item.text}</dd>
+            <dd>
+              {item.entries
+                ? item.entries.map((entry, index) => (
+                    <React.Fragment key={`${entry.name}-${index}`}>
+                      {index > 0 && <span className="resume-list-sep"> · </span>}
+                      <span className="resume-list-entry">
+                        {entry.name}
+                        {entry.date && <span className="resume-list-date">{entry.date}</span>}
+                      </span>
+                    </React.Fragment>
+                  ))
+                : item.text}
+            </dd>
           </div>
         ))}
       </dl>
@@ -43,6 +57,28 @@ const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) =>
 
         dd {
           margin: 0;
+        }
+
+        .resume-list-entry {
+          white-space: nowrap;
+        }
+
+        .resume-list-date {
+          margin-left: 4pt;
+          font-family: var(--font-mono);
+          font-size: 8pt;
+          color: var(--resume-muted);
+          white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+          .resume-list-entry {
+            white-space: normal;
+          }
+        }
+
+        .resume-list-sep {
+          color: var(--resume-accent-ink);
         }
       `}</style>
     </>
