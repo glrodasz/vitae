@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
   return (
     <>
       <PageContainer>
-        <Heading size="md" isCentered>
+        <Heading tag="h2" size="md" isCentered>
           <strong>Selected</strong> projects
         </Heading>
         <div className="projects-grid">

@@ -20,17 +20,17 @@ const Job: React.FC<JobProps> = ({ career }) => {
           <Link href={`https://${career.url}`} weight="normal">{career.url}</Link>
         </div>
         <div>
-          <Heading size="xs">About</Heading>
+          <Heading tag="h3" size="xs">About</Heading>
           <Paragraph>{career.about}</Paragraph>
         </div>
 
         <div>
-          <Heading size="xs">Functions</Heading>
+          <Heading tag="h3" size="xs">Functions</Heading>
           <Paragraph>{career.functions}</Paragraph>
         </div>
 
         {!!career.achievements?.length && <div className="job-achievements">
-          <Heading size="xs">My achievements</Heading>
+          <Heading tag="h3" size="xs">My achievements</Heading>
           <div className="job-achievements-list">
             {career.achievements.map((achievement) => (
               <Item

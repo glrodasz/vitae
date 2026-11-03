@@ -9,7 +9,7 @@ import { careers } from "../../data/careers";
 const Career: React.FC = () => {
   return (
     <PageContainer withCarousel>
-      <Heading size="md" isCentered>
+      <Heading tag="h2" size="md" isCentered>
         <strong>Career</strong> experience
       </Heading>
       <Carousel

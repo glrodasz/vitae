@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 interface HeadingProps {
   children: ReactNode;
-  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
   size?: "xxs" | "xs" | "sm" | "md" | "lg";
   color?: "primary" | "secondary" | "disabled";
   weight?: "normal" | "bold";
@@ -17,7 +17,7 @@ interface HeadingProps {
 
 const Heading = ({
   children,
-  tag = "h1",
+  tag = "p",
   size = "lg",
   color = "primary",
   weight = "bold",

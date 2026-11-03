@@ -17,7 +17,7 @@ const Knowledge: React.FC<KnowledgeProps> = ({ title, items }) => {
   return (
     <>
       <PageContainer withCarousel>
-        <Heading size="md" isCentered>
+        <Heading tag="h2" size="md" isCentered>
           <strong>{title[0]}</strong> {title[1]}
         </Heading>
         <Carousel

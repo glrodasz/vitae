@@ -83,13 +83,13 @@ const Item: React.FC<ItemProps> = ({
           "is-same-line": isSameLine,
         })}>
           {title && !badge && (
-            <Heading size={getHeadingSize(type)} color={type} isMarginless>
+            <Heading tag="h3" size={getHeadingSize(type)} color={type} isMarginless>
               {title}
             </Heading>
           )}
           {title && badge && (
             <div className="title-row">
-              <Heading size={getHeadingSize(type)} color={type} isMarginless>
+              <Heading tag="h3" size={getHeadingSize(type)} color={type} isMarginless>
                 {title}
               </Heading>
               <span className="badge">{badge}</span>

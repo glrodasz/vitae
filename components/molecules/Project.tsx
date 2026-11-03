@@ -31,7 +31,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
           <Icon size="md" name="diamond-alt" />
         </div>
         <div className="content">
-          <Heading size="xs" isMarginless>
+          <Heading tag="h3" size="xs" isMarginless>
             {project.name}
           </Heading>
           <Paragraph isMarginless>{project.description}</Paragraph>

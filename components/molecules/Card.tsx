@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ title, subtitle, items }) => {
     <>
       <div className="card">
         <header>
-          <Heading size="xs">{title}</Heading>
+          <Heading tag="h3" size="xs">{title}</Heading>
           <Paragraph color="secondary" isMarginless>{subtitle}</Paragraph>
         </header>
         <hr className="card-rule" />

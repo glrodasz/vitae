@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
             <img className="footer-logo" src={`/vectors/footer.svg`} alt="" />
 
             <div className="footer-content">
-              <Heading>
+              <Heading tag="h2">
                 <strong>Say Hello</strong>
               </Heading>
               <Paragraph isInverted>

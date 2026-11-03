@@ -23,8 +23,13 @@ export const defaultDescription = `Senior Forward Deployed Engineer in Sweden bu
 export const resumeDescription =
   "Short CV of Guillermo Rodas, Senior Forward Deployed Engineer in Sweden.";
 
-// FIXME: Create a proper image for social networks
-export const ogImagePath = "/images/guillermo-rodas.png";
+/** 1200×630 social card (Open Graph / Twitter). */
+export const ogImagePath = "/images/og-card.png";
+export const ogImageAlt =
+  "Guillermo Rodas, Senior Forward Deployed Engineer. Curriculum Vitae.";
+
+/** Portrait used as the Person image in structured data. */
+export const portraitPath = "/images/guillermo-rodas.png";
 
 export function absoluteUrl(path: string): string {
   const base = siteUrl.replace(/\/$/, "");
@@ -34,6 +39,8 @@ export function absoluteUrl(path: string): string {
 
 export const sameAs = [
   "https://guillermorodas.com",
+  "https://linkedin.com/in/guillermorodas",
+  "https://github.com/glrodasz",
   "https://youtube.com/c/guillermorodas",
   "https://twitch.tv/guillermorodas",
   "https://x.com/germorodas",
@@ -45,7 +52,33 @@ export const personJsonLd = {
   "@type": "Person",
   name: "Guillermo Rodas",
   jobTitle: "Senior Forward Deployed Engineer",
+  description: defaultDescription,
   url: absoluteUrl("/"),
-  image: absoluteUrl(ogImagePath),
+  image: absoluteUrl(portraitPath),
+  email: "mailto:me@guillermorodas.com",
+  worksFor: { "@type": "Organization", name: "EQT Group", url: "https://eqtgroup.com" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Stockholm",
+    addressCountry: "SE",
+  },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Universidad Nacional de Colombia" },
+    { "@type": "EducationalOrganization", name: "Hyper Island" },
+  ],
+  knowsAbout: [
+    "AI engineering",
+    "AI agents",
+    "Retrieval-augmented generation",
+    "Model Context Protocol",
+    "LangChain",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "Google Cloud",
+  ],
+  knowsLanguage: ["en", "es", "sv"],
   sameAs: [...sameAs],
 } as const;

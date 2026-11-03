@@ -11,7 +11,7 @@ const Profile: React.FC = () => {
   return (
     <PageContainer>
       <div className="profile">
-        <Heading size="md" isCentered>
+        <Heading tag="h2" size="md" isCentered>
           <strong>Personal</strong> profile
         </Heading>
 

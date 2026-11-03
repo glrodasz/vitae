@@ -5,7 +5,14 @@ import ResumeHeader from "../components/resume/ResumeHeader";
 import ResumeSection from "../components/resume/ResumeSection";
 import ResumeEntry from "../components/resume/ResumeEntry";
 import ResumeList from "../components/resume/ResumeList";
-import { absoluteUrl, pdfPath, resumeDescription, resumePageTitle } from "../data/site";
+import {
+  absoluteUrl,
+  ogImageAlt,
+  ogImagePath,
+  pdfPath,
+  resumeDescription,
+  resumePageTitle,
+} from "../data/site";
 import {
   resumeEducation,
   resumeExperience,
@@ -23,6 +30,22 @@ const Resume = () => {
         <title>{resumePageTitle}</title>
         <meta name="description" content={resumeDescription} />
         <link rel="canonical" href={absoluteUrl("/resume")} />
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content={resumePageTitle} />
+        <meta property="og:description" content={resumeDescription} />
+        <meta property="og:url" content={absoluteUrl("/resume")} />
+        <meta property="og:image" content={absoluteUrl(ogImagePath)} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={ogImageAlt} />
+        <meta property="og:site_name" content="Guillermo Rodas" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={resumePageTitle} />
+        <meta name="twitter:description" content={resumeDescription} />
+        <meta name="twitter:image" content={absoluteUrl(ogImagePath)} />
+        <meta name="twitter:image:alt" content={ogImageAlt} />
+        <meta name="twitter:creator" content="@germorodas" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
