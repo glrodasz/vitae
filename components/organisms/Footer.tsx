@@ -36,17 +36,20 @@ const Footer: React.FC = () => {
               </div>
               <div className="footer-social">
                 <div>
-                  <Link href="https://youtube.com/c/guillermorodas" isInline>
-                    <Icon name="youtube" hasBackground />
+                  <Link href="https://x.com/germorodas" isInline>
+                    <Icon name="x" hasBackground />
                   </Link>
                   <Link href="https://twitch.tv/guillermorodas" isInline>
                     <Icon name="twitch" hasBackground />
                   </Link>
-                  <Link href="https://x.com/germorodas" isInline>
-                    <Icon name="x" hasBackground />
+                  <Link href="https://youtube.com/c/guillermorodas" isInline>
+                    <Icon name="youtube" hasBackground />
                   </Link>
                   <Link href="https://instagram.com/germorodas" isInline>
                     <Icon name="instagram" hasBackground />
+                  </Link>
+                  <Link href="https://linkedin.com/in/guillermorodas" isInline>
+                    <Icon name="linkedin" hasBackground />
                   </Link>
                 </div>
               </div>
