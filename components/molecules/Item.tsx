@@ -59,7 +59,7 @@ const Item: React.FC<ItemProps> = ({
 }) => {
   return (
     <>
-      <div className="item">
+      <div className={classNames("item", { "has-title": !!title && !!(icon || flag) })}>
         {(icon || flag) && (
           <div
             className={classNames("media", {
@@ -101,6 +101,29 @@ const Item: React.FC<ItemProps> = ({
 
         .is-centered-with-text {
           margin-top: 5px;
+        }
+
+        /* Phones: only the title sits beside the icon; the rest uses the full width. */
+        @media (max-width: 639px) {
+          .has-title {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 10px;
+            row-gap: 4px;
+            align-items: center;
+          }
+
+          .has-title .content {
+            display: contents;
+          }
+
+          .has-title .content > :global(*) {
+            grid-column: 1 / -1;
+          }
+
+          .has-title .content > :global(:first-child) {
+            grid-column: 2;
+          }
         }
 
         @media (min-width: 1140px) {

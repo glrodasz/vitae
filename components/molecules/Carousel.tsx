@@ -148,6 +148,12 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           z-index: 10;
         }
 
+        @media (max-width: 639px) {
+          .carousel-slide--active {
+            padding: 28px 16px 0;
+          }
+        }
+
         .carousel-slide--active > :global(.knowledge-masonry) {
           display: block;
         }

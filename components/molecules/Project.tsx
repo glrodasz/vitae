@@ -71,6 +71,29 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
           min-width: 0;
         }
 
+        /* Phones: only the name sits beside the icon; the rest uses the full width. */
+        @media (max-width: 639px) {
+          .project {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 10px;
+            row-gap: 6px;
+            align-items: center;
+          }
+
+          .content {
+            display: contents;
+          }
+
+          .content > :global(*) {
+            grid-column: 1 / -1;
+          }
+
+          .content > :global(:first-child) {
+            grid-column: 2;
+          }
+        }
+
         .links {
           display: flex;
           flex-wrap: wrap;
