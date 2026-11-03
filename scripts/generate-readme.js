@@ -92,224 +92,190 @@ function formatLink(url) {
   return `[${trimmed}](${href})`;
 }
 
-function formatSummary(lines, summary) {
-  addLine(lines, "# Summary");
+/** "www.eqtgroup.com" → "[eqtgroup.com](https://www.eqtgroup.com)" */
+function formatShortLink(url) {
+  const trimmed = url.trim();
+  const href = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+  const label = trimmed.replace(/^https?:\/\//i, "").replace(/^www\./i, "").replace(/\/$/, "");
+  return `[${label}](${href})`;
+}
+
+/**
+ * A button image from public/readme/. GitHub strips target="_blank" from READMEs,
+ * so these open in the same tab (the PDF opens in the browser's viewer).
+ */
+function button(image, label, href) {
+  return `<a href="${href}"><img src="public/readme/${image}" alt="${label}" height="40" /></a>`;
+}
+
+const SECTIONS = [
+  ["Summary", "summary"],
+  ["Expertise", "expertise"],
+  ["Skills", "skills"],
+  ["Experience", "experience"],
+  ["Selected Projects", "selected-projects"],
+  ["Knowledge", "knowledge"],
+  ["Recognition", "recognition"],
+];
+
+function formatHeader(lines, { profile, languages, site }) {
+  const contacts = [
+    `[${profile.email}](mailto:${profile.email})`,
+    `[${profile.website.label}](${profile.website.url})`,
+    ...profile.links.map((link) => `[${link.label}](${link.url})`),
+  ];
+
+  addLine(lines, "<!-- Generated from content/*.yml by scripts/generate-readme.js. Edit the YAML, not this file. -->");
   addLine(lines);
-
-  summary.forEach((paragraph, index) => {
-    addLine(lines, paragraph);
-    if (index !== summary.length - 1) {
-      addLine(lines);
-    }
-  });
-
+  addLine(lines, '<div align="center">');
+  addLine(lines);
+  addLine(lines, `# ${profile.name}`);
+  addLine(lines);
+  addLine(lines, `**${profile.role}** · ${profile.location}`);
+  addLine(lines);
+  addLine(lines, `_${profile.tagline}_`);
+  addLine(lines);
+  addLine(lines, contacts.join(" · "));
+  addLine(lines);
+  addLine(
+    lines,
+    [
+      button("download-pdf.svg", "Download PDF", site.absoluteUrl(site.pdfPath)),
+      button("view-online.svg", "View online", site.absoluteUrl("/")),
+    ].join("&nbsp;")
+  );
+  addLine(lines);
+  addLine(
+    lines,
+    languages.map((language) => `${language.flag} ${language.title} (${language.proeficiency})`).join(" · ")
+  );
+  addLine(lines);
+  addLine(lines, SECTIONS.map(([title, anchor]) => `[${title}](#${anchor})`).join(" · "));
+  addLine(lines);
+  addLine(lines, "</div>");
   addLine(lines);
 }
 
-function formatLanguages(lines, languages) {
-  addLine(lines, "# Languages");
+function formatSummary(lines, summary) {
+  addLine(lines, "## Summary");
   addLine(lines);
-
-  languages.forEach((language, index) => {
-    addLine(lines, `${language.flag} **${language.title}**`);
-    addLine(lines, language.proeficiency);
-    if (index !== languages.length - 1) {
-      addLine(lines);
-    }
+  summary.forEach((paragraph) => {
+    addLine(lines, paragraph);
+    addLine(lines);
   });
-
-  addLine(lines);
 }
 
 function formatExpertises(lines, expertises) {
-  addLine(lines, "# Expertises");
+  addLine(lines, "## Expertise");
   addLine(lines);
-
-  expertises.forEach((expertise, index) => {
-    addLine(lines, `## ${expertise.title}`);
-    if (expertise.subtitle) {
-      addLine(lines, expertise.subtitle);
-    }
-    expertise.items.forEach((item) => {
-      addLine(lines, `- ${item}`);
-    });
-    if (index !== expertises.length - 1) {
-      addLine(lines);
-    }
+  expertises.forEach((expertise) => {
+    const subtitle = expertise.subtitle ? ` · _${expertise.subtitle}_` : "";
+    addLine(lines, `**${expertise.title}**${subtitle}`);
+    expertise.items.forEach((item) => addLine(lines, `- ${item}`));
+    addLine(lines);
   });
-
-  addLine(lines);
 }
 
-function formatStack(lines, stack) {
-  addLine(lines, "# Stack");
+function formatSkills(lines, stack, frameworks) {
+  addLine(lines, "## Skills");
   addLine(lines);
-
-  stack.forEach((item) => {
-    addLine(lines, `- **${item.title}** — ${item.text}`);
+  addLine(lines, "| Area | Tools and practice |");
+  addLine(lines, "| :--- | :--- |");
+  [...stack, ...frameworks].forEach((item) => {
+    addLine(lines, `| **${item.title}** | ${item.text.replace(/\|/g, "\\|")} |`);
   });
-
-  addLine(lines);
-}
-
-function formatFrameworks(lines, frameworks) {
-  addLine(lines, "# Frameworks");
-  addLine(lines);
-
-  frameworks.forEach((item) => {
-    addLine(lines, `- **${item.title}** — ${item.text}`);
-  });
-
   addLine(lines);
 }
 
 function formatCareers(lines, careers) {
-  addLine(lines, "# Careers");
+  addLine(lines, "## Experience");
   addLine(lines);
 
   careers.forEach((career, index) => {
-    addLine(lines, `## ${career.company}`);
-    if (career.date) {
-      addLine(lines, `Date: ${career.date}`);
-    }
-    addLine(lines, `Start Date: ${career.startDate}`);
-    if (career.endDate) {
-      addLine(lines, `End Date: ${career.endDate}`);
-    }
-    addLine(lines, `URL: ${formatLink(career.url)}`);
-    addLine(lines, `About: ${career.about}`);
-    addLine(lines, `Functions: ${career.functions}`);
-    if (career.achievements.length > 0) {
-      addLine(lines);
-      addLine(lines, "### Achievements");
-      career.achievements.forEach((achievement) => {
-        const tech = achievement.tech?.length
-          ? ` _Tech: ${achievement.tech.join(", ")}._`
-          : "";
-        addLine(
-          lines,
-          `- **${achievement.title}.** ${achievement.description}${tech}`
-        );
-      });
-    }
+    const role = career.functions.replace(/\.$/, "");
+    const dates = `${career.startDate} – ${career.endDate ?? "Present"}`;
+
+    addLine(lines, `### ${career.company}`);
+    addLine(lines);
+    addLine(lines, `**${role}** · ${dates} · ${formatShortLink(career.url)}`);
+    addLine(lines);
+    addLine(lines, `> ${career.about}`);
+    addLine(lines);
+    career.achievements.forEach((achievement) => {
+      addLine(lines, `- **${achievement.title}.** ${achievement.description}`);
+      if (achievement.tech?.length) {
+        addLine(lines, `  <br /><sub>${achievement.tech.join(" · ")}</sub>`);
+      }
+    });
+    addLine(lines);
     if (index !== careers.length - 1) {
+      addLine(lines, "---");
       addLine(lines);
     }
   });
-
-  addLine(lines);
 }
 
 function formatProjects(lines, projects) {
-  addLine(lines, "# Selected Projects");
+  addLine(lines, "## Selected Projects");
   addLine(lines);
-
-  projects.forEach((project, index) => {
-    addLine(lines, `## ${project.name}`);
-    addLine(lines, project.description);
-    addLine(lines);
-    addLine(lines, `Stack: ${project.stack.join(", ")}`);
-    project.links.forEach((link) => {
-      addLine(lines, `- ${link.label}: ${formatLink(link.url)}`);
-    });
-    if (index !== projects.length - 1) {
-      addLine(lines);
-    }
+  projects.forEach((project) => {
+    const links = project.links
+      .map((link) => {
+        const href = /^https?:\/\//i.test(link.url) ? link.url : `https://${link.url}`;
+        return `[${link.label}](${href})`;
+      })
+      .join(" · ");
+    addLine(lines, `- **${project.name}** · ${links}`);
+    addLine(lines, `  <br />${project.description}`);
+    addLine(lines, `  <br /><sub>${project.stack.join(" · ")}</sub>`);
   });
-
   addLine(lines);
 }
 
-function formatKnowledge(lines, knowledge) {
-  addLine(lines, "# Knowledge");
-  addLine(lines);
-
-  knowledge.forEach((section, sectionIndex) => {
-    addLine(lines, `## ${section.title}`);
-    addLine(lines);
-
-    section.items.forEach((item) => {
-      const text = item.text;
-      const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
-      if (Array.isArray(text)) {
-        addLine(lines, `- **${title}**`);
-        text.forEach((entry) => {
-          const [title, detail] = entry;
-          addLine(lines, `  - ${title} — ${detail}`);
-        });
-        if (item.footer) {
-          addLine(lines, `  - _${item.footer}_`);
-        }
-      } else {
-        const footer = item.footer ? ` _(${item.footer})_` : "";
-        addLine(lines, `- **${title}** — ${text}${footer}`);
-      }
-    });
-
-    if (sectionIndex !== knowledge.length - 1) {
-      addLine(lines);
+/** Items of the Knowledge and Recognition sections. */
+function formatSectionItems(lines, items) {
+  items.forEach((item) => {
+    const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
+    const date = item.footer ? ` · _${item.footer}_` : "";
+    if (Array.isArray(item.text)) {
+      addLine(lines, `- **${title}**${date}`);
+      item.text.forEach(([name, detail]) => addLine(lines, `  - ${name} · _${detail}_`));
+    } else {
+      addLine(lines, `- **${title}** — ${item.text}${date}`);
     }
   });
-
   addLine(lines);
 }
 
-function formatAchievements(lines, achievements) {
-  addLine(lines, "# Achievements");
+function formatSections(lines, heading, sections) {
+  addLine(lines, `## ${heading}`);
   addLine(lines);
-
-  achievements.forEach((section, sectionIndex) => {
-    addLine(lines, `## ${section.title}`);
+  sections.forEach((section) => {
+    addLine(lines, `### ${section.title}`);
     addLine(lines);
-
-    section.items.forEach((item) => {
-      const text = item.text;
-      const title = item.badge ? `${item.title} (${item.badge.toLowerCase()})` : item.title;
-      if (Array.isArray(text)) {
-        addLine(lines, `- **${title}**`);
-        text.forEach((entry) => {
-          const [title, detail] = entry;
-          addLine(lines, `  - ${title} — ${detail}`);
-        });
-        if (item.footer) {
-          addLine(lines, `  - _${item.footer}_`);
-        }
-      } else {
-        const footer = item.footer ? ` _(${item.footer})_` : "";
-        addLine(lines, `- **${title}** — ${text}${footer}`);
-      }
-    });
-
-    if (sectionIndex !== achievements.length - 1) {
-      addLine(lines);
-    }
+    formatSectionItems(lines, section.items);
   });
 }
 
 function main() {
   const lines = [];
+  const load = (name) => loadTsModule(path.join(projectRoot, "data", name));
 
-  const summaryModule = loadTsModule(path.join(projectRoot, "data", "summary"));
-  const languagesModule = loadTsModule(path.join(projectRoot, "data", "languages"));
-  const expertisesModule = loadTsModule(path.join(projectRoot, "data", "expertises"));
-  const stackModule = loadTsModule(path.join(projectRoot, "data", "stack"));
-  const frameworksModule = loadTsModule(path.join(projectRoot, "data", "frameworks"));
-  const careersModule = loadTsModule(path.join(projectRoot, "data", "careers"));
-  const projectsModule = loadTsModule(path.join(projectRoot, "data", "projects"));
-  const knowledgeModule = loadTsModule(path.join(projectRoot, "data", "knowledge"));
-  const achievementsModule = loadTsModule(path.join(projectRoot, "data", "achievements"));
+  const site = load("site");
+  formatHeader(lines, {
+    profile: load("profile").profile,
+    languages: load("languages").languages,
+    site,
+  });
+  formatSummary(lines, load("summary").summary);
+  formatExpertises(lines, load("expertises").expertises);
+  formatSkills(lines, load("stack").stack, load("frameworks").frameworks);
+  formatCareers(lines, load("careers").careers);
+  formatProjects(lines, load("projects").projects);
+  formatSections(lines, "Knowledge", load("knowledge").knowledge);
+  formatSections(lines, "Recognition", load("achievements").achievements);
 
-  formatSummary(lines, summaryModule.summary);
-  formatLanguages(lines, languagesModule.languages);
-  formatExpertises(lines, expertisesModule.expertises);
-  formatStack(lines, stackModule.stack);
-  formatFrameworks(lines, frameworksModule.frameworks);
-  formatCareers(lines, careersModule.careers);
-  formatProjects(lines, projectsModule.projects);
-  formatKnowledge(lines, knowledgeModule.knowledge);
-  formatAchievements(lines, achievementsModule.achievements);
-
-  const output = lines.join("\n").replace(/\n{3,}/g, "\n\n");
+  const output = lines.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd();
   fs.writeFileSync(path.join(projectRoot, "README.md"), `${output}\n`, "utf8");
 }
 
