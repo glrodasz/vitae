@@ -45,13 +45,17 @@ const Hero: React.FC = () => {
     },
   ];
 
+  const [firstName, ...lastNames] = profile.name.split(" ");
+
   return (
     <>
       <header className="cv-masthead">
         <PageContainer>
           <div className="cv-record">
             <div className="cv-record-body">
-<h1>{profile.name}</h1>
+<h1>
+                <span className="cv-first-name">{firstName}</span> {lastNames.join(" ")}
+              </h1>
               <p className="cv-tagline">{profile.tagline}</p>
               <dl className="cv-facts">
                 {facts.map((fact) => (
@@ -259,6 +263,10 @@ const Hero: React.FC = () => {
             font-size: 6.4rem;
             line-height: 1.02;
             letter-spacing: -0.01em;
+          }
+
+          .cv-first-name {
+            color: var(--golden-yellow);
           }
 
           .cv-tagline {
