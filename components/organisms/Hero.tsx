@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import PageContainer from "../layout/PageContainer";
 import { profile } from "../../data/profile";
 import { languages } from "../../data/languages";
 import { yearsOfExperience } from "../../data/experience";
-import { pdfPath } from "../../data/site";
+import { pdfPath, portraitPath } from "../../data/site";
 
 /**
  * CV masthead: a record card with the essentials, not a marketing hero.
@@ -50,7 +51,7 @@ const Hero: React.FC = () => {
         <PageContainer>
           <div className="cv-record">
             <div className="cv-record-body">
-              <h1>{profile.name}</h1>
+<h1>{profile.name}</h1>
               <p className="cv-tagline">{profile.tagline}</p>
               <dl className="cv-facts">
                 {facts.map((fact) => (
@@ -73,6 +74,13 @@ const Hero: React.FC = () => {
                   Download PDF <span aria-hidden="true">↓</span>
                 </a>
               </div>
+            </div>
+            <div className="cv-portrait" aria-hidden="true">
+              <div className="cv-portrait-frame">
+                <Image src={portraitPath} alt="" width={800} height={800} priority />
+              </div>
+              <span className="cv-portrait-accent is-large" />
+              <span className="cv-portrait-accent is-small" />
             </div>
           </div>
         </PageContainer>
@@ -227,24 +235,96 @@ const Hero: React.FC = () => {
           }
         }
 
+        .cv-portrait {
+          display: none;
+        }
+
         @media (min-width: 1140px) {
+          .cv-masthead {
+            padding: 64px 0;
+          }
+
           .cv-record {
             flex-direction: row;
-            align-items: flex-start;
-            gap: 40px;
+            align-items: center;
+            gap: 56px;
           }
 
           .cv-record-body {
             flex: 1;
+            min-width: 0;
+          }
+
+          h1 {
+            font-size: 6.4rem;
+            line-height: 1.02;
+            letter-spacing: -0.01em;
+          }
+
+          .cv-tagline {
+            margin-top: 12px;
+            font-size: 2rem;
+            max-width: 36ch;
           }
 
           .cv-facts {
-            grid-template-columns: 1fr 1fr;
-            column-gap: 40px;
+            margin-top: 32px;
           }
 
-          .cv-fact.is-wide {
-            grid-column: 1 / -1;
+          .cv-fact {
+            grid-template-columns: 130px 1fr;
+            padding: 10px 0;
+          }
+
+          dd {
+            font-size: 1.7rem;
+          }
+
+          .cv-ctas {
+            margin-top: 32px;
+          }
+
+          .cv-portrait {
+            display: block;
+            position: relative;
+            flex: 0 0 400px;
+          }
+
+          .cv-portrait-frame {
+            position: relative;
+            aspect-ratio: 1;
+            background: var(--golden-yellow);
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            overflow: hidden;
+          }
+
+          .cv-portrait-frame :global(img) {
+            position: absolute;
+            inset: 6% 0 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+          }
+
+          .cv-portrait-accent {
+            position: absolute;
+            background: var(--golden-yellow);
+            transform: rotate(45deg);
+          }
+
+          .cv-portrait-accent.is-large {
+            width: 40px;
+            height: 40px;
+            left: -12px;
+            top: 40px;
+          }
+
+          .cv-portrait-accent.is-small {
+            width: 24px;
+            height: 24px;
+            right: 16px;
+            bottom: 24px;
           }
         }
       `}</style>
