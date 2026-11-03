@@ -154,6 +154,12 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           }
         }
 
+        @media (max-width: 767px) {
+          .carousel-navigation {
+            gap: 20px;
+          }
+        }
+
         .carousel-slide--active > :global(.knowledge-masonry) {
           display: block;
         }
