@@ -174,6 +174,11 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           .carousel-slide {
             padding: 0;
           }
+
+          /* Breathing room between the section bar and the content. */
+          .carousel-slide--active {
+            padding-top: 24px;
+          }
         }
       `}</style>
     </>
