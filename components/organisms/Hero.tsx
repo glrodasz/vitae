@@ -109,7 +109,6 @@ const Hero: React.FC = () => {
           display: grid;
           grid-template-columns: 1fr;
           margin-top: 20px;
-          border-top: 1px solid var(--border);
         }
 
         .cv-fact {
@@ -118,6 +117,10 @@ const Hero: React.FC = () => {
           gap: 12px;
           padding: 8px 0;
           border-bottom: 1px solid var(--border);
+        }
+
+        .cv-fact:last-child {
+          border-bottom: none;
         }
 
         dt {
