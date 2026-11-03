@@ -143,6 +143,8 @@ const Item: React.FC<ItemProps> = ({
           white-space: nowrap;
         }
 
+        /* Titled entries are separated evenly, with or without tags. */
+        .has-title,
         .has-tags {
           margin-bottom: 32px;
         }
