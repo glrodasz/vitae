@@ -15,10 +15,10 @@ const Footer: React.FC = () => {
 
             <div className="footer-content">
               <Heading>
-                <strong>Contact</strong>
+                <strong>Say Hello</strong>
               </Heading>
               <Paragraph isInverted>
-                It would be a pleasure to meet you!
+                Drop a quick hello or ask any question — I&apos;m always happy to hear from you.
               </Paragraph>
               <div className="footer-icon-list">
                 <div className="footer-icon-item">
@@ -35,9 +35,6 @@ const Footer: React.FC = () => {
                 </div>
               </div>
               <div className="footer-social">
-                <Heading size="xxs" isInverted isMarginless>
-                  @guillermorodas
-                </Heading>
                 <div>
                   <Link href="https://youtube.com/c/guillermorodas" isInline>
                     <Icon name="youtube" hasBackground />
@@ -79,6 +76,7 @@ const Footer: React.FC = () => {
           flex-direction: column;
           align-items: center;
           padding-bottom: 50px;
+          text-align: center;
         }
 
         .footer-icon-list {
@@ -115,6 +113,7 @@ const Footer: React.FC = () => {
             align-items: flex-start;
             grid-column: 2/3;
             padding-bottom: 0;
+            text-align: left;
           }
 
           .footer-social {
