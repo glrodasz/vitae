@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="164" height="40" viewBox="0 0 164 40" role="img" aria-label="View online">
+  <rect x="0.75" y="0.75" width="162.5" height="38.5" rx="7.25" fill="#262626" stroke="#F7DF1D" stroke-width="1.5"/>
+  <g fill="none" stroke="#F7DF1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(18 11)">
+    <circle cx="9" cy="9" r="8"/>
+    <path d="M1 9h16M9 1c2.2 2.2 3.3 5 3.3 8s-1.1 5.8-3.3 8c-2.2-2.2-3.3-5-3.3-8S6.8 3.2 9 1z"/>
+  </g>
+  <text x="46" y="25.5" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600">View online</text>
+</svg>
