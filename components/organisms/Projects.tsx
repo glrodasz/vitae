@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
         .projects-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 25px;
+          gap: 40px;
           margin-top: 20px;
         }
 

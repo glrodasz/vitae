@@ -26,7 +26,7 @@ const ExternalIcon = () => (
 const Project: React.FC<ProjectProps> = ({ project }) => {
   return (
     <>
-      <div className="project">
+      <article className="project">
         <div className="media">
           <Icon size="md" name="diamond-alt" />
         </div>
@@ -55,7 +55,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             })}
           </div>
         </div>
-      </div>
+      </article>
       <style jsx>{`
         .project {
           display: flex;
@@ -67,7 +67,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
         .content {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 4px;
           min-width: 0;
         }
 
@@ -77,7 +77,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             display: grid;
             grid-template-columns: auto 1fr;
             column-gap: 10px;
-            row-gap: 6px;
+            row-gap: 4px;
             align-items: center;
           }
 

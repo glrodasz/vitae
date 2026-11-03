@@ -21,7 +21,7 @@ const Tags: React.FC<TagsProps> = ({ items, label = "Technologies" }) => {
           display: flex;
           flex-wrap: wrap;
           gap: 6px;
-          margin: 12px 0 0;
+          margin: 8px 0 0;
           padding: 0;
           list-style: none;
         }
