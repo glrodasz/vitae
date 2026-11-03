@@ -169,6 +169,13 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
             position: relative;
             /* With position: relative, a non-zero top would shift the tabs onto the content. */
             top: 0;
+            gap: 12px;
+            padding-bottom: 12px;
+          }
+
+          /* Keep the arrows off the strip's edges. */
+          .carousel-navigation :global(.subheader) {
+            padding: 0 12px;
           }
 
           .carousel-slide {
