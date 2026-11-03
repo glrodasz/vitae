@@ -9,17 +9,18 @@ import { yearsOfExperience } from "../../data/experience";
  * CV masthead: a record card with the essentials, not a marketing hero.
  */
 const Hero: React.FC = () => {
-  const facts = [
+  const facts: { label: string; value: string; href?: string; isWide?: boolean }[] = [
     { label: "Role", value: profile.role },
     { label: "Based in", value: `${profile.location}, from ${profile.origin}` },
     { label: "Experience", value: `${yearsOfExperience} years` },
+    { label: "Contact", value: profile.email, href: `mailto:${profile.email}` },
     {
       label: "Languages",
       value: languages
         .map((language) => `${language.title} (${language.proeficiency.toLowerCase()})`)
         .join(", "),
+      isWide: true,
     },
-    { label: "Contact", value: profile.email, href: `mailto:${profile.email}` },
   ];
 
   return (
@@ -32,7 +33,10 @@ const Hero: React.FC = () => {
               <p className="cv-tagline">{profile.tagline}</p>
               <dl className="cv-facts">
                 {facts.map((fact) => (
-                  <div key={fact.label} className="cv-fact">
+                  <div
+                    key={fact.label}
+                    className={fact.isWide ? "cv-fact is-wide" : "cv-fact"}
+                  >
                     <dt>{fact.label}</dt>
                     <dd>
                       {fact.href ? <a href={fact.href}>{fact.value}</a> : fact.value}
@@ -149,6 +153,10 @@ const Hero: React.FC = () => {
           .cv-facts {
             grid-template-columns: 1fr 1fr;
             column-gap: 40px;
+          }
+
+          .cv-fact.is-wide {
+            grid-column: 1 / -1;
           }
         }
       `}</style>
