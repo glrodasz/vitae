@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
         <PageContainer>
           <div className="cv-record">
             <div className="cv-record-body">
-<h1>
+              <h1 data-brand-anchor>
                 <span className="cv-first-name">{firstName}</span> {lastNames.join(" ")}
               </h1>
               <p className="cv-tagline">{profile.tagline}</p>

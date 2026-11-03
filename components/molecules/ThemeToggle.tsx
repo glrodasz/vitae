@@ -72,9 +72,14 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           display: none;
         }
 
+        /* Subtle edge plus a faint layered glow instead of a bright solid border. */
         .toggle-container:hover,
         .toggle-container:focus-visible {
-          box-shadow: inset 0 0 0 1px var(--golden-yellow);
+          outline: none;
+          box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--golden-yellow) 35%, transparent),
+            0 0 4px color-mix(in srgb, var(--golden-yellow) 18%, transparent),
+            0 0 12px color-mix(in srgb, var(--golden-yellow) 10%, transparent),
+            0 0 24px color-mix(in srgb, var(--golden-yellow) 6%, transparent);
         }
 
         .switch {
@@ -86,7 +91,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           position: relative;
           transition: background-color 0.3s ease;
           transform: translateY(2px);
-          box-shadow: inset 0 0 0 1px var(--border);
         }
 
         .switch-handle {

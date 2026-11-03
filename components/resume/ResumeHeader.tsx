@@ -15,7 +15,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({ profile }) => {
   return (
     <>
       <header className="resume-header">
-        <h1>{profile.name}</h1>
+        <h1 data-brand-anchor>{profile.name}</h1>
         <p className="resume-header-role">
           {profile.role} · {profile.location}
         </p>
