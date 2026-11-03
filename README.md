@@ -138,11 +138,12 @@ Stack: Next.js, TypeScript, Firestore, Auth0
 - Repo: [github.com/glrodasz/walleto](https://github.com/glrodasz/walleto)
 - Live: [walleto.guillermorodas.com](https://walleto.guillermorodas.com)
 
-## cero-api
-One API in six languages, held to a single contract test suite.
+## Timepass
+Native Apple Silicon menu bar world clock with country flags. Pure AppKit + SwiftUI, no Electron.
 
-Stack: TypeScript, Python, Go, Rust, PHP, Elixir
-- Repo: [github.com/glrodasz/cero-api](https://github.com/glrodasz/cero-api)
+Stack: Swift, SwiftUI, AppKit, macOS
+- Repo: [github.com/glrodasz/timepass](https://github.com/glrodasz/timepass)
+- Live: [timepass.guillermorodas.com](https://timepass.guillermorodas.com)
 
 # Knowledge
 

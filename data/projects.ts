@@ -31,9 +31,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "cero-api",
-    description: "One API in six languages, held to a single contract test suite.",
-    stack: ["TypeScript", "Python", "Go", "Rust", "PHP", "Elixir"],
-    links: [{ label: "Repo", url: "github.com/glrodasz/cero-api" }],
+    name: "Timepass",
+    description: "Native Apple Silicon menu bar world clock with country flags. Pure AppKit + SwiftUI, no Electron.",
+    stack: ["Swift", "SwiftUI", "AppKit", "macOS"],
+    links: [
+      { label: "Repo", url: "github.com/glrodasz/timepass" },
+      { label: "Live", url: "timepass.guillermorodas.com" },
+    ],
   },
 ];
