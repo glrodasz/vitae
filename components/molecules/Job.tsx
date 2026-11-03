@@ -39,7 +39,7 @@ const Job: React.FC<JobProps> = ({ career }) => {
                 type="secondary"
                 title={achievement.title}
                 text={achievement.description}
-                footer={achievement.tech?.join(" · ")}
+                tags={achievement.tech}
               />
             ))}
           </div>

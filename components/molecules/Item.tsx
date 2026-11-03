@@ -1,5 +1,6 @@
 import Icon from "../atoms/Icon";
 import Heading from "../atoms/Heading";
+import Tags from "../atoms/Tags";
 import Paragraph from "../atoms/Paragraph";
 import classNames from "classnames";
 
@@ -43,7 +44,7 @@ interface ItemProps {
   title?: string;
   type?: ItemType;
   text?: string | string[][];
-  footer?: string;
+  tags?: string[];
   isSameLine?: boolean;
 }
 
@@ -53,7 +54,7 @@ const Item: React.FC<ItemProps> = ({
   title,
   type = "primary",
   text,
-  footer,
+  tags,
   isSameLine
 }) => {
   return (
@@ -80,11 +81,7 @@ const Item: React.FC<ItemProps> = ({
             </Heading>
           )}
           {text && <Paragraphs text={text} />}
-          {footer && (
-            <Heading color="secondary" size="xxs" weight="normal">
-              {footer}
-            </Heading>
-          )}
+          {!!tags?.length && <Tags items={tags} />}
         </div>
       </div>
       <style jsx>{`

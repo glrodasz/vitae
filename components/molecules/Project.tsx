@@ -2,6 +2,7 @@ import React from "react";
 import Icon from "../atoms/Icon";
 import Heading from "../atoms/Heading";
 import Paragraph from "../atoms/Paragraph";
+import Tags from "../atoms/Tags";
 import { Project as ProjectData } from "../../types/data";
 
 interface ProjectProps {
@@ -34,9 +35,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             {project.name}
           </Heading>
           <Paragraph isMarginless>{project.description}</Paragraph>
-          <Heading color="secondary" size="xxs" weight="normal" isMarginless>
-            {project.stack.join(" · ")}
-          </Heading>
+          <Tags items={project.stack} />
           <div className="links">
             {project.links.map((link) => {
               const isRepo = link.url.startsWith("github.com");
