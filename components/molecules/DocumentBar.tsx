@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import { profile } from "../../data/profile";
+import { useMatchWidth } from "../../hooks/useMatchWidth";
 
 /** Shows the brand once the name on the page (marked data-brand-anchor) scrolls away. */
 const useBrandVisible = (): boolean => {
@@ -28,6 +29,10 @@ const useBrandVisible = (): boolean => {
  */
 const DocumentBar: React.FC = () => {
   const isBrandVisible = useBrandVisible();
+  // The name scales to span the tagline so the two lines read as one lockup, as on guillermorodas.com.
+  const brandNameRef = useRef<HTMLSpanElement>(null);
+  const brandTaglineRef = useRef<HTMLSpanElement>(null);
+  useMatchWidth(brandNameRef, brandTaglineRef, [profile.name, profile.role]);
 
   return (
     <>
@@ -50,8 +55,8 @@ const DocumentBar: React.FC = () => {
               {/* Same mark and lockup as guillermorodas.com */}
               <Image className="document-bar-brand-mark" src="/vectors/brand-mark.svg" alt="" width={32} height={32} />
               <span className="document-bar-brand-text">
-                <span className="document-bar-brand-name">{profile.name}</span>
-                <span className="document-bar-brand-tagline">{profile.role}</span>
+                <span ref={brandNameRef} className="document-bar-brand-name">{profile.name}</span>
+                <span ref={brandTaglineRef} className="document-bar-brand-tagline">{profile.role}</span>
               </span>
             </a>
           </div>
@@ -138,6 +143,7 @@ const DocumentBar: React.FC = () => {
         .document-bar-brand-text {
           display: flex;
           flex-direction: column;
+          align-items: flex-start;
           gap: 2px;
           line-height: 1.2;
         }
