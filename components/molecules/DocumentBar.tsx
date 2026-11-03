@@ -153,6 +153,7 @@ const DocumentBar: React.FC = () => {
           font-size: 1.5rem;
           font-weight: 700;
           letter-spacing: 2px;
+          line-height: 1;
           color: var(--golden-yellow);
           white-space: nowrap;
         }
@@ -160,6 +161,7 @@ const DocumentBar: React.FC = () => {
         .document-bar-brand-tagline {
           font-family: var(--font-body);
           font-size: 0.9rem;
+          line-height: 1.2;
           color: var(--heading-secondary);
           white-space: nowrap;
         }
