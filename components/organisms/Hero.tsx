@@ -5,14 +5,13 @@ import PageContainer from "../layout/PageContainer";
 import { profile } from "../../data/profile";
 import { languages } from "../../data/languages";
 import { yearsOfExperience } from "../../data/experience";
-import { pdfPathFor, portraitPath } from "../../data/site";
-import useTheme from "../../hooks/useTheme";
+import { portraitPath } from "../../data/site";
+import PdfDownload from "../molecules/PdfDownload";
 
 /**
  * CV masthead: a record card with the essentials, not a marketing hero.
  */
 const Hero: React.FC = () => {
-  const { isDarkMode } = useTheme();
   const languageList = (
     <span className="cv-languages">
       {languages.map((language, index) => (
@@ -76,9 +75,9 @@ const Hero: React.FC = () => {
                 <Link className="cv-cta" href="/resume">
                   2-Page version
                 </Link>
-                <a className="cv-cta is-primary" href={pdfPathFor(isDarkMode)} download>
+                <PdfDownload className="cv-cta is-primary">
                   Download PDF <span aria-hidden="true">↓</span>
-                </a>
+                </PdfDownload>
               </div>
             </div>
             <div className="cv-portrait" aria-hidden="true">
