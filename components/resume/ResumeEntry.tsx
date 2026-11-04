@@ -3,6 +3,8 @@ import React, { ReactNode } from "react";
 interface ResumeEntryProps {
   title: ReactNode;
   subtitle?: ReactNode;
+  /** Puts the subtitle on its own line under the title instead of after a dot. */
+  isSubtitleBelow?: boolean;
   meta?: ReactNode;
   detail?: ReactNode;
   bullets?: string[];
@@ -12,6 +14,7 @@ interface ResumeEntryProps {
 const ResumeEntry: React.FC<ResumeEntryProps> = ({
   title,
   subtitle,
+  isSubtitleBelow = false,
   meta,
   detail,
   bullets,
@@ -23,10 +26,11 @@ const ResumeEntry: React.FC<ResumeEntryProps> = ({
         <div className="resume-entry-row">
           <h3>
             {title}
-            {subtitle && <span className="resume-entry-subtitle"> · {subtitle}</span>}
+            {subtitle && !isSubtitleBelow && <span className="resume-entry-subtitle"> · {subtitle}</span>}
           </h3>
           {meta && <span className="resume-entry-meta">{meta}</span>}
         </div>
+        {subtitle && isSubtitleBelow && <p className="resume-entry-subtitle-below">{subtitle}</p>}
         {detail && <p className="resume-entry-detail">{detail}</p>}
         {children}
         {!!bullets?.length && (
@@ -59,6 +63,10 @@ const ResumeEntry: React.FC<ResumeEntryProps> = ({
         .resume-entry-subtitle {
           font-family: var(--font-body);
           font-weight: 400;
+          color: var(--resume-muted);
+        }
+
+        .resume-entry-subtitle-below {
           color: var(--resume-muted);
         }
 
