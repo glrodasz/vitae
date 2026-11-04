@@ -186,6 +186,11 @@ const Hero: React.FC = () => {
 
         /* On narrow screens each language gets its own line, no separators. */
         @media (max-width: 639px) {
+          /* The page gap already separates the CTAs from the next section. */
+          .cv-masthead {
+            padding-bottom: 0;
+          }
+
           .cv-facts :global(.cv-languages) {
             flex-direction: column;
           }
