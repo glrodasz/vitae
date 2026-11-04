@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import DocumentBar from "../components/molecules/DocumentBar";
-import useTheme from "../hooks/useTheme";
+import PdfDownload from "../components/molecules/PdfDownload";
 import ResumeHeader from "../components/resume/ResumeHeader";
 import ResumeSection from "../components/resume/ResumeSection";
 import ResumeEntry from "../components/resume/ResumeEntry";
@@ -11,7 +11,6 @@ import {
   absoluteUrl,
   ogImageAlt,
   ogImagePath,
-  pdfPathFor,
   resumeDescription,
   resumePageTitle,
 } from "../data/site";
@@ -26,7 +25,6 @@ import {
 } from "../data/resume";
 
 const Resume = () => {
-  const { isDarkMode } = useTheme();
   return (
     <>
       <Head>
@@ -61,9 +59,9 @@ const Resume = () => {
         <Link className="resume-toolbar-back" href="/">
           <span aria-hidden="true">←</span> Full CV
         </Link>
-        <a className="resume-toolbar-primary" href={pdfPathFor(isDarkMode)} download>
+        <PdfDownload className="resume-toolbar-primary">
           Download PDF <span aria-hidden="true">↓</span>
-        </a>
+        </PdfDownload>
       </nav>
 
       <main className="resume">
@@ -165,7 +163,7 @@ const Resume = () => {
         }
 
         /* Same primary button as the Download PDF CTA under the masthead. */
-        .resume-toolbar .resume-toolbar-primary {
+        .resume-toolbar :global(.resume-toolbar-primary) {
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -180,8 +178,8 @@ const Resume = () => {
           transition: background 0.15s ease, color 0.15s ease;
         }
 
-        .resume-toolbar .resume-toolbar-primary:hover,
-        .resume-toolbar .resume-toolbar-primary:focus-visible {
+        .resume-toolbar :global(.resume-toolbar-primary:hover),
+        .resume-toolbar :global(.resume-toolbar-primary:focus-visible) {
           background: transparent;
           color: var(--golden-yellow);
         }
