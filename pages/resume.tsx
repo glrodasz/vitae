@@ -116,6 +116,7 @@ const Resume = () => {
               key={item.label}
               title={item.label}
               subtitle={item.text}
+              isSubtitleBelow
               meta={item.meta}
             />
           ))}

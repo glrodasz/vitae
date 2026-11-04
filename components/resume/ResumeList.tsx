@@ -23,13 +23,10 @@ const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) =>
             <dd>
               {item.entries
                 ? item.entries.map((entry, index) => (
-                    <React.Fragment key={`${entry.name}-${index}`}>
-                      {index > 0 && <span className="resume-list-sep"> · </span>}
-                      <span className="resume-list-entry">
-                        {entry.name}
-                        {entry.date && <span className="resume-list-date">{entry.date}</span>}
-                      </span>
-                    </React.Fragment>
+                    <span key={`${entry.name}-${index}`} className="resume-list-entry">
+                      {entry.name}
+                      {entry.date && <span className="resume-list-date">{entry.date}</span>}
+                    </span>
                   ))
                 : item.text}
             </dd>
@@ -60,8 +57,9 @@ const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) =>
           margin: 0;
         }
 
+        /* One event per line, like the Bootcamp Instructor rows. */
         .resume-list-entry {
-          white-space: nowrap;
+          display: block;
         }
 
         .resume-list-date {
@@ -72,15 +70,6 @@ const ResumeList: React.FC<ResumeListProps> = ({ items, labelWidth = "30%" }) =>
           white-space: nowrap;
         }
 
-        @media (max-width: 640px) {
-          .resume-list-entry {
-            white-space: normal;
-          }
-        }
-
-        .resume-list-sep {
-          color: var(--resume-accent-ink);
-        }
       `}</style>
     </>
   );
