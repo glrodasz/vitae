@@ -130,9 +130,14 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           z-index: 20;
         }
 
+        /* Inactive slides still overflow their 0 height, so take them out of
+           hit-testing and focus too, or they swallow clicks further down the page. */
         .carousel-slide {
           height: 0;
           opacity: 0;
+          overflow: hidden;
+          visibility: hidden;
+          pointer-events: none;
           scroll-margin-top: ${carouselNavRef.current?.offsetHeight ?? 0}px;
         }
 
@@ -144,6 +149,9 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           padding: 35px 20px 0;
           height: auto;
           opacity: 1;
+          overflow: visible;
+          visibility: visible;
+          pointer-events: auto;
           transition: opacity 0.8s ease-in-out;
           z-index: 10;
         }
