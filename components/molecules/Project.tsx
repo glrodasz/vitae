@@ -118,6 +118,12 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
           transition: background 0.15s ease, color 0.15s ease;
         }
 
+        /* DM Sans has a tall ascent and a short descent, so a centered line box
+           puts the caps ~0.1em above the icon's center. */
+        .link-button span {
+          transform: translateY(0.1em);
+        }
+
         .link-button:hover,
         .link-button:focus-visible {
           background: transparent;
