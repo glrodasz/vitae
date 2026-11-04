@@ -72,22 +72,16 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isHidden = true }) => {
           display: none;
         }
 
-        /* Quiet edge (white in light mode, a gray just above the background in dark) plus a faint glow. */
-        .toggle-container {
-          --toggle-edge: var(--white);
-        }
-
-        :global(.dark) .toggle-container {
-          --toggle-edge: var(--border);
-        }
-
+        /* Hover and focus: a soft neutral shadow, no border or tint. */
         .toggle-container:hover,
         .toggle-container:focus-visible {
           outline: none;
-          box-shadow: inset 0 0 0 1px var(--toggle-edge),
-            0 0 4px color-mix(in srgb, var(--golden-yellow) 18%, transparent),
-            0 0 12px color-mix(in srgb, var(--golden-yellow) 10%, transparent),
-            0 0 24px color-mix(in srgb, var(--golden-yellow) 6%, transparent);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        :global(.dark) .toggle-container:hover,
+        :global(.dark) .toggle-container:focus-visible {
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.25);
         }
 
         .switch {
