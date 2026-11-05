@@ -22,7 +22,7 @@ _I build production AI systems and help developer communities level up._
 
 Senior Forward Deployed Engineer with 14 years of experience building production systems at the intersection of web engineering and AI.
 
-At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 10M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations.
+At EQT Group, I contribute to the Motherbrain ecosystem, the private equity industry's pioneering AI platform, monitoring 35M+ companies, delivering AI-powered tools using LangChain, PGVector, and LLM integrations.
 
 Previously, I built microfrontend platform infrastructure at Klarna (serving 87M+ global consumers) and shipped identity management products at Auth0 during its hypergrowth from startup to $1B+ valuation.
 
@@ -63,7 +63,7 @@ I combine deep JavaScript, TypeScript, and React expertise with hands-on AI engi
 
 **Senior Forward Deployed Engineer** · August 2021 – Present · [eqtgroup.com](https://www.eqtgroup.com)
 
-> EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 10M+ companies and has directly sourced investments valued at hundreds of millions of euros.
+> EQT is a global investment organization managing €350B+ in assets. Its proprietary AI platform, Motherbrain, monitors 35M+ companies and has directly sourced investments valued at hundreds of millions of euros.
 
 - **Forward Deployed Engineer, Infrastructure.** Take the investment team's hackathon prototypes to production, starting with agentic screening of add-on M&A targets and an earnings-call screener for listed infrastructure companies, delivered as reusable agent skills over MCP data connectors.
 - **AI Platform.** Contributed to EQT's internal platform for AI agents (model gateway, agent identity, MCP layer); defined its adoption funnel metrics and built the dashboard tracking agent registrations, model traffic and MCP tool usage.
@@ -116,7 +116,7 @@ I combine deep JavaScript, TypeScript, and React expertise with hands-on AI engi
 
 **Full-stack Developer** · August 2012 – May 2015 · [kometsales.com](https://www.kometsales.com)
 
-> Komet is a SaaS platform for the floral industry that gives businesses the tools to automate processes while connecting with their key business partners.
+> Komet Sales is a Florida-based SaaS platform for the floral industry, used by 6,000+ active international users across importers, wholesalers, and growers to automate procurement, sales, inventory, and logistics while connecting with their business partners.
 
 - **Platform Engineering.** Played a key role in multiple corporate projects using MySQL and Java (Spring, Hibernate), and led the definition of the frontend architecture and tech stack for the company's products.
   <br /><sub>Java · Spring · Hibernate · MySQL · JavaScript</sub>
